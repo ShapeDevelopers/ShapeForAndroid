@@ -86,7 +86,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
             android:text="New"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -139,7 +139,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
             android:text="Official"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -192,7 +192,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
             android:text="Latest"
-            android:textSize="24sp"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
