@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_inbox"
+        android:icon="@drawable/inbox_icon"
+        android:title="Inbox"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_camera"
+        android:icon="@drawable/camera_icon"
+        android:title="Camera"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_public"
+        android:icon="@drawable/public_icon"
+        android:title="Public"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_near_me"
+        android:icon="@drawable/near_me_icon"
+        android:title="Near me"
+        app:showAsAction="ifRoom" />
+</menu>
