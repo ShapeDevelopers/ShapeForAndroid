@@ -8,6 +8,7 @@
     tools:context=".ReceivedImageFragment">
 
     <!-- TODO: delete mock-ups (images, texts, ...)-->
+    <!-- TODO: extract styles -->
 
     <ImageView
         android:id="@+id/background_imageview"
