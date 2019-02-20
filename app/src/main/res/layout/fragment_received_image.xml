@@ -59,7 +59,8 @@
         app:backgroundTint="@color/colorPrimaryDark"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/against_counter_textview" />
+        app:layout_constraintStart_toEndOf="@+id/against_counter_textview"
+        app:rippleColor="@color/colorAccent" />
 
     <TextView
         android:id="@+id/against_counter_textview"
@@ -85,7 +86,8 @@
         app:backgroundTint="@color/colorPrimaryDark"
         app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/for_counter_textview" />
+        app:layout_constraintEnd_toStartOf="@+id/for_counter_textview"
+        app:rippleColor="@color/colorAccent" />
 
     <TextView
         android:id="@+id/for_counter_textview"
