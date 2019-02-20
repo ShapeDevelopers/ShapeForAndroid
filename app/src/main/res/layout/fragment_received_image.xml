@@ -31,7 +31,7 @@
         android:text="SomeBody_98"
         android:textAlignment="textStart"
         android:textColor="@color/colorPrimaryText"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
         android:text="2 h"
         android:textAlignment="textStart"
         android:textColor="@color/colorPrimaryText"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/sender_nickname_textview"
         app:layout_constraintTop_toBottomOf="@+id/sender_nickname_textview" />
 
