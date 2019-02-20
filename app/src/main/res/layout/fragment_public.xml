@@ -90,7 +90,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
+        <HorizontalScrollView
             android:id="@+id/new_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -127,7 +127,7 @@
                     app:srcCompat="@drawable/mockup_fennec_fox" />
 
             </LinearLayout>
-        </ScrollView>
+        </HorizontalScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -151,7 +151,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
+        <HorizontalScrollView
             android:id="@+id/official_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -179,7 +179,7 @@
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/mockup_norwegian_cat" />
             </LinearLayout>
-        </ScrollView>
+        </HorizontalScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -204,7 +204,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ScrollView
+        <HorizontalScrollView
             android:id="@+id/latest_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -232,7 +232,7 @@
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/mockup_norwegian_cat" />
             </LinearLayout>
-        </ScrollView>
+        </HorizontalScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
