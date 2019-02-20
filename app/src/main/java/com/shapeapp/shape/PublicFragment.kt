@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 
 //  TODO: check and change whole file
+//  TODO: use MVVM
 
 
 // TODO: Rename parameter arguments, choose names that match
