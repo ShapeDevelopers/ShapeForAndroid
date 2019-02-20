@@ -118,6 +118,14 @@
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/mockup_norwegian_cat" />
 
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="120dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="16dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/mockup_fennec_fox" />
+
             </LinearLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
