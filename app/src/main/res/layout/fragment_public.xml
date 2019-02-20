@@ -94,6 +94,7 @@
             android:id="@+id/new_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/new_title_textview">
 
@@ -163,6 +164,7 @@
             android:id="@+id/official_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/official_title_textview">
 
@@ -216,6 +218,7 @@
             android:id="@+id/latest_scroll_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/latest_title_textview">
 
