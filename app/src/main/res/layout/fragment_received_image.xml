@@ -5,7 +5,9 @@
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReceivedImageFragment" >
+    tools:context=".ReceivedImageFragment">
+
+    <!-- TODO: delete mock-ups (images, texts, ...)-->
 
     <ImageView
         android:id="@+id/background_imageview"
@@ -17,4 +19,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mockup_norwegian_cat" />
+
+    <TextView
+        android:id="@+id/sender_nickname_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-light"
+        android:text="SomeBody_98"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/primary_text_dark"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sender_image_remaining_time_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-light"
+        android:text="2 h"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/primary_text_dark"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/sender_nickname_textview"
+        app:layout_constraintTop_toBottomOf="@+id/sender_nickname_textview" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
