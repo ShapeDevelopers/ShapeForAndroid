@@ -8,9 +8,11 @@ import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionListener {
+class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionListener,
+    ReceivedImageFragment.OnFragmentInteractionListener {
 
-    //  TODO: change implementation of listener
+    //  TODO: change implementation of listeners
+    //  TODO: maybe one extracted listener for all Fragments (?)
     //  TODO: move that listener to separate file
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +31,8 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
         //  TODO: change arguments for PublicFragment
         bottom_navigation_view.setOnNavigationItemSelectedListener { currentItem: MenuItem ->
             when (currentItem.itemId) {
-//                R.id.action_inbox -> loadFragment()
+//                TODO: remove loading ReceivedImageFragment after tapping inbox action
+                R.id.action_inbox -> loadFragment(ReceivedImageFragment.newInstance("FIRST", "SECOND"))
 //                R.id.action_camera -> loadFragment()
                 R.id.action_public -> loadFragment(PublicFragment.newInstance("FIRST", "SECOND"))
 //                R.id.action_near_me -> loadFragment()
