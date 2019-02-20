@@ -57,6 +57,7 @@
         android:clickable="true"
         android:src="@drawable/thumb_down_icon"
         app:backgroundTint="@color/colorPrimaryDark"
+        app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/against_counter_textview" />
 
@@ -82,6 +83,7 @@
         android:clickable="true"
         android:src="@drawable/thumb_up_icon"
         app:backgroundTint="@color/colorPrimaryDark"
+        app:fabSize="mini"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/for_counter_textview" />
 
