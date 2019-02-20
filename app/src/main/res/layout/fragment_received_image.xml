@@ -30,7 +30,7 @@
         android:fontFamily="sans-serif-light"
         android:text="SomeBody_98"
         android:textAlignment="textStart"
-        android:textColor="@android:color/primary_text_dark"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
         android:fontFamily="sans-serif-light"
         android:text="2 h"
         android:textAlignment="textStart"
-        android:textColor="@android:color/primary_text_dark"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/sender_nickname_textview"
         app:layout_constraintTop_toBottomOf="@+id/sender_nickname_textview" />
