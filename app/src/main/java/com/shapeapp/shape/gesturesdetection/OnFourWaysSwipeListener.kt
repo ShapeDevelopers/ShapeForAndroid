@@ -1,4 +1,4 @@
-package com.shapeapp.shape
+package com.shapeapp.shape.gesturesdetection
 
 import android.content.Context
 import android.view.GestureDetector
