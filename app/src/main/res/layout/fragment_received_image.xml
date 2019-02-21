@@ -48,6 +48,25 @@
         app:layout_constraintStart_toStartOf="@+id/sender_nickname_textview"
         app:layout_constraintTop_toBottomOf="@+id/sender_nickname_textview" />
 
+    <TextView
+        android:id="@+id/extra_text_textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="cursive"
+        android:text="OMG, I am a cat!"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/vote_against_fab"
         android:layout_width="wrap_content"
