@@ -2,10 +2,11 @@ package com.shapeapp.shape
 
 
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionListener,
@@ -46,12 +47,14 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
             true -> {
                 supportFragmentManager
                     .beginTransaction()
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .replace(R.id.fragment_container, fragmentToLoad)
                     .commit()
             }
             false -> {
                 supportFragmentManager
                     .beginTransaction()
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .add(R.id.fragment_container, fragmentToLoad)
                     .commit()
             }
