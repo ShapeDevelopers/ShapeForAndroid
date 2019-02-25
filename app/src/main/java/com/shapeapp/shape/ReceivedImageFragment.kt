@@ -3,10 +3,13 @@ package com.shapeapp.shape
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
+import kotlinx.android.synthetic.main.fragment_received_image.*
 
 //  TODO: check and change whole file
 //  TODO: use MVVM
@@ -46,6 +49,31 @@ class ReceivedImageFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_received_image, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //  TODO: delete and replace with close action after swipe
+        root_layout.setOnTouchListener(object : OnFourWaysSwipeListener(context!!) {
+
+            override fun onSwipeRight() {
+                Toast.makeText(context, "right", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onSwipeLeft() {
+                Toast.makeText(context, "left", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onSwipeTop() {
+                Toast.makeText(context, "top", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onSwipeBottom() {
+                Toast.makeText(context, "bottom", Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
