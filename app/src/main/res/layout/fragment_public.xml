@@ -16,7 +16,7 @@
         android:id="@+id/top_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/top_bar_height"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/top_bar_margin_top"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
