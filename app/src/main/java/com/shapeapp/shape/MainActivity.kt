@@ -10,7 +10,8 @@ import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionListener,
-    ReceivedImageFragment.OnFragmentInteractionListener {
+    ReceivedImageFragment.OnFragmentInteractionListener,
+    ProfileFragment.OnFragmentInteractionListener {
 
     //  TODO: change implementation of listeners
     //  TODO: maybe one extracted listener for all Fragments (?)
@@ -34,7 +35,8 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
             when (currentItem.itemId) {
 //                TODO: remove loading ReceivedImageFragment after tapping inbox action
                 R.id.action_inbox -> loadFragment(ReceivedImageFragment.newInstance("FIRST", "SECOND"))
-//                R.id.action_camera -> loadFragment()
+                // TODO: remove loading ProfileFragment after tapping camera action
+                R.id.action_camera -> loadFragment(ProfileFragment.newInstance("FIRST", "SECOND"))
                 R.id.action_public -> loadFragment(PublicFragment.newInstance("FIRST", "SECOND"))
 //                R.id.action_near_me -> loadFragment()
             }
