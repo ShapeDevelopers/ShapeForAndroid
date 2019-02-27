@@ -11,6 +11,7 @@
     <!-- TODO: implement real image loading from Repository-->
     <!-- TODO: extract styles-->
     <!-- TODO: extract dimensions-->
+    <!-- TODO: Put elements to cards from Kotlin code -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar_layout"
@@ -173,21 +174,45 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imageView3"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="120dp"
                     android:layout_height="160dp"
                     android:layout_margin="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/mockup_golden_retriever" />
+                    app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:id="@+id/imageView4"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/mockup_golden_retriever" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="120dp"
                     android:layout_height="160dp"
                     android:layout_margin="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/mockup_norwegian_cat" />
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/mockup_norwegian_cat" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
         </HorizontalScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -223,25 +248,50 @@
             app:layout_constraintTop_toBottomOf="@+id/latest_title_textview">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imageView5"
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="120dp"
                     android:layout_height="160dp"
                     android:layout_margin="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/mockup_golden_retriever" />
+                    app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:id="@+id/imageView6"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/mockup_golden_retriever" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="120dp"
                     android:layout_height="160dp"
                     android:layout_margin="16dp"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/mockup_norwegian_cat" />
+                    app:cardCornerRadius="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/mockup_norwegian_cat" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
             </LinearLayout>
         </HorizontalScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
