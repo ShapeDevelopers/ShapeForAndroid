@@ -59,63 +59,63 @@ class PublicFragment : Fragment() {
 
         //  TODO: check this
         // TODO: add elements dynamically
-        createAndAddCardView()
+//        createAndAddCardView()
     }
 
-    private fun createAndAddCardView() {
-
-        //  TODO: change name and content
-
-        val card = createCard()
-        val image = createImage()
-        val linearLayout = createLinearLayout()
-
-        linearLayout.addView(image)
-        card.addView(linearLayout)
-
-        official_card_list_layout.removeAllViewsInLayout()
-        official_card_list_layout.addView(card)
-    }
-
-    private fun createCard(): MaterialCardView {
-
-        //  TODO: change name and content
-
-        val width = resources.getDimensionPixelSize(R.dimen.small_card_width)
-        val height = resources.getDimensionPixelSize(R.dimen.small_card_height)
-
-        val layoutParams = LinearLayout.LayoutParams(width, height)
-
-        val margin = resources.getDimensionPixelSize(R.dimen.small_card_margin)
-        layoutParams.setMargins(margin)
-
-        val card = MaterialCardView(context)
-
-        card.layoutParams = layoutParams
-        card.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorAccent))
-        val radius = resources.getDimensionPixelSize(R.dimen.small_card_corner_radius).toFloat()
-        card.radius = radius
-
-        official_card_list_layout.addView(card)
-
-        return card
-
-    }
-
-    private fun createImage(): ImageView {
-
-        //  TODO: change name and content
-
-        val image = ImageView(context)
-        val layoutParams =
-            LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
-        image.layoutParams = layoutParams
-        image.scaleType = ImageView.ScaleType.CENTER_CROP
-        image.setImageResource(R.drawable.near_me_icon)
-
-        return image
-
-    }
+//    private fun createAndAddCardView() {
+//
+//        //  TODO: change name and content
+//
+//        val card = createCard()
+//        val image = createImage()
+//        val linearLayout = createLinearLayout()
+//
+//        linearLayout.addView(image)
+//        card.addView(linearLayout)
+//
+//        official_card_list_layout.removeAllViewsInLayout()
+//        official_card_list_layout.addView(card)
+//    }
+//
+//    private fun createCard(): MaterialCardView {
+//
+//        //  TODO: change name and content
+//
+//        val width = resources.getDimensionPixelSize(R.dimen.small_card_width)
+//        val height = resources.getDimensionPixelSize(R.dimen.small_card_height)
+//
+//        val layoutParams = LinearLayout.LayoutParams(width, height)
+//
+//        val margin = resources.getDimensionPixelSize(R.dimen.small_card_margin)
+//        layoutParams.setMargins(margin)
+//
+//        val card = MaterialCardView(context)
+//
+//        card.layoutParams = layoutParams
+//        card.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorAccent))
+//        val radius = resources.getDimensionPixelSize(R.dimen.small_card_corner_radius).toFloat()
+//        card.radius = radius
+//
+//        official_card_list_layout.addView(card)
+//
+//        return card
+//
+//    }
+//
+//    private fun createImage(): ImageView {
+//
+//        //  TODO: change name and content
+//
+//        val image = ImageView(context)
+//        val layoutParams =
+//            LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
+//        image.layoutParams = layoutParams
+//        image.scaleType = ImageView.ScaleType.CENTER_CROP
+//        image.setImageResource(R.drawable.near_me_icon)
+//
+//        return image
+//
+//    }
 
     private fun createLinearLayout(): LinearLayout {
         val linearLayout = LinearLayout(context)

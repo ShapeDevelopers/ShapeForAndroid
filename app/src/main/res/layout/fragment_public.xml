@@ -171,12 +171,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/official_title_textview">
 
-            <LinearLayout
-                android:id="@+id/official_card_list_layout"
+            <!--<LinearLayout-->
+                <!--android:id="@+id/official_card_list_layout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal"/>-->
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"/>
+                android:layout_height="match_parent" />
+
+
         </HorizontalScrollView>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
