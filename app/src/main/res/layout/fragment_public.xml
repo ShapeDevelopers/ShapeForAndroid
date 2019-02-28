@@ -163,27 +163,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <HorizontalScrollView
-            android:id="@+id/official_scroll_view"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/official_card_list_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/official_title_textview">
-
-            <!--<LinearLayout-->
-                <!--android:id="@+id/official_card_list_layout"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="horizontal"/>-->
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-
-        </HorizontalScrollView>
-
+            app:layout_constraintTop_toBottomOf="@+id/official_title_textview" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
