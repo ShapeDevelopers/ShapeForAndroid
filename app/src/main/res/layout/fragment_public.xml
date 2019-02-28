@@ -8,6 +8,7 @@
     tools:context=".PublicFragment">
 
     <!-- TODO: delete all mockups-->
+    <!-- TODO: use RecyclerViewAdapter to show card lists -->
     <!-- TODO: implement real image loading from Repository-->
     <!-- TODO: extract styles-->
     <!-- TODO: extract dimensions-->
