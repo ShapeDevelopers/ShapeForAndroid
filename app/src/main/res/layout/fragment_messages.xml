@@ -10,6 +10,7 @@
     <!-- TODO: Extract styles -->
     <!-- TODO: Extract dimensions -->
     <!-- TODO: Delete mock-ups -->
+    <!-- TODO: change colors to match UI design -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar_layout"
