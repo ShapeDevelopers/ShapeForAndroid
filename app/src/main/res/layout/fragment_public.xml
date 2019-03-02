@@ -50,7 +50,7 @@
             android:layout_marginBottom="8dp"
             android:clickable="true"
             android:src="@drawable/my_profile_icon"
-            app:backgroundTint="@color/colorPrimaryDark"
+            app:backgroundTint="@color/colorSecondaryText"
             app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,7 +65,7 @@
             android:layout_marginBottom="8dp"
             android:clickable="true"
             android:src="@drawable/my_public_shares_icon"
-            app:backgroundTint="@color/colorPrimaryDark"
+            app:backgroundTint="@color/colorAccent"
             app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,6 +90,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
             android:text="New"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -160,6 +161,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
             android:text="Official"
+            android:textColor="@color/colorViolet"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -193,6 +195,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-light"
             android:text="Latest"
+            android:textColor="@color/colorSecondaryText"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
