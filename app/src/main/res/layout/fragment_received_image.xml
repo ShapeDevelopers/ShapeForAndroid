@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mockup_norwegian_cat" />
+        app:srcCompat="@drawable/mockup_fennec_fox" />
 
     <TextView
         android:id="@+id/sender_nickname_textview"
@@ -56,7 +56,7 @@
         android:layout_marginBottom="16dp"
         android:background="@color/colorAccent"
         android:fontFamily="cursive"
-        android:text="OMG, I am a cat!"
+        android:text="OMG, I am a fennec!"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="36sp"
