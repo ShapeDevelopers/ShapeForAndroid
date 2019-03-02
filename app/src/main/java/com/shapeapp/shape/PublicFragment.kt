@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
+import kotlinx.android.synthetic.main.fragment_public.*
 
 //  TODO: check and change whole file
 //  TODO: use MVVM
@@ -35,12 +39,35 @@ class PublicFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+    private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //  test RecyclerView
+        //  TODO: delete it and replace with real repo with ViewModel
+        viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val dataset = mutableListOf<String>()
+        for (i in 1..100) {
+            dataset.add(i.toString())
+        }
+        viewAdapter = SmallCardRecyclerViewAdapter(dataset.toTypedArray())
+
+        official_card_list_recyclerview.apply {
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
+
+
     }
 
     override fun onCreateView(
