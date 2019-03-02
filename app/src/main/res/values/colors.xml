@@ -12,4 +12,14 @@
     <!-- Card -->
     <color name="colorCardBackground">#e8e8e8</color>
 
+    <!-- Others -->
+    <color name="colorViolet">#B287E6</color>
+    <color name="colorTeal">#5CE1E6</color>
+    <color name="colorHintGrey">#D9D9D9</color>
+    <color name="colorBlue">#2EB2FF</color>
+    <color name="colorInactiveGrey">#D4D4D4</color>
+    <color name="colorNicknameDarkGrey">#737373</color>
+    <color name="colorDownvoteGrey">#666666</color>
+
+
 </resources>
