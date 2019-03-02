@@ -5,8 +5,10 @@
     <dimen name="top_bar_margin_top">8dp</dimen>
 
     <!-- Small card view -->
+    <!-- TODO: make separate style for small card (?) -->
     <dimen name="small_card_width">120dp</dimen>
     <dimen name="small_card_height">160dp</dimen>
     <dimen name="small_card_margin">16dp</dimen>
     <dimen name="small_card_corner_radius">10dp</dimen>
+    <dimen name="small_card_text_size">14sp</dimen>
 </resources>
