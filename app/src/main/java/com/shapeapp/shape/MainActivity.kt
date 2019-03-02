@@ -11,7 +11,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionListener,
     ReceivedImageFragment.OnFragmentInteractionListener,
-    ProfileFragment.OnFragmentInteractionListener {
+    ProfileFragment.OnFragmentInteractionListener,
+    MessagesFragment.OnFragmentInteractionListener {
 
     //  TODO: change implementation of listeners
     //  TODO: maybe one extracted listener for all Fragments (?)
