@@ -36,4 +36,6 @@ dependencies {
 
 //  CircularImageView - Lopez Mikhael
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }
