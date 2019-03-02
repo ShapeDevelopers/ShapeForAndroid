@@ -1,4 +1,4 @@
-package com.shapeapp.shape
+package com.shapeapp.shape.fragments
 
 import android.content.Context
 import android.net.Uri
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.shapeapp.shape.R
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
 import kotlinx.android.synthetic.main.fragment_received_image.*
 

@@ -7,6 +7,10 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.shapeapp.shape.fragments.MessagesFragment
+import com.shapeapp.shape.fragments.ProfileFragment
+import com.shapeapp.shape.fragments.PublicFragment
+import com.shapeapp.shape.fragments.ReceivedImageFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionListener,
