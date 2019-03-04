@@ -60,7 +60,7 @@ class PublicFragment : Fragment() {
         //  ViewModel
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
         //  for "Official" RecyclerView
-        viewModel.getUsers().observe(this, Observer<List<String>> { users -> changeOfficialCardsAdapterData(users) })
+        viewModel.getOfficialCardsData().observe(this, Observer<List<String>> { users -> changeOfficialCardsAdapterData(users) })
     }
 
     private fun changeOfficialCardsAdapterData(data: List<String>) {

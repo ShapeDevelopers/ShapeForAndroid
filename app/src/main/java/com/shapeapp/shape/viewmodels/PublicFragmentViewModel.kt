@@ -44,15 +44,15 @@ class PublicFragmentViewModel : ViewModel() {
         )
     }
 
-    private val users = MutableLiveData<List<String>>()
+    private val officialCardsData = MutableLiveData<List<String>>()
 
     init {
-        users.value = fakeAnimals
+        officialCardsData.value = fakeAnimals
     }
 
 
-    fun getUsers(): LiveData<List<String>> {
-        return users
+    fun getOfficialCardsData(): LiveData<List<String>> {
+        return officialCardsData
     }
 
 }
