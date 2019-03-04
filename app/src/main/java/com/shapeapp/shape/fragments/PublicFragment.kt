@@ -43,6 +43,7 @@ class PublicFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var officialCardsRecyclerViewAdapter: SmallCardRecyclerViewAdapter
+    private lateinit var newCardsRecyclerViewAdapter: SmallCardRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +61,11 @@ class PublicFragment : Fragment() {
         //  ViewModel
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
         //  for "Official" RecyclerView
-        viewModel.getOfficialCardsData().observe(this, Observer<List<String>> { users -> changeOfficialCardsAdapterData(users) })
+        viewModel.getOfficialCardsData()
+            .observe(this, Observer<List<String>> { users -> changeOfficialCardsAdapterData(users) })
+        //  for "New" RecyclerView
+        viewModel.getNewCardsData()
+            .observe(this, Observer<List<String>> { newCards -> changeNewCardsAdapterData(newCards) })
     }
 
     private fun changeOfficialCardsAdapterData(data: List<String>) {
@@ -70,10 +75,19 @@ class PublicFragment : Fragment() {
         officialCardsRecyclerViewAdapter.notifyDataSetChanged()
     }
 
+    private fun changeNewCardsAdapterData(data: List<String>) {
+        //  TODO: clean
+        //  TODO: move to [SmallCardRecyclerViewAdapter] (?)
+        //  TODO: merge to one function
+        newCardsRecyclerViewAdapter.myDataset = data.toTypedArray()
+        newCardsRecyclerViewAdapter.notifyDataSetChanged()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         configureOfficialCardsRecyclerView()
+        configureNewCardsRecyclerView()
     }
 
     private fun configureOfficialCardsRecyclerView() {
@@ -83,6 +97,17 @@ class PublicFragment : Fragment() {
         official_card_list_recyclerview.apply {
             layoutManager = viewManager
             adapter = officialCardsRecyclerViewAdapter
+        }
+    }
+
+    private fun configureNewCardsRecyclerView() {
+        //  TODO: merge to one function
+        val viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        newCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
+
+        new_card_list_recyclerview.apply {
+            layoutManager = viewManager
+            adapter = newCardsRecyclerViewAdapter
         }
     }
 
