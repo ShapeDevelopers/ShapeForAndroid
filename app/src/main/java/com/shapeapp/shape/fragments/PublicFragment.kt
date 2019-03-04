@@ -19,10 +19,6 @@ import kotlinx.android.synthetic.main.fragment_public.*
 //  TODO: check and change whole file
 //  TODO: use MVVM
 
-//  TODO: complete implementing [RecyclerView] for Official
-//  TODO: replace old mechanism with [RecyclerView] for New
-//  TODO: replace old mechanism with [RecyclerView] for Latest
-
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
