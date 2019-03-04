@@ -35,4 +35,22 @@ object TextMockups {
         "zebra"
     )
 
+    val cities = listOf(
+        "Oslo",
+        "Wroclaw",
+        "Berlin",
+        "London",
+        "Paris",
+        "Helsinki",
+        "Stockholm",
+        "Washington",
+        "Rio de Janeiro",
+        "Tokio",
+        "Shenzhen",
+        "Delhi",
+        "Seul",
+        "Los Angeles",
+        "Buenos Aires"
+    )
+
 }
