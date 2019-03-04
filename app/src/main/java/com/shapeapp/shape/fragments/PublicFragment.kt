@@ -42,7 +42,7 @@ class PublicFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
-    private lateinit var viewAdapter: SmallCardRecyclerViewAdapter
+    private lateinit var officialCardsRecyclerViewAdapter: SmallCardRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,8 +65,8 @@ class PublicFragment : Fragment() {
     private fun changeOfficialCardsData(data: List<String>) {
         //  TODO: clean
         //  TODO: move to [SmallCardRecyclerViewAdapter] (?)
-        viewAdapter.myDataset = data.toTypedArray()
-        viewAdapter.notifyDataSetChanged()
+        officialCardsRecyclerViewAdapter.myDataset = data.toTypedArray()
+        officialCardsRecyclerViewAdapter.notifyDataSetChanged()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -77,11 +77,11 @@ class PublicFragment : Fragment() {
 
     private fun configureOfficialCardsRecyclerView() {
         val viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        viewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
+        officialCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
         official_card_list_recyclerview.apply {
             layoutManager = viewManager
-            adapter = viewAdapter
+            adapter = officialCardsRecyclerViewAdapter
         }
     }
 
