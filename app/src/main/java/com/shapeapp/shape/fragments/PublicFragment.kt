@@ -62,35 +62,26 @@ class PublicFragment : Fragment() {
         //  ViewModel
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
         //  for "New" RecyclerView
-        viewModel.getNewCardsData()
-            .observe(
-                this,
-                Observer<List<String>> { newCards ->
-                    changeCardsAdapterData(
-                        newCards,
-                        newCardsRecyclerViewAdapter
-                    )
-                })
+        viewModel.getNewCardsData().observe(this, Observer<List<String>> { newCards ->
+            changeCardsAdapterData(
+                newCards,
+                newCardsRecyclerViewAdapter
+            )
+        })
         //  for "Official" RecyclerView
-        viewModel.getOfficialCardsData()
-            .observe(
-                this,
-                Observer<List<String>> { officialCards ->
-                    changeCardsAdapterData(
-                        officialCards,
-                        officialCardsRecyclerViewAdapter
-                    )
-                })
+        viewModel.getOfficialCardsData().observe(this, Observer<List<String>> { officialCards ->
+            changeCardsAdapterData(
+                officialCards,
+                officialCardsRecyclerViewAdapter
+            )
+        })
         // for "Latest" RecyclerView
-        viewModel.getLatestCardsData()
-            .observe(
-                this,
-                Observer<List<String>> { latestCards ->
-                    changeCardsAdapterData(
-                        latestCards,
-                        latestCardsRecyclerViewAdapter
-                    )
-                })
+        viewModel.getLatestCardsData().observe(this, Observer<List<String>> { latestCards ->
+            changeCardsAdapterData(
+                latestCards,
+                latestCardsRecyclerViewAdapter
+            )
+        })
     }
 
     private fun changeCardsAdapterData(cardsData: List<String>, cardAdapter: SmallCardRecyclerViewAdapter) {
