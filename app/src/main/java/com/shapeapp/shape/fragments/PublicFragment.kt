@@ -7,18 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
+import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_public.*
 
 //  TODO: check and change whole file
 //  TODO: use MVVM
-
-//  TODO: complete implementing [RecyclerView] for Official
-//  TODO: replace old mechanism with [RecyclerView] for New
-//  TODO: replace old mechanism with [RecyclerView] for Latest
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,8 +39,9 @@ class PublicFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
-    private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private val officialCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
+    private val newCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
+    private val latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,26 +49,54 @@ class PublicFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        configureViewModel()
+    }
+
+    private fun configureViewModel() {
+        val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
+        //  for "New" RecyclerView
+        viewModel.getNewCardsData().observe(this, Observer<List<String>> { newCards ->
+            changeCardsAdapterData(
+                newCards,
+                newCardsRecyclerViewAdapter
+            )
+        })
+        //  for "Official" RecyclerView
+        viewModel.getOfficialCardsData().observe(this, Observer<List<String>> { officialCards ->
+            changeCardsAdapterData(
+                officialCards,
+                officialCardsRecyclerViewAdapter
+            )
+        })
+        // for "Latest" RecyclerView
+        viewModel.getLatestCardsData().observe(this, Observer<List<String>> { latestCards ->
+            changeCardsAdapterData(
+                latestCards,
+                latestCardsRecyclerViewAdapter
+            )
+        })
+    }
+
+    private fun changeCardsAdapterData(cardsData: List<String>, cardAdapter: SmallCardRecyclerViewAdapter) {
+        cardAdapter.myDataset = cardsData.toTypedArray()
+        cardAdapter.notifyDataSetChanged()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //  test RecyclerView
-        //  TODO: delete it and replace with real repo with ViewModel
-        viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val dataset = mutableListOf<String>()
-        for (i in 1..100) {
-            dataset.add(i.toString())
+        configureCardsRecyclerView(new_card_list_recyclerview, newCardsRecyclerViewAdapter)
+        configureCardsRecyclerView(official_card_list_recyclerview, officialCardsRecyclerViewAdapter)
+        configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
+    }
+
+    private fun configureCardsRecyclerView(recyclerView: RecyclerView, cardsAdapter: SmallCardRecyclerViewAdapter) {
+        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.apply {
+            layoutManager = linearLayoutManager
+            adapter = cardsAdapter
         }
-        viewAdapter = SmallCardRecyclerViewAdapter(dataset.toTypedArray())
-
-        official_card_list_recyclerview.apply {
-            layoutManager = viewManager
-            adapter = viewAdapter
-        }
-
-
     }
 
     override fun onCreateView(
@@ -134,4 +162,5 @@ class PublicFragment : Fragment() {
                 }
             }
     }
+
 }
