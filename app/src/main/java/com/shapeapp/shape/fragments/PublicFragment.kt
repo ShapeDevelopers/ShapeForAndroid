@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
@@ -43,7 +42,6 @@ class PublicFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
-    private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var viewAdapter: SmallCardRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,7 +76,7 @@ class PublicFragment : Fragment() {
     }
 
     private fun configureOfficialCardsRecyclerView() {
-        viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         viewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
         official_card_list_recyclerview.apply {
