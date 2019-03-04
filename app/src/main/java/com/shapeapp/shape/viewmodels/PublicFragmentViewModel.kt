@@ -12,7 +12,7 @@ import com.shapeapp.shape.mockupsmakers.TextMockups
 class PublicFragmentViewModel : ViewModel() {
 
     //  TODO: clean
-    //  TODO: there is no real repo (fake data is loaded)
+    //  TODO: implement loading data from repository (now there is no real repo, fake data is loaded)
 
     private val officialCardsData = MutableLiveData<List<String>>()
     private val newCardsData = MutableLiveData<List<String>>()

@@ -7,12 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.PublicFragment">
 
-    <!-- TODO: delete all mockups-->
-    <!-- TODO: use RecyclerViewAdapter to show card lists -->
     <!-- TODO: implement real image loading from Repository-->
     <!-- TODO: extract styles-->
     <!-- TODO: extract dimensions-->
-    <!-- TODO: Put elements to cards from Kotlin code -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar_layout"
