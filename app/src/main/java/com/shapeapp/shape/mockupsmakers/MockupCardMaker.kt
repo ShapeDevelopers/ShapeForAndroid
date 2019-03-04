@@ -1,4 +1,4 @@
-package com.shapeapp.shape.toberemoved
+package com.shapeapp.shape.mockupsmakers
 
 import android.content.Context
 import android.widget.ImageView
