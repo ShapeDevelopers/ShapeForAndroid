@@ -77,11 +77,7 @@ class PublicFragment : Fragment() {
         //  test RecyclerView
         //  TODO: delete it and replace with real repo with ViewModel
         viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val dataset = mutableListOf<String>()
-        for (i in 1..100) {
-            dataset.add(i.toString())
-        }
-        viewAdapter = SmallCardRecyclerViewAdapter(dataset.toTypedArray())
+        viewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
         official_card_list_recyclerview.apply {
             layoutManager = viewManager
