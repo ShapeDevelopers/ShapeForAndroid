@@ -59,10 +59,11 @@ class PublicFragment : Fragment() {
         //  TODO: clean
         //  ViewModel
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
-        viewModel.getUsers().observe(this, Observer<List<String>> { users -> changeOfficialCardsData(users) })
+        //  for "Official" RecyclerView
+        viewModel.getUsers().observe(this, Observer<List<String>> { users -> changeOfficialCardsAdapterData(users) })
     }
 
-    private fun changeOfficialCardsData(data: List<String>) {
+    private fun changeOfficialCardsAdapterData(data: List<String>) {
         //  TODO: clean
         //  TODO: move to [SmallCardRecyclerViewAdapter] (?)
         officialCardsRecyclerViewAdapter.myDataset = data.toTypedArray()
