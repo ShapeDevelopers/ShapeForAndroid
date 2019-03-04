@@ -44,6 +44,7 @@ class PublicFragment : Fragment() {
 
     private lateinit var officialCardsRecyclerViewAdapter: SmallCardRecyclerViewAdapter
     private lateinit var newCardsRecyclerViewAdapter: SmallCardRecyclerViewAdapter
+    private lateinit var latestCardsRecyclerViewAdapter: SmallCardRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +67,9 @@ class PublicFragment : Fragment() {
         //  for "New" RecyclerView
         viewModel.getNewCardsData()
             .observe(this, Observer<List<String>> { newCards -> changeNewCardsAdapterData(newCards) })
+        // for "latest" RecyclerView
+        viewModel.getLatestCardsData()
+            .observe(this, Observer<List<String>> { latestCards -> changeLatestCardsAdapterData(latestCards) })
     }
 
     private fun changeOfficialCardsAdapterData(data: List<String>) {
@@ -83,11 +87,20 @@ class PublicFragment : Fragment() {
         newCardsRecyclerViewAdapter.notifyDataSetChanged()
     }
 
+    private fun changeLatestCardsAdapterData(data: List<String>) {
+        //  TODO: clean
+        //  TODO: move to [SmallCardRecyclerViewAdapter] (?)
+        //  TODO: merge to one function
+        latestCardsRecyclerViewAdapter.myDataset = data.toTypedArray()
+        latestCardsRecyclerViewAdapter.notifyDataSetChanged()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         configureOfficialCardsRecyclerView()
         configureNewCardsRecyclerView()
+        configureLatestCardsRecyclerView()
     }
 
     private fun configureOfficialCardsRecyclerView() {
@@ -108,6 +121,17 @@ class PublicFragment : Fragment() {
         new_card_list_recyclerview.apply {
             layoutManager = viewManager
             adapter = newCardsRecyclerViewAdapter
+        }
+    }
+
+    private fun configureLatestCardsRecyclerView() {
+        //  TODO: merge to one function
+        val viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
+
+        latest_card_list_recyclerview.apply {
+            layoutManager = viewManager
+            adapter = latestCardsRecyclerViewAdapter
         }
     }
 
