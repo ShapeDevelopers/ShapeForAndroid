@@ -53,4 +53,25 @@ object TextMockups {
         "Buenos Aires"
     )
 
+    val names = listOf(
+        "Lucas",
+        "Oliver",
+        "George",
+        "Emma",
+        "Evelyn",
+        "Mia",
+        "Charlotte",
+        "Ava",
+        "Noah",
+        "Liam",
+        "Benjamin",
+        "Mason",
+        "Abigail",
+        "Elijah",
+        "Amelia",
+        "Sophia",
+        "Logan",
+        "James"
+    )
+
 }
