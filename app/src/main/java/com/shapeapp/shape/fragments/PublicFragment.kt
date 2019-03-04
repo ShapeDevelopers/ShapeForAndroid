@@ -63,7 +63,7 @@ class PublicFragment : Fragment() {
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
         //  for "Official" RecyclerView
         viewModel.getOfficialCardsData()
-            .observe(this, Observer<List<String>> { users -> changeOfficialCardsAdapterData(users) })
+            .observe(this, Observer<List<String>> { officialCards -> changeOfficialCardsAdapterData(officialCards) })
         //  for "New" RecyclerView
         viewModel.getNewCardsData()
             .observe(this, Observer<List<String>> { newCards -> changeNewCardsAdapterData(newCards) })
