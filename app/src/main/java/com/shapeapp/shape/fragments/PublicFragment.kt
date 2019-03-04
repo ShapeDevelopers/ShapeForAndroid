@@ -74,8 +74,10 @@ class PublicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //  test RecyclerView
-        //  TODO: delete it and replace with real repo with ViewModel
+        configureOfficialCardsRecyclerView()
+    }
+
+    private fun configureOfficialCardsRecyclerView() {
         viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         viewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
@@ -83,8 +85,6 @@ class PublicFragment : Fragment() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
-
-
     }
 
     override fun onCreateView(
