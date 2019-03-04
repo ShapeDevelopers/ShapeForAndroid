@@ -44,7 +44,7 @@ class PublicFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var viewManager: RecyclerView.LayoutManager
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewAdapter: SmallCardRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,12 +61,14 @@ class PublicFragment : Fragment() {
         //  TODO: clean
         //  ViewModel
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
-        viewModel.getUsers().observe(this, Observer<List<String>> { users -> loadTextIntoOfficialTextView(users) })
+        viewModel.getUsers().observe(this, Observer<List<String>> { users -> changeOfficialCardsData(users) })
     }
 
-    private fun loadTextIntoOfficialTextView(data: List<String>) {
-        //  TODO: delete this
-        official_title_textview.text = data.toString()
+    private fun changeOfficialCardsData(data: List<String>) {
+        //  TODO: clean
+        //  TODO: move to [SmallCardRecyclerViewAdapter] (?)
+        viewAdapter.myDataset = data.toTypedArray()
+        viewAdapter.notifyDataSetChanged()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
