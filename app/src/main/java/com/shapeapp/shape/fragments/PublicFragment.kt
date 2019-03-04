@@ -61,13 +61,13 @@ class PublicFragment : Fragment() {
         //  TODO: clean
         //  ViewModel
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
-        //  for "Official" RecyclerView
-        viewModel.getOfficialCardsData()
-            .observe(this, Observer<List<String>> { officialCards -> changeOfficialCardsAdapterData(officialCards) })
         //  for "New" RecyclerView
         viewModel.getNewCardsData()
             .observe(this, Observer<List<String>> { newCards -> changeNewCardsAdapterData(newCards) })
-        // for "latest" RecyclerView
+        //  for "Official" RecyclerView
+        viewModel.getOfficialCardsData()
+            .observe(this, Observer<List<String>> { officialCards -> changeOfficialCardsAdapterData(officialCards) })
+        // for "Latest" RecyclerView
         viewModel.getLatestCardsData()
             .observe(this, Observer<List<String>> { latestCards -> changeLatestCardsAdapterData(latestCards) })
     }
