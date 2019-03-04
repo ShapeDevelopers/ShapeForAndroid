@@ -63,36 +63,39 @@ class PublicFragment : Fragment() {
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
         //  for "New" RecyclerView
         viewModel.getNewCardsData()
-            .observe(this, Observer<List<String>> { newCards -> changeNewCardsAdapterData(newCards) })
+            .observe(
+                this,
+                Observer<List<String>> { newCards ->
+                    changeCardsAdapterData(
+                        newCards,
+                        newCardsRecyclerViewAdapter
+                    )
+                })
         //  for "Official" RecyclerView
         viewModel.getOfficialCardsData()
-            .observe(this, Observer<List<String>> { officialCards -> changeOfficialCardsAdapterData(officialCards) })
+            .observe(
+                this,
+                Observer<List<String>> { officialCards ->
+                    changeCardsAdapterData(
+                        officialCards,
+                        officialCardsRecyclerViewAdapter
+                    )
+                })
         // for "Latest" RecyclerView
         viewModel.getLatestCardsData()
-            .observe(this, Observer<List<String>> { latestCards -> changeLatestCardsAdapterData(latestCards) })
+            .observe(
+                this,
+                Observer<List<String>> { latestCards ->
+                    changeCardsAdapterData(
+                        latestCards,
+                        latestCardsRecyclerViewAdapter
+                    )
+                })
     }
 
-    private fun changeOfficialCardsAdapterData(data: List<String>) {
-        //  TODO: clean
-        //  TODO: move to [SmallCardRecyclerViewAdapter] (?)
-        officialCardsRecyclerViewAdapter.myDataset = data.toTypedArray()
-        officialCardsRecyclerViewAdapter.notifyDataSetChanged()
-    }
-
-    private fun changeNewCardsAdapterData(data: List<String>) {
-        //  TODO: clean
-        //  TODO: move to [SmallCardRecyclerViewAdapter] (?)
-        //  TODO: merge to one function
-        newCardsRecyclerViewAdapter.myDataset = data.toTypedArray()
-        newCardsRecyclerViewAdapter.notifyDataSetChanged()
-    }
-
-    private fun changeLatestCardsAdapterData(data: List<String>) {
-        //  TODO: clean
-        //  TODO: move to [SmallCardRecyclerViewAdapter] (?)
-        //  TODO: merge to one function
-        latestCardsRecyclerViewAdapter.myDataset = data.toTypedArray()
-        latestCardsRecyclerViewAdapter.notifyDataSetChanged()
+    private fun changeCardsAdapterData(cardsData: List<String>, cardAdapter: SmallCardRecyclerViewAdapter) {
+        cardAdapter.myDataset = cardsData.toTypedArray()
+        cardAdapter.notifyDataSetChanged()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -198,4 +201,5 @@ class PublicFragment : Fragment() {
                 }
             }
     }
+
 }
