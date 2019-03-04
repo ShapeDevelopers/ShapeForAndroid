@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
@@ -92,42 +93,16 @@ class PublicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        configureOfficialCardsRecyclerView()
-        configureNewCardsRecyclerView()
-        configureLatestCardsRecyclerView()
+        configureCardsRecyclerView(new_card_list_recyclerview, newCardsRecyclerViewAdapter)
+        configureCardsRecyclerView(official_card_list_recyclerview, officialCardsRecyclerViewAdapter)
+        configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
     }
 
-//    private fun configureCardsRecyclerView(cardsAdapter: SmallCardRecyclerViewAdapter, recyclerView: RecyclerView) {
-//        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-//
-//    }
-
-    private fun configureOfficialCardsRecyclerView() {
-        val viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
-        official_card_list_recyclerview.apply {
-            layoutManager = viewManager
-            adapter = officialCardsRecyclerViewAdapter
-        }
-    }
-
-    private fun configureNewCardsRecyclerView() {
-        //  TODO: merge to one function
-        val viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
-        new_card_list_recyclerview.apply {
-            layoutManager = viewManager
-            adapter = newCardsRecyclerViewAdapter
-        }
-    }
-
-    private fun configureLatestCardsRecyclerView() {
-        //  TODO: merge to one function
-        val viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-
-        latest_card_list_recyclerview.apply {
-            layoutManager = viewManager
-            adapter = latestCardsRecyclerViewAdapter
+    private fun configureCardsRecyclerView(recyclerView: RecyclerView, cardsAdapter: SmallCardRecyclerViewAdapter) {
+        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.apply {
+            layoutManager = linearLayoutManager
+            adapter = cardsAdapter
         }
     }
 
