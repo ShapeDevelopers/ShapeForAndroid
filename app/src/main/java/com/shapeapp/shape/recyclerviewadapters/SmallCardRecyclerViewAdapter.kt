@@ -7,7 +7,7 @@ import com.google.android.material.card.MaterialCardView
 import com.shapeapp.shape.R
 import kotlinx.android.synthetic.main.small_card.view.*
 
-class SmallCardRecyclerViewAdapter(private val myDataset: Array<String>) :
+class SmallCardRecyclerViewAdapter(var myDataset: Array<String>) :
     RecyclerView.Adapter<SmallCardRecyclerViewAdapter.MyViewHolder>() {
 
 
