@@ -54,13 +54,10 @@ class PublicFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        //  TODO: clean
         configureViewModel()
     }
 
     private fun configureViewModel() {
-        //  TODO: clean
-        //  ViewModel
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
         //  for "New" RecyclerView
         viewModel.getNewCardsData().observe(this, Observer<List<String>> { newCards ->
