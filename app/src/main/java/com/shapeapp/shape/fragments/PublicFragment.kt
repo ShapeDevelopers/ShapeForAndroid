@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
+import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_public.*
 
 //  TODO: check and change whole file
@@ -49,6 +52,21 @@ class PublicFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        //  TODO: clean
+        configureViewModel()
+    }
+
+    private fun configureViewModel() {
+        //  TODO: clean
+        //  ViewModel
+        val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
+        viewModel.getUsers().observe(this, Observer<List<String>> { users -> loadTextIntoOfficialTextView(users) })
+    }
+
+    private fun loadTextIntoOfficialTextView(data: List<String>) {
+        //  TODO: delete this
+        official_title_textview.text = data.toString()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
