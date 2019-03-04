@@ -15,14 +15,20 @@ class PublicFragmentViewModel : ViewModel() {
     //  TODO: there is no real repo (fake data is loaded)
 
     private val officialCardsData = MutableLiveData<List<String>>()
+    private val newCardsData = MutableLiveData<List<String>>()
 
     init {
         officialCardsData.value = TextMockups.animals
+        newCardsData.value = TextMockups.cities
     }
 
 
     fun getOfficialCardsData(): LiveData<List<String>> {
         return officialCardsData
+    }
+
+    fun getNewCardsData(): LiveData<List<String>> {
+        return newCardsData
     }
 
 }
