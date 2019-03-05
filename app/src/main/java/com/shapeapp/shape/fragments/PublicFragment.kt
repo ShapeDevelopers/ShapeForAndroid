@@ -43,6 +43,8 @@ class PublicFragment : Fragment() {
     private val newCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
+    private lateinit var viewModel: PublicFragmentViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -57,7 +59,7 @@ class PublicFragment : Fragment() {
         //  ViewModel remains in memory, in the case of a fragment, to the moment when Fragment is detached
         //  TODO: maybe it should use ViewModelProviders.of(context) ?
         //  TODO: do not use "!!"
-        val viewModel = ViewModelProviders.of(activity!!).get(PublicFragmentViewModel::class.java)
+        viewModel = ViewModelProviders.of(activity!!).get(PublicFragmentViewModel::class.java)
         //  for "New" RecyclerView
         viewModel.getNewCardsData().observe(this, Observer<List<String>> { newCards ->
             changeCardsAdapterData(
