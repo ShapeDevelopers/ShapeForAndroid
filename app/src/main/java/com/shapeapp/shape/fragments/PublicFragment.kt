@@ -54,6 +54,8 @@ class PublicFragment : Fragment() {
     }
 
     private fun configureViewModel() {
+        //  ViewModel remains in memory, in the case of a fragment, to the moment when Fragment is detached
+        //  TODO: maybe it should use ViewModelProviders.of(context) ?
         val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
         //  for "New" RecyclerView
         viewModel.getNewCardsData().observe(this, Observer<List<String>> { newCards ->
