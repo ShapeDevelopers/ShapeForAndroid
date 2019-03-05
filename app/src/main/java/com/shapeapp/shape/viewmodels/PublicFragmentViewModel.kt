@@ -19,10 +19,14 @@ class PublicFragmentViewModel : ViewModel() {
     private val newCardsData = MutableLiveData<List<String>>()
     private val latestCardsData = MutableLiveData<List<String>>()
 
+    private val selectedCardText = MutableLiveData<String>()
+
     init {
         officialCardsData.value = TextMockups.animals
         newCardsData.value = TextMockups.cities
         latestCardsData.value = TextMockups.names
+
+        selectedCardText.value = ""
     }
 
 
@@ -36,6 +40,10 @@ class PublicFragmentViewModel : ViewModel() {
 
     fun getLatestCardsData(): LiveData<List<String>> {
         return latestCardsData
+    }
+
+    fun selectCardText(selectedText: String) {
+        selectedCardText.value = selectedText
     }
 
 }
