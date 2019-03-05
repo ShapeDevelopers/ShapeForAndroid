@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.small_card.view.*
 class SmallCardRecyclerViewAdapter(var myDataset: Array<String>) :
     RecyclerView.Adapter<SmallCardRecyclerViewAdapter.MyViewHolder>() {
 
+    //  TODO: add card selection and connect it with [ReceivedImageFragment] and [PublicFragmentViewModel] (?)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val materialCardView = LayoutInflater
