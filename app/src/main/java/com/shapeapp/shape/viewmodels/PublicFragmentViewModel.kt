@@ -4,10 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.fragments.PublicFragment
+import com.shapeapp.shape.fragments.ReceivedImageFragment
 import com.shapeapp.shape.mockupsmakers.TextMockups
 
 /**
- * [ViewModel] for [PublicFragment]
+ * [ViewModel] for [PublicFragment] and for data sharing with [ReceivedImageFragment]
  */
 class PublicFragmentViewModel : ViewModel() {
 
