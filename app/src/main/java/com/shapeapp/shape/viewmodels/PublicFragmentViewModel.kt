@@ -42,8 +42,13 @@ class PublicFragmentViewModel : ViewModel() {
         return latestCardsData
     }
 
+
     fun selectCardText(selectedText: String) {
         selectedCardText.value = selectedText
+    }
+
+    fun getSelectedCardText(): LiveData<String> {
+        return selectedCardText
     }
 
 }
