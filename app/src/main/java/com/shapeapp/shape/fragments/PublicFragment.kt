@@ -94,6 +94,9 @@ class PublicFragment : Fragment() {
         configureCardsRecyclerView(new_card_list_recyclerview, newCardsRecyclerViewAdapter)
         configureCardsRecyclerView(official_card_list_recyclerview, officialCardsRecyclerViewAdapter)
         configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
+
+        //  TODO: delete
+        configureSimulatedSelection()
     }
 
     private fun configureCardsRecyclerView(recyclerView: RecyclerView, cardsAdapter: SmallCardRecyclerViewAdapter) {
@@ -102,6 +105,12 @@ class PublicFragment : Fragment() {
             layoutManager = linearLayoutManager
             adapter = cardsAdapter
         }
+    }
+
+    private fun configureSimulatedSelection() {
+        //  TODO: delete
+        //  simulate selection
+        my_public_shares_fab.setOnClickListener { viewModel.selectCardText("I have been clicked") }
     }
 
     override fun onCreateView(
