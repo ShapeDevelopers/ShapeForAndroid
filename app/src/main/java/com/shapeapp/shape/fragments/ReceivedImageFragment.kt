@@ -52,7 +52,7 @@ class ReceivedImageFragment : Fragment() {
         //  TODO: do not use "!!"
         viewModel = ViewModelProviders.of(activity!!).get(PublicFragmentViewModel::class.java)
         //  TODO: delete
-        viewModel.getSelectedCardText().observe(this, Observer { text -> changeTextInUi(text) })
+        viewModel.selectedCardText.observe(this, Observer { text -> changeTextInUi(text) })
     }
 
     private fun changeTextInUi(text: String) {
