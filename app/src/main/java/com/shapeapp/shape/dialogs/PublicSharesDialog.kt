@@ -17,12 +17,12 @@ class PublicSharesDialog : DialogFragment() {
             builder
                 .setView(R.layout.dialog_public_shares)
                 .setMessage("This is message")
-                .setPositiveButton("Positive", { dialog, id ->
+                .setPositiveButton("Positive") { dialog, id ->
                     //  DO SOMETHING
-                })
-                .setNegativeButton("Negative", { dialog, id ->
+                }
+                .setNegativeButton("Negative") { dialog, id ->
                     //  DO SOMETHING
-                })
+                }
 
             builder.create()
         } ?: throw IllegalStateException("Activity can not be null")
