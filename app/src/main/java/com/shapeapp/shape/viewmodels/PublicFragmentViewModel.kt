@@ -35,6 +35,7 @@ class PublicFragmentViewModel : ViewModel() {
         get() = _latestCardsData
 
 
+    //  TODO: consider other way to pass data to [ReceivedImageFragment] (?)
     private val _selectedCardText = MutableLiveData<String>()
     val selectedCardText: LiveData<String>
         get() = _selectedCardText
