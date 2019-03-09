@@ -4,37 +4,53 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.fragments.PublicFragment
+import com.shapeapp.shape.fragments.ReceivedImageFragment
 import com.shapeapp.shape.mockupsmakers.TextMockups
 
 /**
- * [ViewModel] for [PublicFragment]
+ * [ViewModel] for [PublicFragment] and for data sharing with [ReceivedImageFragment]
+ *
+ * "somedata" and "_somedata" are for proper encapsulation
+ *
+ * example:
+ * "_somedata" is private MutableLiveData<...> and "somedata" is public LiveData<...>
+ * with custom getter that returns "_somedata" as LiveData<...>
+ * See: www.youtube.com/watch?v=5qlIPTDE274 (time: 2:46)
  */
 class PublicFragmentViewModel : ViewModel() {
 
     //  TODO: clean
     //  TODO: implement loading data from repository (now there is no real repo, fake data is loaded)
 
-    private val officialCardsData = MutableLiveData<List<String>>()
-    private val newCardsData = MutableLiveData<List<String>>()
-    private val latestCardsData = MutableLiveData<List<String>>()
+    private val _officialCardsData = MutableLiveData<List<String>>()
+    val officialCardsData: LiveData<List<String>>
+        get() = _officialCardsData
+
+    private val _newCardsData = MutableLiveData<List<String>>()
+    val newCardsData: LiveData<List<String>>
+        get() = _newCardsData
+
+    private val _latestCardsData = MutableLiveData<List<String>>()
+    val latestCardsData: LiveData<List<String>>
+        get() = _latestCardsData
+
+
+    //  TODO: consider other way to pass data to [ReceivedImageFragment] (?)
+    private val _selectedCardText = MutableLiveData<String>()
+    val selectedCardText: LiveData<String>
+        get() = _selectedCardText
 
     init {
-        officialCardsData.value = TextMockups.animals
-        newCardsData.value = TextMockups.cities
-        latestCardsData.value = TextMockups.names
+        _officialCardsData.value = TextMockups.animals
+        _newCardsData.value = TextMockups.cities
+        _latestCardsData.value = TextMockups.names
+
+        _selectedCardText.value = ""
     }
 
 
-    fun getOfficialCardsData(): LiveData<List<String>> {
-        return officialCardsData
-    }
-
-    fun getNewCardsData(): LiveData<List<String>> {
-        return newCardsData
-    }
-
-    fun getLatestCardsData(): LiveData<List<String>> {
-        return latestCardsData
+    fun selectCardText(selectedText: String) {
+        _selectedCardText.value = selectedText
     }
 
 }

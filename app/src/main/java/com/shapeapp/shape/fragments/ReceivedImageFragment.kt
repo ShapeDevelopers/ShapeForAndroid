@@ -8,8 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
+import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_received_image.*
 
 //  TODO: check and change whole file
@@ -36,12 +39,25 @@ class ReceivedImageFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+    private lateinit var viewModel: PublicFragmentViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        //  ViewModel
+        //  TODO: do not use "!!"
+        viewModel = ViewModelProviders.of(activity!!).get(PublicFragmentViewModel::class.java)
+        //  TODO: delete
+        viewModel.selectedCardText.observe(this, Observer { text -> changeTextInUi(text) })
+    }
+
+    private fun changeTextInUi(text: String) {
+        //  TODO: delete
+        extra_text_textview.text = text
     }
 
     override fun onCreateView(

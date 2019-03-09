@@ -43,6 +43,8 @@ class PublicFragment : Fragment() {
     private val newCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
+    private lateinit var viewModel: PublicFragmentViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -56,23 +58,24 @@ class PublicFragment : Fragment() {
     private fun configureViewModel() {
         //  ViewModel remains in memory, in the case of a fragment, to the moment when Fragment is detached
         //  TODO: maybe it should use ViewModelProviders.of(context) ?
-        val viewModel = ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java)
+        //  TODO: do not use "!!"
+        viewModel = ViewModelProviders.of(activity!!).get(PublicFragmentViewModel::class.java)
         //  for "New" RecyclerView
-        viewModel.getNewCardsData().observe(this, Observer<List<String>> { newCards ->
+        viewModel.newCardsData.observe(this, Observer<List<String>> { newCards ->
             changeCardsAdapterData(
                 newCards,
                 newCardsRecyclerViewAdapter
             )
         })
         //  for "Official" RecyclerView
-        viewModel.getOfficialCardsData().observe(this, Observer<List<String>> { officialCards ->
+        viewModel.officialCardsData.observe(this, Observer<List<String>> { officialCards ->
             changeCardsAdapterData(
                 officialCards,
                 officialCardsRecyclerViewAdapter
             )
         })
         // for "Latest" RecyclerView
-        viewModel.getLatestCardsData().observe(this, Observer<List<String>> { latestCards ->
+        viewModel.latestCardsData.observe(this, Observer<List<String>> { latestCards ->
             changeCardsAdapterData(
                 latestCards,
                 latestCardsRecyclerViewAdapter
@@ -91,6 +94,9 @@ class PublicFragment : Fragment() {
         configureCardsRecyclerView(new_card_list_recyclerview, newCardsRecyclerViewAdapter)
         configureCardsRecyclerView(official_card_list_recyclerview, officialCardsRecyclerViewAdapter)
         configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
+
+        //  TODO: delete
+        configureSimulatedSelection()
     }
 
     private fun configureCardsRecyclerView(recyclerView: RecyclerView, cardsAdapter: SmallCardRecyclerViewAdapter) {
@@ -99,6 +105,13 @@ class PublicFragment : Fragment() {
             layoutManager = linearLayoutManager
             adapter = cardsAdapter
         }
+    }
+
+    private fun configureSimulatedSelection() {
+        //  TODO: delete
+        //  simulate selection
+        my_public_shares_fab.setOnClickListener { viewModel.selectCardText("Right button has been clicked") }
+        my_profile_fab.setOnClickListener { viewModel.selectCardText("Left button has been clicked") }
     }
 
     override fun onCreateView(
