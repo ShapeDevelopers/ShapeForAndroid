@@ -31,7 +31,7 @@ class PublicSharesDialog : DialogFragment() {
     }
 
     /**
-     * Set the background of the dialog's root view to transparent
+     * Set the background of [AlertDialog]'s root view to transparent
      * See: https://stackoverflow.com/a/28937224
      */
     private fun changeBackgroundToTransparent(createdDialog: AlertDialog) {
