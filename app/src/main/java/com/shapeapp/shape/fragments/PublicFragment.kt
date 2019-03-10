@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
+import com.shapeapp.shape.dialogs.PublicSharesDialog
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_public.*
@@ -97,6 +98,14 @@ class PublicFragment : Fragment() {
 
         //  TODO: delete
         configureSimulatedSelection()
+
+        //  TODO: delete
+        showTestDialog()
+    }
+
+    private fun showTestDialog() {
+        //  TODO: delete this function
+        PublicSharesDialog().show(fragmentManager!!, "dialog")
     }
 
     private fun configureCardsRecyclerView(recyclerView: RecyclerView, cardsAdapter: SmallCardRecyclerViewAdapter) {
