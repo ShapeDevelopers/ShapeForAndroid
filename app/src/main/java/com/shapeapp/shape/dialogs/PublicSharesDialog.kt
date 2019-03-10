@@ -23,10 +23,16 @@ class PublicSharesDialog : DialogFragment() {
             builder.create()
         } ?: throw IllegalStateException("Activity can not be null")
 
-        //  Set the background of the dialog's root view to transparent
-        //  See: https://stackoverflow.com/a/28937224
-        createdDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        changeBackgroundToTransparent(createdDialog)
 
         return createdDialog
+    }
+
+    /**
+     * Set the background of the dialog's root view to transparent
+     * See: https://stackoverflow.com/a/28937224
+     */
+    private fun changeBackgroundToTransparent(createdDialog: AlertDialog) {
+        createdDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
 }
