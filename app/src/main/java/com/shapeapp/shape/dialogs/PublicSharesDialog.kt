@@ -10,17 +10,18 @@ import com.shapeapp.shape.R
 class PublicSharesDialog : DialogFragment() {
 
     //  TODO: finish its layout and behaviour
+    //  TODO: include RecyclerView + Repo (?)
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
             val builder = AlertDialog.Builder(it)
             builder
                 .setView(R.layout.dialog_public_shares)
-                .setMessage("This is message")
-                .setPositiveButton("Positive") { dialog, id ->
+                .setMessage("My public shares")
+                .setPositiveButton("YES") { dialog, id ->
                     //  DO SOMETHING
                 }
-                .setNegativeButton("Negative") { dialog, id ->
+                .setNegativeButton("NO") { dialog, id ->
                     //  DO SOMETHING
                 }
 
