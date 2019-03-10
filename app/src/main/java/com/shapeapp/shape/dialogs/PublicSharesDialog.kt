@@ -19,6 +19,7 @@ class PublicSharesDialog : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder
                 .setView(R.layout.dialog_public_shares)
+                .setCancelable(false)
             builder.create()
         } ?: throw IllegalStateException("Activity can not be null")
 
