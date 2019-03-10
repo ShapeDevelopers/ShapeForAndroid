@@ -19,13 +19,6 @@ class PublicSharesDialog : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder
                 .setView(R.layout.dialog_public_shares)
-                .setPositiveButton("YES") { dialog, id ->
-                    //  DO SOMETHING
-                }
-                .setNegativeButton("NO") { dialog, id ->
-                    //  DO SOMETHING
-                }
-
             builder.create()
         } ?: throw IllegalStateException("Activity can not be null")
 
