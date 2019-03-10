@@ -19,7 +19,6 @@ class PublicSharesDialog : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder
                 .setView(R.layout.dialog_public_shares)
-                .setMessage("My public shares")
                 .setPositiveButton("YES") { dialog, id ->
                     //  DO SOMETHING
                 }
