@@ -21,17 +21,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/my_profile_fab"
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/my_profile_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:background="@android:color/transparent"
             android:clickable="true"
             android:src="@drawable/my_profile_icon"
-            app:backgroundTint="@color/colorSecondaryText"
-            app:fabSize="mini"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -59,11 +59,11 @@
     <TextView
         android:id="@+id/sent_title_textview"
         android:layout_width="wrap_content"
-        android:textColor="@color/colorTeal"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="sans-serif-light"
         android:text="Sent"
+        android:textColor="@color/colorTeal"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/received_title_textview"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,10 +73,10 @@
         android:id="@+id/received_title_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorAccent"
         android:layout_marginStart="16dp"
         android:fontFamily="sans-serif-light"
         android:text="Received"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/latest_title_textview"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,10 +86,10 @@
         android:id="@+id/latest_title_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorSecondaryText"
         android:layout_marginStart="16dp"
         android:fontFamily="sans-serif-light"
         android:text="Latest"
+        android:textColor="@color/colorSecondaryText"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

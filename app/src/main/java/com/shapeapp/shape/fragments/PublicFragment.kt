@@ -119,8 +119,8 @@ class PublicFragment : Fragment() {
     private fun configureSimulatedSelection() {
         //  TODO: delete
         //  simulate selection
-        my_public_shares_fab.setOnClickListener { viewModel.selectCardText("Right button has been clicked") }
-        my_profile_fab.setOnClickListener { viewModel.selectCardText("Left button has been clicked") }
+        my_public_shares_button.setOnClickListener { viewModel.selectCardText("Right button has been clicked") }
+        my_profile_button.setOnClickListener { viewModel.selectCardText("Left button has been clicked") }
     }
 
     override fun onCreateView(
