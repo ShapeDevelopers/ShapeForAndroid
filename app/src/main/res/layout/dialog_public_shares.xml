@@ -5,7 +5,7 @@
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rectangle_rounded">
+    android:background="@drawable/rectangle_rounded_stroke">
 
     <!--TODO: finish its layout and behaviour-->
     <!--TODO: delete mock-ups and replace them with RecyclerView (?) -->
