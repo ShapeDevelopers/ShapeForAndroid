@@ -109,19 +109,14 @@ class PublicFragment : Fragment() {
     }
 
     private fun setOnClickListeners() {
-        //  TODO: delete
-        configureSimulatedSelection()
-    }
-
-    private fun configureSimulatedSelection() {
-        //  TODO: delete
-        //  simulate selection
-        my_public_shares_button.setOnClickListener { viewModel.selectCardText("Right button has been clicked") }
+        //  TODO: delete (this is only to test sharing data through viewModel)
         my_profile_button.setOnClickListener { viewModel.selectCardText("Left button has been clicked") }
+        //  TODO: change showMyPublicSharesDialog invocation (?)
+        my_public_shares_button.setOnClickListener { showMyPublicSharesDialog() }
     }
 
-    private fun showTestDialog() {
-        //  TODO: delete this function
+    private fun showMyPublicSharesDialog() {
+        //  TODO: apply some parameters (?)
         PublicSharesDialog().show(fragmentManager!!, "dialog")
     }
 
