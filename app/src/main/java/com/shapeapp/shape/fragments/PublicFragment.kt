@@ -96,8 +96,7 @@ class PublicFragment : Fragment() {
         configureCardsRecyclerView(official_card_list_recyclerview, officialCardsRecyclerViewAdapter)
         configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
 
-        //  TODO: delete
-        configureSimulatedSelection()
+        setOnClickListeners()
 
         //  TODO: delete
         showTestDialog()
@@ -114,6 +113,11 @@ class PublicFragment : Fragment() {
             layoutManager = linearLayoutManager
             adapter = cardsAdapter
         }
+    }
+
+    private fun setOnClickListeners() {
+        //  TODO: delete
+        configureSimulatedSelection()
     }
 
     private fun configureSimulatedSelection() {
