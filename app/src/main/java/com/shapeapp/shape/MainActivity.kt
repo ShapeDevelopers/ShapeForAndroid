@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
 
     private fun configureBottomNavigation() {
         //  TODO: add other Fragments to load
-        //  TODO: change arguments for PublicFragment
+        //  TODO: change arguments for Fragments
         bottom_navigation_view.setOnNavigationItemSelectedListener { currentItem: MenuItem ->
             when (currentItem.itemId) {
                 R.id.action_inbox -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
