@@ -129,6 +129,7 @@ class PublicFragment : Fragment() {
                 .beginTransaction()
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .replace(R.id.fragment_container, ProfileFragment.newInstance("FIRST", "SECOND"))
+                .addToBackStack(null)
                 .commit()
         }
     }
