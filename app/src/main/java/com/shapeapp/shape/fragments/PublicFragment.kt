@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -110,7 +111,7 @@ class PublicFragment : Fragment() {
 
     private fun setOnClickListeners() {
         //  TODO: delete (this is only to test sharing data through viewModel)
-        my_profile_button.setOnClickListener { viewModel.selectCardText("Left button has been clicked") }
+        my_profile_button.setOnClickListener { loadProfileFragment() }
         //  TODO: change showMyPublicSharesDialog invocation (?)
         my_public_shares_button.setOnClickListener { showMyPublicSharesDialog() }
     }
@@ -118,6 +119,18 @@ class PublicFragment : Fragment() {
     private fun showMyPublicSharesDialog() {
         //  TODO: apply some parameters (?)
         PublicSharesDialog().show(fragmentManager!!, "dialog")
+    }
+
+    private fun loadProfileFragment() {
+        //  TODO: change newInstance(...) parameters
+        //  TODO: should there really be used ".run"?
+        activity?.run {
+            supportFragmentManager
+                .beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .replace(R.id.fragment_container, ProfileFragment.newInstance("FIRST", "SECOND"))
+                .commit()
+        }
     }
 
     override fun onCreateView(
