@@ -97,15 +97,8 @@ class PublicFragment : Fragment() {
         configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
 
         setOnClickListeners()
-
-        //  TODO: delete
-        showTestDialog()
     }
 
-    private fun showTestDialog() {
-        //  TODO: delete this function
-        PublicSharesDialog().show(fragmentManager!!, "dialog")
-    }
 
     private fun configureCardsRecyclerView(recyclerView: RecyclerView, cardsAdapter: SmallCardRecyclerViewAdapter) {
         val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -125,6 +118,11 @@ class PublicFragment : Fragment() {
         //  simulate selection
         my_public_shares_button.setOnClickListener { viewModel.selectCardText("Right button has been clicked") }
         my_profile_button.setOnClickListener { viewModel.selectCardText("Left button has been clicked") }
+    }
+
+    private fun showTestDialog() {
+        //  TODO: delete this function
+        PublicSharesDialog().show(fragmentManager!!, "dialog")
     }
 
     override fun onCreateView(
