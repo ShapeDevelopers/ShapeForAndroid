@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
         //  TODO: change arguments for PublicFragment
         bottom_navigation_view.setOnNavigationItemSelectedListener { currentItem: MenuItem ->
             when (currentItem.itemId) {
-//                TODO: remove loading ReceivedImageFragment after tapping inbox action
-                R.id.action_inbox -> loadFragment(ReceivedImageFragment.newInstance("FIRST", "SECOND"))
+                R.id.action_inbox -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
                 // TODO: accomplish loading the camera
                 R.id.action_camera -> {
                 }
