@@ -44,8 +44,9 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
                 R.id.action_camera -> {
                 }
                 R.id.action_public -> loadFragment(PublicFragment.newInstance("FIRST", "SECOND"))
-                // TODO: remove loading MessagesFragment after tapping near me action
-                R.id.action_near_me -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
+                // TODO: accomplish loading near me
+                R.id.action_near_me -> {
+                }
             }
             true
         }
