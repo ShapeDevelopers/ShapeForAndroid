@@ -142,7 +142,8 @@ class PublicFragment : Fragment() {
     private fun showSnackbar() {
         //  TODO: delete this function
         val snackbar = Snackbar.make(root_coordinatorlayout, "Hello user!", Snackbar.LENGTH_SHORT)
-        snackbar.changeTextColor(ContextCompat.getColor(context!!, R.color.colorHintGrey))
+        val greyColor = ContextCompat.getColor(context!!, R.color.colorHintGrey)
+        snackbar.changeTextColor(greyColor)
         snackbar.show()
     }
 
