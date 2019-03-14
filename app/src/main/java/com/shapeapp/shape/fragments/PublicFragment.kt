@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
 import com.shapeapp.shape.dialogs.PublicSharesDialog
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
@@ -98,6 +101,8 @@ class PublicFragment : Fragment() {
         configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
 
         setOnClickListeners()
+
+        showSnackbar()
     }
 
 
@@ -132,6 +137,24 @@ class PublicFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+    }
+
+    private fun showSnackbar() {
+        //  TODO: delete this function
+        val snackbar = Snackbar.make(root_coordinatorlayout, "Hello user!", Snackbar.LENGTH_SHORT)
+        val greyColor = ContextCompat.getColor(context!!, R.color.colorHintGrey)
+        snackbar.changeTextColor(greyColor)
+        snackbar.show()
+    }
+
+    /**
+     * [Snackbar] extension function
+     *
+     * Used for convenient way to change [Snackbar]'s [TextView] text color
+     */
+    private fun Snackbar.changeTextColor(color: Int) {
+        val textView = view.findViewById<TextView>(R.id.snackbar_text)
+        textView.setTextColor(color)
     }
 
     override fun onCreateView(
