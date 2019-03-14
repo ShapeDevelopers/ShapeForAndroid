@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
@@ -140,7 +142,13 @@ class PublicFragment : Fragment() {
     private fun showSnackbar() {
         //  TODO: delete this function
         val snackbar = Snackbar.make(root_coordinatorlayout, "Hello user!", Snackbar.LENGTH_SHORT)
+        changeSnackbarTextColor(snackbar)
         snackbar.show()
+    }
+
+    private fun changeSnackbarTextColor(snackbar: Snackbar) {
+        val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
+        textView.setTextColor(ContextCompat.getColor(context!!, R.color.colorHintGrey))
     }
 
     override fun onCreateView(
