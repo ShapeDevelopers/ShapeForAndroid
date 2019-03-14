@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
 import com.shapeapp.shape.dialogs.PublicSharesDialog
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
@@ -98,6 +99,8 @@ class PublicFragment : Fragment() {
         configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
 
         setOnClickListeners()
+
+        showSnackbar()
     }
 
 
@@ -132,6 +135,12 @@ class PublicFragment : Fragment() {
                 .addToBackStack(null)
                 .commit()
         }
+    }
+
+    private fun showSnackbar() {
+        //  TODO: delete this function
+        val snackbar = Snackbar.make(root_coordinatorlayout, "Hello user!", Snackbar.LENGTH_SHORT)
+        snackbar.show()
     }
 
     override fun onCreateView(
