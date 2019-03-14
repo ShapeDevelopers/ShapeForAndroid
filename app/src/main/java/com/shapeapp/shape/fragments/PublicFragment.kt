@@ -146,6 +146,11 @@ class PublicFragment : Fragment() {
         snackbar.show()
     }
 
+    /**
+     * [Snackbar] extension function
+     *
+     * Used for convenient way to change [Snackbar]'s [TextView] text color
+     */
     private fun Snackbar.changeTextColor(color: Int) {
         val textView = view.findViewById<TextView>(R.id.snackbar_text)
         textView.setTextColor(color)
