@@ -142,13 +142,13 @@ class PublicFragment : Fragment() {
     private fun showSnackbar() {
         //  TODO: delete this function
         val snackbar = Snackbar.make(root_coordinatorlayout, "Hello user!", Snackbar.LENGTH_SHORT)
-        changeSnackbarTextColor(snackbar)
+        snackbar.changeTextColor(ContextCompat.getColor(context!!, R.color.colorHintGrey))
         snackbar.show()
     }
 
-    private fun changeSnackbarTextColor(snackbar: Snackbar) {
-        val textView = snackbar.view.findViewById<TextView>(R.id.snackbar_text)
-        textView.setTextColor(ContextCompat.getColor(context!!, R.color.colorHintGrey))
+    private fun Snackbar.changeTextColor(color: Int) {
+        val textView = view.findViewById<TextView>(R.id.snackbar_text)
+        textView.setTextColor(color)
     }
 
     override fun onCreateView(
