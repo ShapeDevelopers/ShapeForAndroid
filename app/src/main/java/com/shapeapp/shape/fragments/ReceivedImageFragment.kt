@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
-import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_received_image.*
 
 //  TODO: check and change whole file
@@ -32,8 +31,6 @@ class ReceivedImageFragment : Fragment() {
     private var cardType: String? = null
     private var cardId: Int? = null
     private var listener: OnFragmentInteractionListener? = null
-
-    private lateinit var viewModel: PublicFragmentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
