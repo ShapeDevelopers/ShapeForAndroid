@@ -28,9 +28,8 @@ class PublicFragmentViewModel : ViewModel() {
     var officialCardsData: LiveData<List<String>>
         private set
 
-    private val _newCardsData = MutableLiveData<List<String>>()
-    val newCardsData: LiveData<List<String>>
-        get() = _newCardsData
+    var newCardsData: LiveData<List<String>>
+        private set
 
     private val _latestCardsData = MutableLiveData<List<String>>()
     val latestCardsData: LiveData<List<String>>
@@ -44,7 +43,7 @@ class PublicFragmentViewModel : ViewModel() {
 
     init {
         officialCardsData = repository.officialCardsData
-        _newCardsData.value = TextMockups.cities
+        newCardsData = repository.newCardsData
         _latestCardsData.value = TextMockups.names
 
         _selectedCardText.value = ""
