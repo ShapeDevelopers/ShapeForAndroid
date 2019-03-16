@@ -53,19 +53,6 @@ class ReceivedImageFragment : Fragment() {
 
         //  TODO: delete and replace with close action after swipe
         root_layout.setOnTouchListener(object : OnFourWaysSwipeListener(context!!) {
-
-            override fun onSwipeRight() {
-                Toast.makeText(context, "right", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onSwipeLeft() {
-                Toast.makeText(context, "left", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onSwipeTop() {
-                Toast.makeText(context, "top", Toast.LENGTH_SHORT).show()
-            }
-
             override fun onSwipeBottom() {
                 Toast.makeText(context, "bottom", Toast.LENGTH_SHORT).show()
             }
