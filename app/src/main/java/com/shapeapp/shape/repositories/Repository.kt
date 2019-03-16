@@ -22,9 +22,14 @@ object Repository {
     val newCardsData: LiveData<List<String>>
         get() = _newCardsData
 
+    private val _latestCardsData = MutableLiveData<List<String>>()
+    val latestCardsData: LiveData<List<String>>
+        get() = _latestCardsData
+
     init {
         _officialCardsData.value = TextMockups.animals
         _newCardsData.value = TextMockups.names
+        _latestCardsData.value = TextMockups.cities
     }
 
 }
