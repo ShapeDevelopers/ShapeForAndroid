@@ -17,11 +17,8 @@ import kotlinx.android.synthetic.main.fragment_received_image.*
 //  TODO: check and change whole file
 //  TODO: use MVVM
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_CARD_TYPE = "ARG_CARD_TYPE"
+private const val ARG_CARD_ID = "ARG_CARD_ID"
 
 /**
  * A simple [Fragment] subclass.
@@ -33,9 +30,8 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class ReceivedImageFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var cardType: String? = null
+    private var cardId: Int? = null
     private var listener: OnFragmentInteractionListener? = null
 
     private lateinit var viewModel: PublicFragmentViewModel
@@ -43,8 +39,8 @@ class ReceivedImageFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            cardType = it.getString(ARG_CARD_TYPE)
+            cardId = it.getInt(ARG_CARD_ID)
         }
 
         //  ViewModel
@@ -82,6 +78,9 @@ class ReceivedImageFragment : Fragment() {
                 Toast.makeText(context, "bottom", Toast.LENGTH_SHORT).show()
             }
         })
+
+        //  TODO: delete
+        extra_text_textview.text = cardId.toString()
 
     }
 
@@ -125,17 +124,16 @@ class ReceivedImageFragment : Fragment() {
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
          *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
+         * @param cardType type of the card.
+         * @param cardId id of the card.
          * @return A new instance of fragment ReceivedImageFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(cardType: String, cardId: Int) =
             ReceivedImageFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString(ARG_CARD_TYPE, cardType)
+                    putInt(ARG_CARD_ID, cardId)
                 }
             }
     }

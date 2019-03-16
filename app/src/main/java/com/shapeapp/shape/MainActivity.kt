@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
                 R.id.action_inbox -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
                 // TODO: accomplish loading the camera
                 // TODO: remove loading ReceivedImageFragment after tapping on action_camera
-                R.id.action_camera -> loadFragment(ReceivedImageFragment.newInstance("FIRST", "SECOND"))
+                R.id.action_camera -> loadFragment(ReceivedImageFragment.newInstance("SOME CARD TYPE", 1356))
                 R.id.action_public -> loadFragment(PublicFragment.newInstance("FIRST", "SECOND"))
                 // TODO: accomplish loading near me
                 R.id.action_near_me -> {
