@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
@@ -51,13 +50,6 @@ class ReceivedImageFragment : Fragment() {
         //  ViewModel
         //  TODO: do not use "!!"
         viewModel = ViewModelProviders.of(activity!!).get(PublicFragmentViewModel::class.java)
-        //  TODO: delete
-        viewModel.selectedCardText.observe(this, Observer { text -> changeTextInUi(text) })
-    }
-
-    private fun changeTextInUi(text: String) {
-        //  TODO: delete
-        extra_text_textview.text = text
     }
 
     override fun onCreateView(
