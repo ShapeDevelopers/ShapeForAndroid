@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
@@ -42,10 +41,6 @@ class ReceivedImageFragment : Fragment() {
             cardType = it.getString(ARG_CARD_TYPE)
             cardId = it.getInt(ARG_CARD_ID)
         }
-
-        //  ViewModel
-        //  TODO: do not use "!!"
-        viewModel = ViewModelProviders.of(activity!!).get(PublicFragmentViewModel::class.java)
     }
 
     override fun onCreateView(
