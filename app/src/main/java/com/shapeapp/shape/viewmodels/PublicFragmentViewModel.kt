@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.fragments.PublicFragment
 import com.shapeapp.shape.fragments.ReceivedImageFragment
 import com.shapeapp.shape.mockupsmakers.TextMockups
+import com.shapeapp.shape.repositories.Repository
 
 /**
  * [ViewModel] for [PublicFragment] and for data sharing with [ReceivedImageFragment]
@@ -22,9 +23,10 @@ class PublicFragmentViewModel : ViewModel() {
     //  TODO: clean
     //  TODO: implement loading data from repository (now there is no real repo, fake data is loaded)
 
-    private val _officialCardsData = MutableLiveData<List<String>>()
-    val officialCardsData: LiveData<List<String>>
-        get() = _officialCardsData
+    private val repository: Repository = Repository
+
+    var officialCardsData: LiveData<List<String>>
+        private set
 
     private val _newCardsData = MutableLiveData<List<String>>()
     val newCardsData: LiveData<List<String>>
@@ -41,7 +43,7 @@ class PublicFragmentViewModel : ViewModel() {
         get() = _selectedCardText
 
     init {
-        _officialCardsData.value = TextMockups.animals
+        officialCardsData = repository.officialCardsData
         _newCardsData.value = TextMockups.cities
         _latestCardsData.value = TextMockups.names
 
