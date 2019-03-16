@@ -121,7 +121,7 @@ class PublicFragment : Fragment() {
 
     private fun showMyPublicSharesDialog() {
         //  TODO: apply some parameters (?)
-        PublicSharesDialog().show(fragmentManager!!, "dialog")
+        fragmentManager?.let { PublicSharesDialog().show(it, "dialog") }
     }
 
     private fun loadProfileFragment() {
