@@ -21,7 +21,7 @@ import com.shapeapp.shape.repositories.Repository
 class PublicFragmentViewModel : ViewModel() {
 
     //  TODO: clean
-    //  TODO: implement loading data from repository (now there is no real repo, fake data is loaded)
+    //  TODO: implement full data loading from repository
 
     private val repository: Repository = Repository
 
