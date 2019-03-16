@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -127,15 +126,8 @@ class PublicFragment : Fragment() {
 
     private fun loadProfileFragment() {
         //  TODO: change newInstance(...) parameters
-        //  TODO: should there really be used ".run"?
-        activity?.run {
-            supportFragmentManager
-                .beginTransaction()
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .replace(R.id.fragment_container, ProfileFragment.newInstance("FIRST", "SECOND"))
-                .addToBackStack(null)
-                .commit()
-        }
+        val profileFragment = ProfileFragment.newInstance("FIRST", "SECOND")
+        fragmentLoadingDemandListener?.requestLoadFragment(profileFragment)
     }
 
     private fun showSnackbar() {
