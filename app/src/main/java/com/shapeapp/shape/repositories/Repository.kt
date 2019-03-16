@@ -18,8 +18,13 @@ object Repository {
     val officialCardsData: LiveData<List<String>>
         get() = _officialCardsData
 
+    private val _newCardsData = MutableLiveData<List<String>>()
+    val newCardsData: LiveData<List<String>>
+        get() = _newCardsData
+
     init {
         _officialCardsData.value = TextMockups.animals
+        _newCardsData.value = TextMockups.names
     }
 
 }
