@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.fragments.PublicFragment
 import com.shapeapp.shape.fragments.ReceivedImageFragment
-import com.shapeapp.shape.mockupsmakers.TextMockups
 import com.shapeapp.shape.repositories.Repository
 
 /**
@@ -31,10 +30,8 @@ class PublicFragmentViewModel : ViewModel() {
     var newCardsData: LiveData<List<String>>
         private set
 
-    private val _latestCardsData = MutableLiveData<List<String>>()
-    val latestCardsData: LiveData<List<String>>
-        get() = _latestCardsData
-
+    var latestCardsData: LiveData<List<String>>
+        private set
 
     //  TODO: consider other way to pass data to [ReceivedImageFragment] (?)
     private val _selectedCardText = MutableLiveData<String>()
@@ -44,7 +41,7 @@ class PublicFragmentViewModel : ViewModel() {
     init {
         officialCardsData = repository.officialCardsData
         newCardsData = repository.newCardsData
-        _latestCardsData.value = TextMockups.names
+        latestCardsData = repository.latestCardsData
 
         _selectedCardText.value = ""
     }
