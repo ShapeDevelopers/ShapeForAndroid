@@ -7,13 +7,14 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.fragments.MessagesFragment
 import com.shapeapp.shape.fragments.ProfileFragment
 import com.shapeapp.shape.fragments.PublicFragment
 import com.shapeapp.shape.fragments.ReceivedImageFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionListener,
+class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     ReceivedImageFragment.OnFragmentInteractionListener,
     ProfileFragment.OnFragmentInteractionListener,
     MessagesFragment.OnFragmentInteractionListener {
@@ -90,6 +91,10 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
 
     override fun onFragmentInteraction(uri: Uri) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun requestLoadFragment(fragmentToLoad: Fragment) {
+        loadFragment(fragmentToLoad)
     }
 }
 
