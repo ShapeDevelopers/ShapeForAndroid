@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
                     .beginTransaction()
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .replace(R.id.fragment_container, fragmentToLoad)
+                    .addToBackStack(null)
                     .commit()
             }
             false -> {
@@ -65,6 +66,7 @@ class MainActivity : AppCompatActivity(), PublicFragment.OnFragmentInteractionLi
                     .beginTransaction()
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .add(R.id.fragment_container, fragmentToLoad)
+                    .addToBackStack(null)
                     .commit()
             }
 
