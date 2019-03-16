@@ -8,6 +8,11 @@ import com.shapeapp.shape.mockupsmakers.TextMockups
  * Repository singleton
  *
  * "somedata" and "_somedata" are for proper encapsulation
+ *
+ * example:
+ * "_somedata" is private MutableLiveData<...> and "somedata" is public LiveData<...>
+ * with custom getter that returns "_somedata" as LiveData<...>
+ * See: www.youtube.com/watch?v=5qlIPTDE274 (time: 2:46)
  */
 object Repository {
 
