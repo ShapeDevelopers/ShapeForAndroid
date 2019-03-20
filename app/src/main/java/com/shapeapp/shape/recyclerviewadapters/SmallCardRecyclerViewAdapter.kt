@@ -1,6 +1,7 @@
 package com.shapeapp.shape.recyclerviewadapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
@@ -29,7 +30,20 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<String>) :
         return myDataset.size
     }
 
-    class MyViewHolder(val materialCardView: MaterialCardView) : RecyclerView.ViewHolder(materialCardView)
+    class MyViewHolder(val materialCardView: MaterialCardView) : RecyclerView.ViewHolder(materialCardView),
+        View.OnClickListener {
+
+        init {
+            materialCardView.setOnClickListener(this)
+        }
+
+        /**
+         * Called when user clicks on item in [MyViewHolder]
+         */
+        override fun onClick(v: View) {
+        }
+
+    }
 
 
 }
