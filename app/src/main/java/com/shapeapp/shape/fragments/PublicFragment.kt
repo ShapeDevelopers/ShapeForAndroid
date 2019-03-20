@@ -17,11 +17,14 @@ import com.shapeapp.shape.R
 import com.shapeapp.shape.dialogs.PublicSharesDialog
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
+import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewItemClickListener
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_public.*
 
 //  TODO: check and change whole file
 //  TODO: use MVVM
+
+//  TODO: refactor, class is too large and complex!
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -94,6 +97,8 @@ class PublicFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setClickListenerForAllRecyclerViewsAdapters()
+
         configureCardsRecyclerView(new_card_list_recyclerview, newCardsRecyclerViewAdapter)
         configureCardsRecyclerView(official_card_list_recyclerview, officialCardsRecyclerViewAdapter)
         configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
@@ -101,6 +106,22 @@ class PublicFragment : Fragment() {
         setOnClickListeners()
 
         showSnackbar()
+    }
+
+    private fun setClickListenerForAllRecyclerViewsAdapters() {
+        //  TODO: change overall behaviour to pass card data to [ReceivedImageFragment] instead of card position
+
+        val itemClickListener = object : RecyclerViewItemClickListener {
+            override fun onItemClick(itemPosition: Int, itemView: View) {
+                fragmentLoadingDemandListener?.requestLoadFragment(
+                    ReceivedImageFragment.newInstance("SOME_CARD", itemPosition)
+                )
+            }
+        }
+
+        newCardsRecyclerViewAdapter.recyclerViewItemClickListener = itemClickListener
+        officialCardsRecyclerViewAdapter.recyclerViewItemClickListener = itemClickListener
+        latestCardsRecyclerViewAdapter.recyclerViewItemClickListener = itemClickListener
     }
 
 
