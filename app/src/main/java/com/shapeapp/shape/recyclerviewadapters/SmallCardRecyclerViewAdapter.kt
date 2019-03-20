@@ -22,7 +22,7 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<String>) :
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.materialCardView.nickname_textview.text = myDataset[position]
+        holder.materialCardView.nickname_textview.text = myDataset[holder.adapterPosition]
     }
 
     override fun getItemCount(): Int {
