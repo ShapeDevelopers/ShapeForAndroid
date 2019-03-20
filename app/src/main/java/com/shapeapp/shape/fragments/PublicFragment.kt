@@ -113,7 +113,6 @@ class PublicFragment : Fragment() {
     }
 
     private fun setOnClickListeners() {
-        //  TODO: delete (this is only to test sharing data through viewModel)
         my_profile_button.setOnClickListener { loadProfileFragment() }
         //  TODO: change showMyPublicSharesDialog invocation (?)
         my_public_shares_button.setOnClickListener { showMyPublicSharesDialog() }
