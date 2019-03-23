@@ -96,6 +96,17 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     override fun requestLoadFragment(fragmentToLoad: Fragment) {
         loadFragment(fragmentToLoad)
     }
+
+    /**
+     * Prevents showing blank screen without [Fragment] loaded (after pressing back key).
+     */
+    override fun onBackPressed() {
+        val entriesOnBackStackNumber = supportFragmentManager.backStackEntryCount
+        when (entriesOnBackStackNumber) {
+            1 -> finish()
+            else -> supportFragmentManager.popBackStack()
+        }
+    }
 }
 
 
