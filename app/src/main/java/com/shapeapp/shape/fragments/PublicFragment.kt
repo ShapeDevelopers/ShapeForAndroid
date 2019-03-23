@@ -17,7 +17,7 @@ import com.shapeapp.shape.R
 import com.shapeapp.shape.dialogs.PublicSharesDialog
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
-import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewItemClickListener
+import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_public.*
 
@@ -107,19 +107,19 @@ class PublicFragment : Fragment() {
     }
 
     private fun setClickListenerForAllRecyclerViewsAdapters() {
-        //  TODO: change overall behaviour to pass card data to [ReceivedImageFragment] instead of card position
+        //  TODO: change overall behaviour to pass card data to [ReceivedImageFragment] to better one (?)
 
-        val itemClickListener = object : RecyclerViewItemClickListener {
-            override fun onItemClick(itemPosition: Int, itemView: View) {
+        val cardClickListener = object : RecyclerViewCardClickListener {
+            override fun onCardClick(cardExtraText: String, cardItemView: View) {
                 fragmentLoadingDemandListener?.requestLoadFragment(
-                    ReceivedImageFragment.newInstance("SOME_CARD", itemPosition)
+                    ReceivedImageFragment.newInstance("SOME_CARD", cardExtraText)
                 )
             }
         }
 
-        newCardsRecyclerViewAdapter.recyclerViewItemClickListener = itemClickListener
-        officialCardsRecyclerViewAdapter.recyclerViewItemClickListener = itemClickListener
-        latestCardsRecyclerViewAdapter.recyclerViewItemClickListener = itemClickListener
+        newCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
+        officialCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
+        latestCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
     }
 
 

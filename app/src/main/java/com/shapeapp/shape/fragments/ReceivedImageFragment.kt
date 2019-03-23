@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_received_image.*
 //  TODO: use MVVM
 
 private const val ARG_CARD_TYPE = "ARG_CARD_TYPE"
-private const val ARG_CARD_ID = "ARG_CARD_ID"
+private const val ARG_CARD_EXTRA_TEXT = "ARG_CARD_EXTRA_TEXT"
 
 /**
  * A simple [Fragment] subclass.
@@ -28,14 +28,14 @@ private const val ARG_CARD_ID = "ARG_CARD_ID"
  */
 class ReceivedImageFragment : Fragment() {
     private var cardType: String? = null
-    private var cardId: Int? = null
+    private var cardExtraText: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             cardType = it.getString(ARG_CARD_TYPE)
-            cardId = it.getInt(ARG_CARD_ID)
+            cardExtraText = it.getString(ARG_CARD_EXTRA_TEXT)
         }
     }
 
@@ -58,7 +58,7 @@ class ReceivedImageFragment : Fragment() {
         })
 
         //  TODO: delete
-        extra_text_textview.text = cardId.toString()
+        extra_text_textview.text = cardExtraText
 
     }
 
@@ -103,15 +103,15 @@ class ReceivedImageFragment : Fragment() {
          * this fragment using the provided parameters.
          *
          * @param cardType type of the card.
-         * @param cardId id of the card.
+         * @param cardExtraText text on the card.
          * @return A new instance of fragment ReceivedImageFragment.
          */
         @JvmStatic
-        fun newInstance(cardType: String, cardId: Int) =
+        fun newInstance(cardType: String, cardExtraText: String) =
             ReceivedImageFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_CARD_TYPE, cardType)
-                    putInt(ARG_CARD_ID, cardId)
+                    putString(ARG_CARD_EXTRA_TEXT, cardExtraText)
                 }
             }
     }

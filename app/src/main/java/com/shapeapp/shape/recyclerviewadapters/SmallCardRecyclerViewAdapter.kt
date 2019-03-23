@@ -6,16 +6,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.card.MaterialCardView
 import com.shapeapp.shape.R
-import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewItemClickListener
+import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 import kotlinx.android.synthetic.main.small_card.view.*
 
 class SmallCardRecyclerViewAdapter(var myDataset: Array<String>) :
     RecyclerView.Adapter<SmallCardRecyclerViewAdapter.MyViewHolder>() {
 
     /**
-     * Listener that will be informed about user click on item
+     * Listener that will be informed about user click on a card
      */
-    var recyclerViewItemClickListener: RecyclerViewItemClickListener? = null
+    var recyclerViewCardClickListener: RecyclerViewCardClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val materialCardView = LayoutInflater
@@ -45,8 +45,9 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<String>) :
          * Called when user clicks on item in [MyViewHolder]
          */
         override fun onClick(view: View) {
+            val clickedCardExtraText = myDataset[adapterPosition]
             //  if there is listener, inform it that user has clicked on an item
-            recyclerViewItemClickListener?.onItemClick(adapterPosition, view)
+            recyclerViewCardClickListener?.onCardClick(clickedCardExtraText, view)
         }
 
     }
