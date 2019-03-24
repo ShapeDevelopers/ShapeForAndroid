@@ -46,10 +46,9 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
          * Called when user clicks on item in [MyViewHolder]
          */
         override fun onClick(view: View) {
-            //  TODO: pass whole set of [Card] data
-            val clickedCardExtraText = myDataset[adapterPosition].senderNickname
+            val clickedCard = myDataset[adapterPosition]
             //  if there is listener, inform it that user has clicked on an item
-            recyclerViewCardClickListener?.onCardClick(clickedCardExtraText, view)
+            recyclerViewCardClickListener?.onCardClick(clickedCard, view)
         }
 
     }

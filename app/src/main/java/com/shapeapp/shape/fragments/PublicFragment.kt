@@ -111,9 +111,9 @@ class PublicFragment : Fragment() {
         //  TODO: change overall behaviour to pass card data to [ReceivedImageFragment] to better one (?)
 
         val cardClickListener = object : RecyclerViewCardClickListener {
-            override fun onCardClick(cardExtraText: String, cardItemView: View) {
+            override fun onCardClick(clickedCard: Card, cardItemView: View) {
                 fragmentLoadingDemandListener?.requestLoadFragment(
-                    ReceivedImageFragment.newInstance("SOME_CARD", cardExtraText)
+                    ReceivedImageFragment.newInstance("SOME_CARD", clickedCard)
                 )
             }
         }

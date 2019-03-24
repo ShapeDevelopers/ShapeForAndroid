@@ -8,14 +8,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
+import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
 import kotlinx.android.synthetic.main.fragment_received_image.*
 
 //  TODO: check and change whole file
 //  TODO: use MVVM
 
+//  TODO: implement [Parcelable] interface in [Card] to pass it in [Bundle]
+
 private const val ARG_CARD_TYPE = "ARG_CARD_TYPE"
 private const val ARG_CARD_EXTRA_TEXT = "ARG_CARD_EXTRA_TEXT"
+private const val ARG_CARD_SENDER = "ARG_CARD_SENDER"
 
 /**
  * A simple [Fragment] subclass.
@@ -29,6 +33,7 @@ private const val ARG_CARD_EXTRA_TEXT = "ARG_CARD_EXTRA_TEXT"
 class ReceivedImageFragment : Fragment() {
     private var cardType: String? = null
     private var cardExtraText: String? = null
+    private var cardSender: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +41,7 @@ class ReceivedImageFragment : Fragment() {
         arguments?.let {
             cardType = it.getString(ARG_CARD_TYPE)
             cardExtraText = it.getString(ARG_CARD_EXTRA_TEXT)
+            cardSender = it.getString(ARG_CARD_SENDER)
         }
     }
 
@@ -59,7 +65,7 @@ class ReceivedImageFragment : Fragment() {
 
         //  TODO: delete
         extra_text_textview.text = cardExtraText
-
+        sender_nickname_textview.text = cardSender
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -103,15 +109,19 @@ class ReceivedImageFragment : Fragment() {
          * this fragment using the provided parameters.
          *
          * @param cardType type of the card.
-         * @param cardExtraText text on the card.
+         * @param clickedCard simply [Card].
          * @return A new instance of fragment ReceivedImageFragment.
          */
         @JvmStatic
-        fun newInstance(cardType: String, cardExtraText: String) =
+        fun newInstance(cardType: String, clickedCard: Card) =
             ReceivedImageFragment().apply {
                 arguments = Bundle().apply {
+                    //  TODO: delete (?)
                     putString(ARG_CARD_TYPE, cardType)
-                    putString(ARG_CARD_EXTRA_TEXT, cardExtraText)
+
+                    //  TODO: clean-up (use Bundle and Parcelable interface)
+                    putString(ARG_CARD_EXTRA_TEXT, clickedCard.extraText)
+                    putString(ARG_CARD_SENDER, clickedCard.senderNickname)
                 }
             }
     }
