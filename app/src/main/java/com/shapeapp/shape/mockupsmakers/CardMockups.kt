@@ -1,6 +1,7 @@
 package com.shapeapp.shape.mockupsmakers
 
 import com.shapeapp.shape.data.Card
+import java.util.*
 
 /**
  * Generates [Card]s mock-ups
@@ -26,4 +27,6 @@ object CardMockups {
 
         return cards
     }
+
+    private fun generateRandomMinutes() = Random().nextInt(60 * 26)
 }
