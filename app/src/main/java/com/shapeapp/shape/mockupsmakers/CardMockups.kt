@@ -13,7 +13,7 @@ object CardMockups {
     val cityCards by lazy { generateCardsWithSenderAndExtraText(TextMockups.cities) }
 
     private fun generateCardsWithSenderAndExtraText(senders: List<String>): List<Card> {
-        //  TODO: generate full [Card]s
+        //  TODO: generate imageUrl for cards
 
         val cards = ArrayList<Card>()
 
