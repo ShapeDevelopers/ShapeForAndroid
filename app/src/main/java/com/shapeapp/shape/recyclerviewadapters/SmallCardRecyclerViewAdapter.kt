@@ -3,12 +3,11 @@ package com.shapeapp.shape.recyclerviewadapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.card.MaterialCardView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
-import kotlinx.android.synthetic.main.small_card.view.*
 
 class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
     RecyclerView.Adapter<SmallCardRecyclerViewAdapter.MyViewHolder>() {
@@ -21,13 +20,13 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val materialCardView = LayoutInflater
             .from(parent.context)
-            .inflate(R.layout.small_card, parent, false) as MaterialCardView
+            .inflate(R.layout.small_card, parent, false)
         return MyViewHolder(materialCardView)
     }
 
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.materialCardView.nickname_textview.text = myDataset[holder.adapterPosition].senderNickname
+        holder.nickname_textview.text = myDataset[holder.adapterPosition].senderNickname
     }
 
     override fun getItemCount(): Int {
@@ -35,8 +34,10 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
     }
 
 
-    inner class MyViewHolder(val materialCardView: MaterialCardView) : RecyclerView.ViewHolder(materialCardView),
+    inner class MyViewHolder(materialCardView: View) : RecyclerView.ViewHolder(materialCardView),
         View.OnClickListener {
+
+        var nickname_textview: TextView = materialCardView.findViewById(R.id.nickname_textview)
 
         init {
             materialCardView.setOnClickListener(this)
