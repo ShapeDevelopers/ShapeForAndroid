@@ -22,6 +22,8 @@ object CardMockups {
                 senderNickname = sender
                 extraText = "Hello from $sender!"
                 remainingTimeInMin = generateRandomMinutes()
+                votesForCounter = generateRandomVotesNumber()
+                votesAgainstCounter = generateRandomVotesNumber()
             }
             cards.add(newCard)
         }
