@@ -2,7 +2,8 @@ package com.shapeapp.shape.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.shapeapp.shape.mockupsmakers.TextMockups
+import com.shapeapp.shape.data.Card
+import com.shapeapp.shape.mockupsmakers.CardMockups
 
 /**
  * Repository singleton
@@ -19,22 +20,22 @@ object Repository {
     //  TODO: add model, remote data source and others
     //  see: https://developer.android.com/jetpack/docs/guide)
 
-    private val _officialCardsData = MutableLiveData<List<String>>()
-    val officialCardsData: LiveData<List<String>>
+    private val _officialCardsData = MutableLiveData<List<Card>>()
+    val officialCardsData: LiveData<List<Card>>
         get() = _officialCardsData
 
-    private val _newCardsData = MutableLiveData<List<String>>()
-    val newCardsData: LiveData<List<String>>
+    private val _newCardsData = MutableLiveData<List<Card>>()
+    val newCardsData: LiveData<List<Card>>
         get() = _newCardsData
 
-    private val _latestCardsData = MutableLiveData<List<String>>()
-    val latestCardsData: LiveData<List<String>>
+    private val _latestCardsData = MutableLiveData<List<Card>>()
+    val latestCardsData: LiveData<List<Card>>
         get() = _latestCardsData
 
     init {
-        _officialCardsData.value = TextMockups.animals
-        _newCardsData.value = TextMockups.names
-        _latestCardsData.value = TextMockups.cities
+        _officialCardsData.value = CardMockups.animalCards
+        _newCardsData.value = CardMockups.nameCards
+        _latestCardsData.value = CardMockups.cityCards
     }
 
 }

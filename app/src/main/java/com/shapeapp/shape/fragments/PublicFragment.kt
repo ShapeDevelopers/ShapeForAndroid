@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
+import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.dialogs.PublicSharesDialog
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
@@ -65,21 +66,21 @@ class PublicFragment : Fragment() {
         viewModel = activity?.run { ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java) }
             ?: throw Exception("Invalid Activity")
         //  for "New" RecyclerView
-        viewModel.newCardsData.observe(this, Observer<List<String>> { newCards ->
+        viewModel.newCardsData.observe(this, Observer<List<Card>> { newCards ->
             changeCardsAdapterData(
                 newCards,
                 newCardsRecyclerViewAdapter
             )
         })
         //  for "Official" RecyclerView
-        viewModel.officialCardsData.observe(this, Observer<List<String>> { officialCards ->
+        viewModel.officialCardsData.observe(this, Observer<List<Card>> { officialCards ->
             changeCardsAdapterData(
                 officialCards,
                 officialCardsRecyclerViewAdapter
             )
         })
         // for "Latest" RecyclerView
-        viewModel.latestCardsData.observe(this, Observer<List<String>> { latestCards ->
+        viewModel.latestCardsData.observe(this, Observer<List<Card>> { latestCards ->
             changeCardsAdapterData(
                 latestCards,
                 latestCardsRecyclerViewAdapter
@@ -87,7 +88,7 @@ class PublicFragment : Fragment() {
         })
     }
 
-    private fun changeCardsAdapterData(cardsData: List<String>, cardAdapter: SmallCardRecyclerViewAdapter) {
+    private fun changeCardsAdapterData(cardsData: List<Card>, cardAdapter: SmallCardRecyclerViewAdapter) {
         cardAdapter.myDataset = cardsData.toTypedArray()
         cardAdapter.notifyDataSetChanged()
     }

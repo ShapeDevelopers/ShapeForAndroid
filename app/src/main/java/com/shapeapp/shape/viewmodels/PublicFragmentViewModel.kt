@@ -2,6 +2,7 @@ package com.shapeapp.shape.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.fragments.PublicFragment
 import com.shapeapp.shape.repositories.Repository
 
@@ -14,13 +15,13 @@ class PublicFragmentViewModel : ViewModel() {
 
     private val repository: Repository = Repository
 
-    var officialCardsData: LiveData<List<String>>
+    var officialCardsData: LiveData<List<Card>>
         private set
 
-    var newCardsData: LiveData<List<String>>
+    var newCardsData: LiveData<List<Card>>
         private set
 
-    var latestCardsData: LiveData<List<String>>
+    var latestCardsData: LiveData<List<Card>>
         private set
 
 
