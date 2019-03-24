@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_received_image.*
 
 private const val ARG_CARD_TYPE = "ARG_CARD_TYPE"
 private const val ARG_CARD_EXTRA_TEXT = "ARG_CARD_EXTRA_TEXT"
+private const val ARG_CARD_IMAGE_URL = "ARG_CARD_IMAGE_URL"
 private const val ARG_CARD_SENDER_NICKNAME = "ARG_CARD_SENDER_NICKNAME"
 private const val ARG_CARD_REMAINING_TIME_IN_MIN = "ARG_CARD_REMAINING_TIME_IN_MIN"
 private const val ARG_CARD_VOTES_FOR_COUNTER = "ARG_CARD_VOTES_FOR_COUNTER"
@@ -36,6 +37,7 @@ private const val ARG_CARD_VOTES_AGAINST_COUNTER = "ARG_CARD_VOTES_AGAINST_COUNT
 class ReceivedImageFragment : Fragment() {
     private var cardType: String? = null
     private var cardExtraText: String? = null
+    private var cardImageUrl: String? = null
     private var cardSender: String? = null
     private var cardRemainingTimeInMin: Int? = null
     private var cardVotesForCounter: Int? = null
@@ -47,6 +49,7 @@ class ReceivedImageFragment : Fragment() {
         arguments?.let {
             cardType = it.getString(ARG_CARD_TYPE)
             cardExtraText = it.getString(ARG_CARD_EXTRA_TEXT)
+            cardImageUrl = it.getString(ARG_CARD_IMAGE_URL)
             cardSender = it.getString(ARG_CARD_SENDER_NICKNAME)
             cardRemainingTimeInMin = it.getInt(ARG_CARD_REMAINING_TIME_IN_MIN)
             cardVotesForCounter = it.getInt(ARG_CARD_VOTES_FOR_COUNTER)
@@ -72,8 +75,9 @@ class ReceivedImageFragment : Fragment() {
             }
         })
 
-        //  TODO: delete
+        //  TODO: delete (?)
         extra_text_textview.text = cardExtraText
+        background_imageview.setImageURI(Uri.parse(cardImageUrl))
         sender_nickname_textview.text = cardSender
         sender_image_remaining_time_textview.text = cardRemainingTimeInMin.toString()
         for_counter_textview.text = cardVotesForCounter.toString()
@@ -133,6 +137,7 @@ class ReceivedImageFragment : Fragment() {
 
                     //  TODO: clean-up (use Bundle and Parcelable interface)
                     putString(ARG_CARD_EXTRA_TEXT, clickedCard.extraText)
+                    putString(ARG_CARD_IMAGE_URL, clickedCard.imageUrl)
                     putString(ARG_CARD_SENDER_NICKNAME, clickedCard.senderNickname)
                     putInt(ARG_CARD_REMAINING_TIME_IN_MIN, clickedCard.remainingTimeInMin)
                     putInt(ARG_CARD_VOTES_FOR_COUNTER, clickedCard.votesForCounter)
