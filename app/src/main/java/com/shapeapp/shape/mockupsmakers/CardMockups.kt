@@ -21,6 +21,7 @@ object CardMockups {
             val newCard = Card().apply {
                 senderNickname = sender
                 extraText = "Hello from $sender!"
+                remainingTimeInMin = generateRandomMinutes()
             }
             cards.add(newCard)
         }
