@@ -1,5 +1,6 @@
 package com.shapeapp.shape.recyclerviewadapters
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,8 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.nickname_textview.text = myDataset[holder.adapterPosition].senderNickname
+        val cardImageUri = Uri.parse(myDataset[holder.adapterPosition].imageUrl)
+        holder.background_imageview.setImageURI(cardImageUri)
     }
 
     override fun getItemCount(): Int {
