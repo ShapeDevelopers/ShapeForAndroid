@@ -19,7 +19,10 @@ import kotlinx.android.synthetic.main.fragment_received_image.*
 
 private const val ARG_CARD_TYPE = "ARG_CARD_TYPE"
 private const val ARG_CARD_EXTRA_TEXT = "ARG_CARD_EXTRA_TEXT"
-private const val ARG_CARD_SENDER = "ARG_CARD_SENDER"
+private const val ARG_CARD_SENDER_NICKNAME = "ARG_CARD_SENDER_NICKNAME"
+private const val ARG_CARD_REMAINING_TIME_IN_MIN = "ARG_CARD_REMAINING_TIME_IN_MIN"
+private const val ARG_CARD_VOTES_FOR_COUNTER = "ARG_CARD_VOTES_FOR_COUNTER"
+private const val ARG_CARD_VOTES_AGAINST_COUNTER = "ARG_CARD_VOTES_AGAINST_COUNTER"
 
 /**
  * A simple [Fragment] subclass.
@@ -34,6 +37,9 @@ class ReceivedImageFragment : Fragment() {
     private var cardType: String? = null
     private var cardExtraText: String? = null
     private var cardSender: String? = null
+    private var cardRemainingTimeInMin: Int? = null
+    private var cardVotesForCounter: Int? = null
+    private var cardVotesAgainstCounter: Int? = null
     private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +47,10 @@ class ReceivedImageFragment : Fragment() {
         arguments?.let {
             cardType = it.getString(ARG_CARD_TYPE)
             cardExtraText = it.getString(ARG_CARD_EXTRA_TEXT)
-            cardSender = it.getString(ARG_CARD_SENDER)
+            cardSender = it.getString(ARG_CARD_SENDER_NICKNAME)
+            cardRemainingTimeInMin = it.getInt(ARG_CARD_REMAINING_TIME_IN_MIN)
+            cardVotesForCounter = it.getInt(ARG_CARD_VOTES_FOR_COUNTER)
+            cardVotesAgainstCounter = it.getInt(ARG_CARD_VOTES_AGAINST_COUNTER)
         }
     }
 
@@ -66,6 +75,9 @@ class ReceivedImageFragment : Fragment() {
         //  TODO: delete
         extra_text_textview.text = cardExtraText
         sender_nickname_textview.text = cardSender
+        sender_image_remaining_time_textview.text = cardRemainingTimeInMin.toString()
+        for_counter_textview.text = cardVotesForCounter.toString()
+        against_counter_textview.text = cardVotesAgainstCounter.toString()
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -121,7 +133,10 @@ class ReceivedImageFragment : Fragment() {
 
                     //  TODO: clean-up (use Bundle and Parcelable interface)
                     putString(ARG_CARD_EXTRA_TEXT, clickedCard.extraText)
-                    putString(ARG_CARD_SENDER, clickedCard.senderNickname)
+                    putString(ARG_CARD_SENDER_NICKNAME, clickedCard.senderNickname)
+                    putInt(ARG_CARD_REMAINING_TIME_IN_MIN, clickedCard.remainingTimeInMin)
+                    putInt(ARG_CARD_VOTES_FOR_COUNTER, clickedCard.votesForCounter)
+                    putInt(ARG_CARD_VOTES_AGAINST_COUNTER, clickedCard.votesAgainstCounter)
                 }
             }
     }
