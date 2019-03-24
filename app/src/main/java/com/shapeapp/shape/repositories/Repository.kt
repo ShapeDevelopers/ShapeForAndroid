@@ -20,22 +20,22 @@ object Repository {
     //  TODO: add model, remote data source and others
     //  see: https://developer.android.com/jetpack/docs/guide)
 
-    private val _officialCardsData = MutableLiveData<List<Card>>()
-    val officialCardsData: LiveData<List<Card>>
-        get() = _officialCardsData
+    private val _officialCards = MutableLiveData<List<Card>>()
+    val officialCards: LiveData<List<Card>>
+        get() = _officialCards
 
-    private val _newCardsData = MutableLiveData<List<Card>>()
-    val newCardsData: LiveData<List<Card>>
-        get() = _newCardsData
+    private val _newCards = MutableLiveData<List<Card>>()
+    val newCards: LiveData<List<Card>>
+        get() = _newCards
 
-    private val _latestCardsData = MutableLiveData<List<Card>>()
-    val latestCardsData: LiveData<List<Card>>
-        get() = _latestCardsData
+    private val _latestCards = MutableLiveData<List<Card>>()
+    val latestCards: LiveData<List<Card>>
+        get() = _latestCards
 
     init {
-        _officialCardsData.value = CardMockups.animalCards
-        _newCardsData.value = CardMockups.nameCards
-        _latestCardsData.value = CardMockups.cityCards
+        _officialCards.value = CardMockups.animalCards
+        _newCards.value = CardMockups.nameCards
+        _latestCards.value = CardMockups.cityCards
     }
 
 }

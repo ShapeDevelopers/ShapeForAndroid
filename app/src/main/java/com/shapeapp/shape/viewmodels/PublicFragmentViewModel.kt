@@ -26,9 +26,9 @@ class PublicFragmentViewModel : ViewModel() {
 
 
     init {
-        officialCardsData = repository.officialCardsData
-        newCardsData = repository.newCardsData
-        latestCardsData = repository.latestCardsData
+        officialCardsData = repository.officialCards
+        newCardsData = repository.newCards
+        latestCardsData = repository.latestCards
     }
 
 }
