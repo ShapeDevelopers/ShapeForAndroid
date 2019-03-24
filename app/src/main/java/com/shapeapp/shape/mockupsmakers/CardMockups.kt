@@ -7,16 +7,19 @@ import com.shapeapp.shape.data.Card
  */
 object CardMockups {
 
-    val animalCards by lazy { generateCardsWithSender(TextMockups.animals) }
-    val nameCards by lazy { generateCardsWithSender(TextMockups.names) }
-    val cityCards by lazy { generateCardsWithSender(TextMockups.cities) }
+    val animalCards by lazy { generateCardsWithSenderAndExtraText(TextMockups.animals) }
+    val nameCards by lazy { generateCardsWithSenderAndExtraText(TextMockups.names) }
+    val cityCards by lazy { generateCardsWithSenderAndExtraText(TextMockups.cities) }
 
-    private fun generateCardsWithSender(senders: List<String>): List<Card> {
+    private fun generateCardsWithSenderAndExtraText(senders: List<String>): List<Card> {
+        //  TODO: generate full [Card]s
+
         val cards = ArrayList<Card>()
 
         for (sender in senders) {
             val newCard = Card().apply {
                 senderNickname = sender
+                extraText = "Hello from $sender!"
             }
             cards.add(newCard)
         }
