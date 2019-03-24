@@ -3,6 +3,7 @@ package com.shapeapp.shape.recyclerviewadapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
@@ -38,6 +39,7 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
         View.OnClickListener {
 
         var nickname_textview: TextView = materialCardView.findViewById(R.id.nickname_textview)
+        var background_imageview: ImageView = materialCardView.findViewById(R.id.background_imageview)
 
         init {
             materialCardView.setOnClickListener(this)
