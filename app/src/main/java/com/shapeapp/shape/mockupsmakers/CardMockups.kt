@@ -30,4 +30,6 @@ object CardMockups {
     }
 
     private fun generateRandomMinutes() = Random().nextInt(60 * 26)
+
+    private fun generateRandomVotesNumber() = Random().nextInt(23764)
 }
