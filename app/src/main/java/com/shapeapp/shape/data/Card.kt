@@ -5,6 +5,8 @@ package com.shapeapp.shape.data
  */
 class Card {
 
+    //  TODO: implement [Parcelable] interface in [Card] to pass it in [Bundle]
+
     var extraText = ""
     var imageUrl = ""
     var senderNickname = ""
