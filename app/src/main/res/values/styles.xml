@@ -10,6 +10,8 @@
         <item name="android:textColor">@color/colorPrimaryText</item>
         <item name="android:textColorPrimary">@color/colorPrimaryText</item>
         <item name="android:textColorSecondary">@color/colorSecondaryText</item>
+        <!-- Custom font family -->
+        <item name="fontFamily">@font/quicksand_regular</item>
     </style>
 
 </resources>
