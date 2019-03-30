@@ -71,21 +71,21 @@ class PublicFragment : Fragment() {
             activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicFragmentViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
         //  for "New" RecyclerView
-        viewModel.newCardsData.observe(this, Observer<List<Card>> { newCards ->
+        viewModel.newCards.observe(this, Observer<List<Card>> { newCards ->
             changeCardsAdapterData(
                 newCards,
                 newCardsRecyclerViewAdapter
             )
         })
         //  for "Official" RecyclerView
-        viewModel.officialCardsData.observe(this, Observer<List<Card>> { officialCards ->
+        viewModel.officialCards.observe(this, Observer<List<Card>> { officialCards ->
             changeCardsAdapterData(
                 officialCards,
                 officialCardsRecyclerViewAdapter
             )
         })
         // for "Latest" RecyclerView
-        viewModel.latestCardsData.observe(this, Observer<List<Card>> { latestCards ->
+        viewModel.latestCards.observe(this, Observer<List<Card>> { latestCards ->
             changeCardsAdapterData(
                 latestCards,
                 latestCardsRecyclerViewAdapter

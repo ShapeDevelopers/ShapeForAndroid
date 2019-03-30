@@ -13,20 +13,20 @@ class PublicFragmentViewModel(private val cardRepository: Repository) : ViewMode
 
     //  TODO: implement full data loading from repository
 
-    var officialCardsData: LiveData<List<Card>>
+    var officialCards: LiveData<List<Card>>
         private set
 
-    var newCardsData: LiveData<List<Card>>
+    var newCards: LiveData<List<Card>>
         private set
 
-    var latestCardsData: LiveData<List<Card>>
+    var latestCards: LiveData<List<Card>>
         private set
 
 
     init {
-        officialCardsData = cardRepository.officialCards
-        newCardsData = cardRepository.newCards
-        latestCardsData = cardRepository.latestCards
+        officialCards = cardRepository.officialCards
+        newCards = cardRepository.newCards
+        latestCards = cardRepository.latestCards
     }
 
 }
