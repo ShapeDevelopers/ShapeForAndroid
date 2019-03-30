@@ -10,19 +10,38 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
+import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
+import com.shapeapp.shape.repositories.Repository
 
 
 class MyPublicSharesDialog : DialogFragment() {
 
-    //  TODO: finish its layout and behaviour
-    //  TODO: include RecyclerView + Repo (?)
+    private val cardRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
+
+    private lateinit var viewModel: MyPublicSharesDialogViewModel
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
+        val cardRepository = Repository
+        val viewModelFactory = MyPublicSharesDialogViewModelFactory(cardRepository)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MyPublicSharesDialogViewModel::class.java)
+        viewModel.myPublicSharesCards.observe(this, Observer { cards ->
+            cardRecyclerViewAdapter.myDataset = cards.toTypedArray()
+            cardRecyclerViewAdapter.notifyDataSetChanged()
+        })
+
+        val inflatedView = getDialogInflatedView()
+        configureView(inflatedView)
+
         val createdDialog = activity?.let {
             val builder = AlertDialog.Builder(it)
             builder
-                .setView(R.layout.dialog_public_shares)
+                .setView(inflatedView)
                 .setCancelable(false)
             builder.create()
         } ?: throw IllegalStateException("Activity can not be null")
@@ -45,6 +64,15 @@ class MyPublicSharesDialog : DialogFragment() {
         val layoutInflaterFromSystem = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         //  return inflated View
         return layoutInflaterFromSystem.inflate(R.layout.dialog_public_shares, null)
+    }
+
+    private fun configureView(inflatedView: View) {
+        val recyclerView = inflatedView.findViewById<RecyclerView>(R.id.cards_list_recyclerview)
+        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.apply {
+            layoutManager = linearLayoutManager
+            adapter = cardRecyclerViewAdapter
+        }
     }
 
     /**
