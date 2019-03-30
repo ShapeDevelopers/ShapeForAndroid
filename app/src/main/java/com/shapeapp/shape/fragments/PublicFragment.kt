@@ -19,7 +19,9 @@ import com.shapeapp.shape.dialogs.PublicSharesDialog
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
+import com.shapeapp.shape.repositories.Repository
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
+import com.shapeapp.shape.viewmodels.PublicFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_public.*
 
 //  TODO: check and change whole file
@@ -63,8 +65,11 @@ class PublicFragment : Fragment() {
     }
 
     private fun configureViewModel() {
-        viewModel = activity?.run { ViewModelProviders.of(this).get(PublicFragmentViewModel::class.java) }
-            ?: throw Exception("Invalid Activity")
+        val cardRepository = Repository
+        val viewModelFactory = PublicFragmentViewModelFactory(cardRepository)
+        viewModel =
+            activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicFragmentViewModel::class.java) }
+                ?: throw Exception("Invalid Activity")
         //  for "New" RecyclerView
         viewModel.newCardsData.observe(this, Observer<List<Card>> { newCards ->
             changeCardsAdapterData(
