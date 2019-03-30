@@ -7,13 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
+import com.shapeapp.shape.viewmodels.ReceivedImageFragmentViewModel
+import com.shapeapp.shape.viewmodels.ReceivedImageFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_received_image.*
-
-//  TODO: check and change whole file
-//  TODO: use MVVM
 
 private const val ARG_CARD_PARCELABLE = "ARG_CARD_PARCELABLE"
 
@@ -28,6 +29,8 @@ private const val ARG_CARD_PARCELABLE = "ARG_CARD_PARCELABLE"
  */
 class ReceivedImageFragment : Fragment() {
 
+    private lateinit var viewModel: ReceivedImageFragmentViewModel
+
     private var listener: OnFragmentInteractionListener? = null
 
 
@@ -35,6 +38,9 @@ class ReceivedImageFragment : Fragment() {
         super.onCreate(savedInstanceState)
         arguments?.let {
             val card: Card = it.getParcelable(ARG_CARD_PARCELABLE) ?: Card()
+            val viewModelFactory = ReceivedImageFragmentViewModelFactory(card)
+            viewModel =
+                ViewModelProviders.of(this, viewModelFactory).get(ReceivedImageFragmentViewModel::class.java)
         }
     }
 
@@ -55,13 +61,24 @@ class ReceivedImageFragment : Fragment() {
             }
         })
 
-        //  TODO: delete (?)
-//        extra_text_textview.text = cardExtraText
-//        background_imageview.setImageURI(Uri.parse(cardImageUrl))
-//        sender_nickname_textview.text = cardSender
-//        sender_image_remaining_time_textview.text = cardRemainingTimeInMin.toString()
-//        for_counter_textview.text = cardVotesForCounter.toString()
-//        against_counter_textview.text = cardVotesAgainstCounter.toString()
+        viewModel.extraText.observe(this, Observer { extraText -> extra_text_textview.text = extraText })
+        viewModel.backgroundImageUri.observe(
+            this,
+            Observer { backgroundImageUri -> background_imageview.setImageURI(Uri.parse(backgroundImageUri)) })
+        viewModel.senderNickname.observe(
+            this,
+            Observer { senderNickname -> sender_nickname_textview.text = senderNickname })
+        viewModel.imageRemainingTime.observe(
+            this,
+            Observer { remainingTime -> sender_image_remaining_time_textview.text = remainingTime.toString() })
+        viewModel.forCounterIndication.observe(
+            this,
+            Observer { forCounterIndication -> for_counter_textview.text = forCounterIndication.toString() })
+        viewModel.againstCounterIndication.observe(
+            this,
+            Observer { againstCounterIndication ->
+                against_counter_textview.text = againstCounterIndication.toString()
+            })
     }
 
     // TODO: Rename method, update argument and hook method into UI event
