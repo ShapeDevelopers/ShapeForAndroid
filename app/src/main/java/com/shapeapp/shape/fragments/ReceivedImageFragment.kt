@@ -61,24 +61,26 @@ class ReceivedImageFragment : Fragment() {
             }
         })
 
-        viewModel.extraText.observe(this, Observer { extraText -> extra_text_textview.text = extraText })
-        viewModel.backgroundImageUri.observe(
-            this,
-            Observer { backgroundImageUri -> background_imageview.setImageURI(Uri.parse(backgroundImageUri)) })
-        viewModel.senderNickname.observe(
-            this,
-            Observer { senderNickname -> sender_nickname_textview.text = senderNickname })
-        viewModel.imageRemainingTime.observe(
-            this,
-            Observer { remainingTime -> sender_image_remaining_time_textview.text = remainingTime.toString() })
-        viewModel.forCounterIndication.observe(
-            this,
-            Observer { forCounterIndication -> for_counter_textview.text = forCounterIndication.toString() })
-        viewModel.againstCounterIndication.observe(
-            this,
-            Observer { againstCounterIndication ->
-                against_counter_textview.text = againstCounterIndication.toString()
-            })
+        viewModel.let {
+            it.extraText.observe(this, Observer { extraText -> extra_text_textview.text = extraText })
+            it.backgroundImageUri.observe(
+                this,
+                Observer { backgroundImageUri -> background_imageview.setImageURI(Uri.parse(backgroundImageUri)) })
+            it.senderNickname.observe(
+                this,
+                Observer { senderNickname -> sender_nickname_textview.text = senderNickname })
+            it.imageRemainingTime.observe(
+                this,
+                Observer { remainingTime -> sender_image_remaining_time_textview.text = remainingTime.toString() })
+            it.forCounterIndication.observe(
+                this,
+                Observer { forCounterIndication -> for_counter_textview.text = forCounterIndication.toString() })
+            it.againstCounterIndication.observe(
+                this,
+                Observer { againstCounterIndication ->
+                    against_counter_textview.text = againstCounterIndication.toString()
+                })
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
