@@ -11,11 +11,9 @@ import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.fragments.MessagesFragment
 import com.shapeapp.shape.fragments.ProfileFragment
 import com.shapeapp.shape.fragments.PublicFragment
-import com.shapeapp.shape.fragments.ReceivedImageFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
-    ReceivedImageFragment.OnFragmentInteractionListener,
     ProfileFragment.OnFragmentInteractionListener,
     MessagesFragment.OnFragmentInteractionListener {
 
