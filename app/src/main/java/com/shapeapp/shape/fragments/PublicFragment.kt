@@ -69,24 +69,15 @@ class PublicFragment : Fragment() {
                 ?: throw Exception("Invalid Activity")
         //  for "New" RecyclerView
         viewModel.newCards.observe(this, Observer { newCards ->
-            changeCardsAdapterData(
-                newCards,
-                newCardsRecyclerViewAdapter
-            )
+            newCardsRecyclerViewAdapter.changeDataAndNotify(newCards)
         })
         //  for "Official" RecyclerView
         viewModel.officialCards.observe(this, Observer { officialCards ->
-            changeCardsAdapterData(
-                officialCards,
-                officialCardsRecyclerViewAdapter
-            )
+            officialCardsRecyclerViewAdapter.changeDataAndNotify(officialCards)
         })
         // for "Latest" RecyclerView
         viewModel.latestCards.observe(this, Observer { latestCards ->
-            changeCardsAdapterData(
-                latestCards,
-                latestCardsRecyclerViewAdapter
-            )
+            latestCardsRecyclerViewAdapter.changeDataAndNotify(latestCards)
         })
     }
 
