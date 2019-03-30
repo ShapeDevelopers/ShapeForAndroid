@@ -74,4 +74,27 @@ object TextMockups {
         "James"
     )
 
+    val countries = listOf(
+        "Germany",
+        "Norway",
+        "France",
+        "Poland",
+        "Sweden",
+        "USA",
+        "Italy",
+        "China",
+        "Japan",
+        "Finland",
+        "Hungary",
+        "Austria",
+        "Iceland",
+        "Portugal",
+        "Denmark",
+        "Australia",
+        "Egypt",
+        "Brazil",
+        "Canada",
+        "Estonia"
+    )
+
 }
