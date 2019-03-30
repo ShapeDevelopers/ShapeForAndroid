@@ -32,10 +32,15 @@ object Repository {
     val latestCards: LiveData<List<Card>>
         get() = _latestCards
 
+    private val _publicSharesCards = MutableLiveData<List<Card>>()
+    val publicSharesCards: LiveData<List<Card>>
+        get() = _publicSharesCards
+
     init {
         _officialCards.value = CardMockups.animalCards
         _newCards.value = CardMockups.nameCards
         _latestCards.value = CardMockups.cityCards
+        _publicSharesCards.value = CardMockups.countryCards
     }
 
 }
