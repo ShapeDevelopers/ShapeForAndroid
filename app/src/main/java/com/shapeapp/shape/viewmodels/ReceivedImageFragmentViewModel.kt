@@ -45,4 +45,16 @@ class ReceivedImageFragmentViewModel(card: Card) : ViewModel() {
         _againstCounterIndication.value = card.votesAgainstCounter.toString()
     }
 
+    fun forCounterClicked() {
+        val oldValue: Int = _forCounterIndication.value?.toInt() ?: 0
+        val newValue = oldValue + 1
+        _forCounterIndication.value = newValue.toString()
+    }
+
+    fun againstCounterClicked() {
+        val oldValue: Int = _againstCounterIndication.value?.toInt() ?: 0
+        val newValue = oldValue + 1
+        _againstCounterIndication.value = newValue.toString()
+    }
+
 }
