@@ -18,17 +18,31 @@ import kotlinx.android.synthetic.main.fragment_received_image.*
 private const val ARG_CARD_PARCELABLE = "ARG_CARD_PARCELABLE"
 
 /**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [ReceivedImageFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
+ * Shows data based on given [Card]
  * Use the [ReceivedImageFragment.newInstance] factory method to
  * create an instance of this fragment.
- *
  */
 class ReceivedImageFragment : Fragment() {
 
     private lateinit var viewModel: ReceivedImageFragmentViewModel
+
+
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param card given [Card].
+         * @return A new instance of fragment ReceivedImageFragment.
+         */
+        @JvmStatic
+        fun newInstance(card: Card) =
+            ReceivedImageFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable("ARG_CARD_PARCELABLE", card)
+                }
+            }
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,12 +66,19 @@ class ReceivedImageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        enableSwipeToClose()
+        connectUiToViewModel()
+    }
+
+    private fun enableSwipeToClose() {
         root_layout.setOnTouchListener(object : OnFourWaysSwipeListener(context!!) {
             override fun onSwipeBottom() {
                 activity?.run { supportFragmentManager.popBackStack() }
             }
         })
+    }
 
+    private fun connectUiToViewModel() {
         viewModel.let {
             it.extraText.observe(this, Observer { extraText -> extra_text_textview.text = extraText })
             it.backgroundImageUri.observe(
@@ -78,23 +99,5 @@ class ReceivedImageFragment : Fragment() {
                     against_counter_textview.text = againstCounterIndication.toString()
                 })
         }
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param cardType type of the card.
-         * @param clickedCard simply [Card].
-         * @return A new instance of fragment ReceivedImageFragment.
-         */
-        @JvmStatic
-        fun newInstance(clickedCard: Card) =
-            ReceivedImageFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable("ARG_CARD_PARCELABLE", clickedCard)
-                }
-            }
     }
 }
