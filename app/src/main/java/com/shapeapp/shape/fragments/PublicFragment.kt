@@ -90,7 +90,15 @@ class PublicFragment : Fragment() {
         })
     }
 
-
+    /**
+     * [SmallCardRecyclerViewAdapter] extension function
+     *
+     * Used for convenient way to change [SmallCardRecyclerViewAdapter]'s dataset and notify about it
+     */
+    private fun SmallCardRecyclerViewAdapter.changeDataAndNotify(cardsData: List<Card>) {
+        myDataset = cardsData.toTypedArray()
+        notifyDataSetChanged()
+    }
 
     private fun changeCardsAdapterData(cardsData: List<Card>, cardAdapter: SmallCardRecyclerViewAdapter) {
         cardAdapter.myDataset = cardsData.toTypedArray()
