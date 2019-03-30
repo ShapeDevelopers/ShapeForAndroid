@@ -1,5 +1,6 @@
 package com.shapeapp.shape.viewmodels
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,33 +16,33 @@ class ReceivedImageFragmentViewModel(card: Card) : ViewModel() {
     val extraText: LiveData<String>
         get() = _extraText
 
-    private val _backgroundImageUri = MutableLiveData<String>()
-    val backgroundImageUri: LiveData<String>
+    private val _backgroundImageUri = MutableLiveData<Uri>()
+    val backgroundImageUri: LiveData<Uri>
         get() = _backgroundImageUri
 
     private val _senderNickname = MutableLiveData<String>()
     val senderNickname: LiveData<String>
         get() = _senderNickname
 
-    private val _imageRemainingTime = MutableLiveData<Int>()
-    val imageRemainingTime: LiveData<Int>
+    private val _imageRemainingTime = MutableLiveData<String>()
+    val imageRemainingTime: LiveData<String>
         get() = _imageRemainingTime
 
-    private val _forCounterIndication = MutableLiveData<Int>()
-    val forCounterIndication: LiveData<Int>
+    private val _forCounterIndication = MutableLiveData<String>()
+    val forCounterIndication: LiveData<String>
         get() = _forCounterIndication
 
-    private val _againstCounterIndication = MutableLiveData<Int>()
-    val againstCounterIndication: LiveData<Int>
+    private val _againstCounterIndication = MutableLiveData<String>()
+    val againstCounterIndication: LiveData<String>
         get() = _againstCounterIndication
 
     init {
         _extraText.value = card.extraText
-        _backgroundImageUri.value = card.imageUrl
+        _backgroundImageUri.value = Uri.parse(card.imageUrl)
         _senderNickname.value = card.senderNickname
-        _imageRemainingTime.value = card.remainingTimeInMin
-        _forCounterIndication.value = card.votesForCounter
-        _againstCounterIndication.value = card.votesAgainstCounter
+        _imageRemainingTime.value = card.remainingTimeInMin.toString()
+        _forCounterIndication.value = card.votesForCounter.toString()
+        _againstCounterIndication.value = card.votesAgainstCounter.toString()
     }
 
 }

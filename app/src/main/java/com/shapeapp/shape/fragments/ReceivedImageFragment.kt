@@ -1,6 +1,5 @@
 package com.shapeapp.shape.fragments
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -83,20 +82,20 @@ class ReceivedImageFragment : Fragment() {
             it.extraText.observe(this, Observer { extraText -> extra_text_textview.text = extraText })
             it.backgroundImageUri.observe(
                 this,
-                Observer { backgroundImageUri -> background_imageview.setImageURI(Uri.parse(backgroundImageUri)) })
+                Observer { backgroundImageUri -> background_imageview.setImageURI(backgroundImageUri) })
             it.senderNickname.observe(
                 this,
                 Observer { senderNickname -> sender_nickname_textview.text = senderNickname })
             it.imageRemainingTime.observe(
                 this,
-                Observer { remainingTime -> sender_image_remaining_time_textview.text = remainingTime.toString() })
+                Observer { remainingTime -> sender_image_remaining_time_textview.text = remainingTime })
             it.forCounterIndication.observe(
                 this,
-                Observer { forCounterIndication -> for_counter_textview.text = forCounterIndication.toString() })
+                Observer { forCounterIndication -> for_counter_textview.text = forCounterIndication })
             it.againstCounterIndication.observe(
                 this,
                 Observer { againstCounterIndication ->
-                    against_counter_textview.text = againstCounterIndication.toString()
+                    against_counter_textview.text = againstCounterIndication
                 })
         }
     }
