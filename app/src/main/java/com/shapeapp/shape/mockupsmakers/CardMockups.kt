@@ -13,6 +13,7 @@ object CardMockups {
     val animalCards by lazy { generateCardsWithSenderAndExtraText(TextMockups.animals) }
     val nameCards by lazy { generateCardsWithSenderAndExtraText(TextMockups.names) }
     val cityCards by lazy { generateCardsWithSenderAndExtraText(TextMockups.cities) }
+    val countryCards by lazy { generateCardsWithSenderAndExtraText(TextMockups.countries) }
 
     private fun generateCardsWithSenderAndExtraText(senders: List<String>): List<Card> {
         val cards = ArrayList<Card>()

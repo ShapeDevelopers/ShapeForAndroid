@@ -9,26 +9,24 @@ import com.shapeapp.shape.repositories.Repository
 /**
  * [ViewModel] for [PublicFragment]
  */
-class PublicFragmentViewModel : ViewModel() {
+class PublicFragmentViewModel(private val cardRepository: Repository) : ViewModel() {
 
     //  TODO: implement full data loading from repository
 
-    private val repository: Repository = Repository
-
-    var officialCardsData: LiveData<List<Card>>
+    var officialCards: LiveData<List<Card>>
         private set
 
-    var newCardsData: LiveData<List<Card>>
+    var newCards: LiveData<List<Card>>
         private set
 
-    var latestCardsData: LiveData<List<Card>>
+    var latestCards: LiveData<List<Card>>
         private set
 
 
     init {
-        officialCardsData = repository.officialCards
-        newCardsData = repository.newCards
-        latestCardsData = repository.latestCards
+        officialCards = cardRepository.officialCards
+        newCards = cardRepository.newCards
+        latestCards = cardRepository.latestCards
     }
 
 }

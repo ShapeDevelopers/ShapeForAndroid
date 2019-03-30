@@ -18,7 +18,7 @@ import com.shapeapp.shape.mockupsmakers.CardMockups
 object Repository {
 
     //  TODO: add model, remote data source and others
-    //  see: https://developer.android.com/jetpack/docs/guide)
+    //  see: https://developer.android.com/jetpack/docs/guide
 
     private val _officialCards = MutableLiveData<List<Card>>()
     val officialCards: LiveData<List<Card>>
@@ -32,10 +32,15 @@ object Repository {
     val latestCards: LiveData<List<Card>>
         get() = _latestCards
 
+    private val _publicSharesCards = MutableLiveData<List<Card>>()
+    val publicSharesCards: LiveData<List<Card>>
+        get() = _publicSharesCards
+
     init {
         _officialCards.value = CardMockups.animalCards
         _newCards.value = CardMockups.nameCards
         _latestCards.value = CardMockups.cityCards
+        _publicSharesCards.value = CardMockups.countryCards
     }
 
 }
