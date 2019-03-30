@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
-import com.shapeapp.shape.dialogs.PublicSharesDialog
+import com.shapeapp.shape.dialogs.MyPublicSharesDialog
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
@@ -145,7 +145,7 @@ class PublicFragment : Fragment() {
 
     private fun showMyPublicSharesDialog() {
         //  TODO: apply some parameters (?)
-        fragmentManager?.let { PublicSharesDialog().show(it, "dialog") }
+        fragmentManager?.let { MyPublicSharesDialog().show(it, "dialog") }
     }
 
     private fun loadProfileFragment() {

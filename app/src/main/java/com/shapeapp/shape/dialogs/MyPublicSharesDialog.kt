@@ -10,7 +10,7 @@ import androidx.fragment.app.DialogFragment
 import com.shapeapp.shape.R
 
 
-class PublicSharesDialog : DialogFragment() {
+class MyPublicSharesDialog : DialogFragment() {
 
     //  TODO: finish its layout and behaviour
     //  TODO: include RecyclerView + Repo (?)
