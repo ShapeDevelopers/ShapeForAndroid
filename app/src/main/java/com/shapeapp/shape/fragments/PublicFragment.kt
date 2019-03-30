@@ -91,11 +91,6 @@ class PublicFragment : Fragment() {
         notifyDataSetChanged()
     }
 
-    private fun changeCardsAdapterData(cardsData: List<Card>, cardAdapter: SmallCardRecyclerViewAdapter) {
-        cardAdapter.myDataset = cardsData.toTypedArray()
-        cardAdapter.notifyDataSetChanged()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
