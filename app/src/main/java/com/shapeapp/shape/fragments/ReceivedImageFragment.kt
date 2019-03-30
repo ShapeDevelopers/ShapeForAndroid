@@ -67,6 +67,7 @@ class ReceivedImageFragment : Fragment() {
 
         enableSwipeToClose()
         connectUiToViewModel()
+        setVoteClickListeners()
     }
 
     private fun enableSwipeToClose() {
@@ -98,5 +99,10 @@ class ReceivedImageFragment : Fragment() {
                     against_counter_textview.text = againstCounterIndication
                 })
         }
+    }
+
+    private fun setVoteClickListeners() {
+        vote_for_fab.setOnClickListener { viewModel.forCounterClicked() }
+        vote_against_fab.setOnClickListener { viewModel.againstCounterClicked() }
     }
 }
