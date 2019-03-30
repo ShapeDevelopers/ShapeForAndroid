@@ -28,6 +28,8 @@ import kotlinx.android.synthetic.main.fragment_public.*
 
 //  TODO: refactor, class is too large and complex!
 
+//  TODO: replace my profile button with user avatar
+
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_USER_AVATAR_URI = "ARG_USER_AVATAR_URI"
 
