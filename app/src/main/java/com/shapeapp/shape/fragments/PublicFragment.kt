@@ -42,15 +42,15 @@ private const val ARG_USER_AVATAR_URI = "ARG_USER_AVATAR_URI"
  * create an instance of this fragment.
  */
 class PublicFragment : Fragment() {
-    private var userAvatarUri: String? = null
+
+    private lateinit var viewModel: PublicFragmentViewModel
 
     private var fragmentLoadingDemandListener: FragmentLoadingDemandListener? = null
-
+    private var userAvatarUri: String? = null
     private val officialCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val newCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
-    private lateinit var viewModel: PublicFragmentViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,27 +68,29 @@ class PublicFragment : Fragment() {
             activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicFragmentViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
         //  for "New" RecyclerView
-        viewModel.newCards.observe(this, Observer<List<Card>> { newCards ->
+        viewModel.newCards.observe(this, Observer { newCards ->
             changeCardsAdapterData(
                 newCards,
                 newCardsRecyclerViewAdapter
             )
         })
         //  for "Official" RecyclerView
-        viewModel.officialCards.observe(this, Observer<List<Card>> { officialCards ->
+        viewModel.officialCards.observe(this, Observer { officialCards ->
             changeCardsAdapterData(
                 officialCards,
                 officialCardsRecyclerViewAdapter
             )
         })
         // for "Latest" RecyclerView
-        viewModel.latestCards.observe(this, Observer<List<Card>> { latestCards ->
+        viewModel.latestCards.observe(this, Observer { latestCards ->
             changeCardsAdapterData(
                 latestCards,
                 latestCardsRecyclerViewAdapter
             )
         })
     }
+
+
 
     private fun changeCardsAdapterData(cardsData: List<Card>, cardAdapter: SmallCardRecyclerViewAdapter) {
         cardAdapter.myDataset = cardsData.toTypedArray()
