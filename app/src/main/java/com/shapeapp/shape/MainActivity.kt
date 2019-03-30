@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
                 // TODO: accomplish loading the camera
                 R.id.action_camera -> {
                 }
-                R.id.action_public -> loadFragment(PublicFragment.newInstance("FIRST", "SECOND"))
+                //  TODO: provide real URI
+                R.id.action_public -> loadFragment(PublicFragment.newInstance("FAKE_USER_AVATAR_URI"))
                 // TODO: accomplish loading near me
                 R.id.action_near_me -> {
                 }
