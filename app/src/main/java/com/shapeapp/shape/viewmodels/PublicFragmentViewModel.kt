@@ -22,15 +22,11 @@ class PublicFragmentViewModel(private val cardRepository: Repository) : ViewMode
     var latestCards: LiveData<List<Card>>
         private set
 
-    var publicSharesCards: LiveData<List<Card>>
-        private set
-
 
     init {
         officialCards = cardRepository.officialCards
         newCards = cardRepository.newCards
         latestCards = cardRepository.latestCards
-        publicSharesCards = cardRepository.publicSharesCards
     }
 
 }
