@@ -24,12 +24,6 @@ import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_public.*
 
-//  TODO: use MVVM
-
-//  TODO: refactor, class is too large and complex!
-
-//  TODO: replace my profile button with user avatar
-
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_USER_AVATAR_URI = "ARG_USER_AVATAR_URI"
 
@@ -42,6 +36,7 @@ private const val ARG_USER_AVATAR_URI = "ARG_USER_AVATAR_URI"
  * create an instance of this fragment.
  */
 class PublicFragment : Fragment() {
+    //  TODO: replace my profile button with user avatar
 
     private lateinit var viewModel: PublicFragmentViewModel
 
@@ -52,13 +47,41 @@ class PublicFragment : Fragment() {
     private val latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
 
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param userAvatarUri URI to user's avatar.
+         * @return A new instance of fragment PublicFragment.
+         */
+        @JvmStatic
+        fun newInstance(userAvatarUri: String) =
+            PublicFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_USER_AVATAR_URI, userAvatarUri)
+                }
+            }
+    }
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is FragmentLoadingDemandListener) {
+            fragmentLoadingDemandListener = context
+        } else {
+            throw RuntimeException("$context must implement FragmentLoadingDemandListener")
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             userAvatarUri = it.getString(ARG_USER_AVATAR_URI)
         }
-
         configureViewModel()
+        connectRecyclerViewAdaptersToViewModel()
+        setClickListenerForRecyclerViewsAdapters()
     }
 
     private fun configureViewModel() {
@@ -67,6 +90,9 @@ class PublicFragment : Fragment() {
         viewModel =
             activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicFragmentViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
+    }
+
+    private fun connectRecyclerViewAdaptersToViewModel() {
         //  for "New" RecyclerView
         viewModel.newCards.observe(this, Observer { newCards ->
             newCardsRecyclerViewAdapter.changeDataAndNotify(newCards)
@@ -91,23 +117,7 @@ class PublicFragment : Fragment() {
         notifyDataSetChanged()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setClickListenerForAllRecyclerViewsAdapters()
-
-        configureCardsRecyclerView(new_card_list_recyclerview, newCardsRecyclerViewAdapter)
-        configureCardsRecyclerView(official_card_list_recyclerview, officialCardsRecyclerViewAdapter)
-        configureCardsRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
-
-        setOnClickListeners()
-
-        showSnackbar()
-    }
-
-    private fun setClickListenerForAllRecyclerViewsAdapters() {
-        //  TODO: change overall behaviour to pass card data to [ReceivedImageFragment] to better one (?)
-
+    private fun setClickListenerForRecyclerViewsAdapters() {
         val cardClickListener = object : RecyclerViewCardClickListener {
             override fun onCardClick(clickedCard: Card, cardItemView: View) {
                 fragmentLoadingDemandListener?.requestLoadFragment(
@@ -115,14 +125,34 @@ class PublicFragment : Fragment() {
                 )
             }
         }
-
         newCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
         officialCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
         latestCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_public, container, false)
+    }
 
-    private fun configureCardsRecyclerView(recyclerView: RecyclerView, cardsAdapter: SmallCardRecyclerViewAdapter) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        configureRecyclerViews()
+        setButtonsOnClickListeners()
+        showSnackbar()
+    }
+
+    private fun configureRecyclerViews() {
+        configureRecyclerView(new_card_list_recyclerview, newCardsRecyclerViewAdapter)
+        configureRecyclerView(official_card_list_recyclerview, officialCardsRecyclerViewAdapter)
+        configureRecyclerView(latest_card_list_recyclerview, latestCardsRecyclerViewAdapter)
+    }
+
+    private fun configureRecyclerView(recyclerView: RecyclerView, cardsAdapter: SmallCardRecyclerViewAdapter) {
         val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.apply {
             layoutManager = linearLayoutManager
@@ -130,21 +160,18 @@ class PublicFragment : Fragment() {
         }
     }
 
-    private fun setOnClickListeners() {
+    private fun setButtonsOnClickListeners() {
         my_profile_button.setOnClickListener { loadProfileFragment() }
-        //  TODO: change showMyPublicSharesDialog invocation (?)
         my_public_shares_button.setOnClickListener { showMyPublicSharesDialog() }
     }
 
-    private fun showMyPublicSharesDialog() {
-        //  TODO: apply some parameters (?)
-        fragmentManager?.let { MyPublicSharesDialog().show(it, "dialog") }
+    private fun loadProfileFragment() {
+        val profileFragment = ProfileFragment.newInstance("FAKE_FIRST", "FAKE_SECOND")
+        fragmentLoadingDemandListener?.requestLoadFragment(profileFragment)
     }
 
-    private fun loadProfileFragment() {
-        //  TODO: change newInstance(...) parameters
-        val profileFragment = ProfileFragment.newInstance("FIRST", "SECOND")
-        fragmentLoadingDemandListener?.requestLoadFragment(profileFragment)
+    private fun showMyPublicSharesDialog() {
+        fragmentManager?.let { MyPublicSharesDialog().show(it, "dialog") }
     }
 
     private fun showSnackbar() {
@@ -165,44 +192,8 @@ class PublicFragment : Fragment() {
         textView.setTextColor(color)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_public, container, false)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is FragmentLoadingDemandListener) {
-            fragmentLoadingDemandListener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement FragmentLoadingDemandListener")
-        }
-    }
-
     override fun onDetach() {
         super.onDetach()
         fragmentLoadingDemandListener = null
     }
-
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param userAvatarUri URI to user's avatar.
-         * @return A new instance of fragment PublicFragment.
-         */
-        @JvmStatic
-        fun newInstance(userAvatarUri: String) =
-            PublicFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_USER_AVATAR_URI, userAvatarUri)
-                }
-            }
-    }
-
 }
