@@ -12,6 +12,8 @@ import com.shapeapp.shape.fragments.ReceivedImageFragment
  */
 class ReceivedImageFragmentViewModel(card: Card) : ViewModel() {
 
+    //  TODO: send vote change to [Repository]
+
     private val _extraText = MutableLiveData<String>()
     val extraText: LiveData<String>
         get() = _extraText
