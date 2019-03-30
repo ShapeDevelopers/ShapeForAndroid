@@ -121,7 +121,7 @@ class PublicFragment : Fragment() {
         val cardClickListener = object : RecyclerViewCardClickListener {
             override fun onCardClick(clickedCard: Card, cardItemView: View) {
                 fragmentLoadingDemandListener?.requestLoadFragment(
-                    ReceivedImageFragment.newInstance("SOME_CARD", clickedCard)
+                    ReceivedImageFragment.newInstance(clickedCard)
                 )
             }
         }
