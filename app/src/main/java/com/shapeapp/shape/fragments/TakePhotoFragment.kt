@@ -1,8 +1,10 @@
 package com.shapeapp.shape.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +37,19 @@ class TakePhotoFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+        }
+
+        invokeTakePictureIntent()
+    }
+
+    private fun invokeTakePictureIntent() {
+        //  TODO: delete or refactor
+
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        activity?.let {
+            takePictureIntent.resolveActivity(it.packageManager)?.let {
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            }
         }
     }
 
@@ -82,6 +97,9 @@ class TakePhotoFragment : Fragment() {
     }
 
     companion object {
+
+        private const val REQUEST_IMAGE_CAPTURE = 1
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
