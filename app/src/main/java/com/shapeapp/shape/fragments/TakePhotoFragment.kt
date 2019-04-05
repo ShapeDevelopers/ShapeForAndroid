@@ -60,9 +60,14 @@ class TakePhotoFragment : Fragment() {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val bitmapKey = "data"
             val photoBitmap = data?.extras?.get(bitmapKey) as Bitmap
-            camera_imageview.imageTintList = null
-            camera_imageview.setImageBitmap(photoBitmap)
+            swapCameraIconToTakenPhoto(photoBitmap)
         }
+    }
+
+    private fun swapCameraIconToTakenPhoto(photoBitmap: Bitmap) {
+        camera_icon_imageview.visibility = View.INVISIBLE
+        taken_photo_imageview.setImageBitmap(photoBitmap)
+        taken_photo_imageview.visibility = View.VISIBLE
     }
 
     override fun onCreateView(
