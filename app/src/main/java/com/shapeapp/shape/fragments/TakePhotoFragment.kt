@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
 import kotlinx.android.synthetic.main.fragment_take_photo.*
 
+//  TODO: clean-up whole file
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +31,8 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class TakePhotoFragment : Fragment() {
+    //  TODO: Handle full-sized photo
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
