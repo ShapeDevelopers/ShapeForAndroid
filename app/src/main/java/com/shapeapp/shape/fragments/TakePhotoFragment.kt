@@ -46,8 +46,6 @@ class TakePhotoFragment : Fragment() {
     }
 
     private fun invokeTakePictureIntent() {
-        //  TODO: delete or refactor
-
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         activity?.let {
             takePictureIntent.resolveActivity(it.packageManager)?.let {
@@ -56,6 +54,9 @@ class TakePhotoFragment : Fragment() {
         }
     }
 
+    /**
+     * Handles return [Intent] that contains taken photo [Bitmap]
+     */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val bitmapKey = "data"
@@ -64,6 +65,9 @@ class TakePhotoFragment : Fragment() {
         }
     }
 
+    /**
+     * Shows [Bitmap] in UI
+     */
     private fun swapCameraIconToTakenPhoto(photoBitmap: Bitmap) {
         camera_icon_imageview.visibility = View.INVISIBLE
         taken_photo_imageview.setImageBitmap(photoBitmap)
