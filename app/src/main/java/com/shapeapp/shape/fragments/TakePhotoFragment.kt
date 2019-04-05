@@ -1,7 +1,9 @@
 package com.shapeapp.shape.fragments
 
+import android.app.Activity.RESULT_OK
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -10,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
+import kotlinx.android.synthetic.main.fragment_take_photo.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -50,6 +53,15 @@ class TakePhotoFragment : Fragment() {
             takePictureIntent.resolveActivity(it.packageManager)?.let {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            val bitmapKey = "data"
+            val photoBitmap = data?.extras?.get(bitmapKey) as Bitmap
+            camera_imageview.imageTintList = null
+            camera_imageview.setImageBitmap(photoBitmap)
         }
     }
 
