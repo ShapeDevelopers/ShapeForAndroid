@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
+import com.shapeapp.shape.constants.Authorities
 import com.shapeapp.shape.filehandlers.FileOperator
 import kotlinx.android.synthetic.main.fragment_take_photo.*
 import java.io.File
@@ -68,7 +69,8 @@ class TakePhotoFragment : Fragment() {
                 val photoFile = tryToCreateImageFile()
                 photoFile?.let {
                     context?.let { context ->
-                        photoFileUri = FileProvider.getUriForFile(context, "com.shapeapp.fileprovider", photoFile)
+                        photoFileUri =
+                            FileProvider.getUriForFile(context, Authorities.FILE_PROVIDER_AUTHORITY, photoFile)
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFileUri)
                         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
                     }
