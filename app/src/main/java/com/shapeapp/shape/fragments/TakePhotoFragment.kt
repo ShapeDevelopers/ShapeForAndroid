@@ -3,18 +3,23 @@ package com.shapeapp.shape.fragments
 import android.app.Activity.RESULT_OK
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
+import com.shapeapp.shape.filehandlers.FileOperator
 import kotlinx.android.synthetic.main.fragment_take_photo.*
+import java.io.File
+import java.io.IOException
 
 //  TODO: clean-up whole file
+//  TODO: transform to MVVM
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,12 +36,16 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class TakePhotoFragment : Fragment() {
-    //  TODO: Handle full-sized photo
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
+
+    /**
+     * Holds [Uri] to taken photo
+     */
+    private var photoFileUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,36 +54,54 @@ class TakePhotoFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        invokeTakePictureIntent()
+        dispatchTakePictureIntent()
     }
 
-    private fun invokeTakePictureIntent() {
+    /**
+     * Dispatches [Intent] to capture image from camera.
+     * After taking photo, [onActivityResult] is invoked
+     */
+    private fun dispatchTakePictureIntent() {
         val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         activity?.let {
             takePictureIntent.resolveActivity(it.packageManager)?.let {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                val photoFile = tryToCreateImageFile()
+                photoFile?.let {
+                    context?.let { context ->
+                        photoFileUri = FileProvider.getUriForFile(context, "com.shapeapp.fileprovider", photoFile)
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFileUri)
+                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                    }
+
+                }
             }
         }
     }
 
-    /**
-     * Handles return [Intent] that contains taken photo [Bitmap]
-     */
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            val bitmapKey = "data"
-            val photoBitmap = data?.extras?.get(bitmapKey) as Bitmap
-            swapCameraIconToTakenPhoto(photoBitmap)
+    private fun tryToCreateImageFile(): File? {
+        return try {
+            context?.let {
+                FileOperator.createImageFile(it)
+            }
+        } catch (e: IOException) {
+            Log.e(this.javaClass.simpleName, "Error occurred when trying to create image file")
+            null
         }
     }
 
     /**
-     * Shows [Bitmap] in UI
+     * Loads photo to UI after user finishes taking it.
      */
-    private fun swapCameraIconToTakenPhoto(photoBitmap: Bitmap) {
-        camera_icon_imageview.visibility = View.INVISIBLE
-        taken_photo_imageview.setImageBitmap(photoBitmap)
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            loadPhotoIntoUI()
+        }
+    }
+
+    private fun loadPhotoIntoUI() {
+        taken_photo_imageview.setImageURI(photoFileUri)
         taken_photo_imageview.visibility = View.VISIBLE
+        camera_icon_imageview.visibility = View.INVISIBLE
     }
 
     override fun onCreateView(
