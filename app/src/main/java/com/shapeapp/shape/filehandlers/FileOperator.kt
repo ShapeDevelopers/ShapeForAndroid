@@ -32,7 +32,6 @@ object FileOperator {
 
     @SuppressLint("SimpleDateFormat")
     private fun generateTimeStamp(): String {
-        //  TODO: change time to shorter one
         return SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
     }
 
