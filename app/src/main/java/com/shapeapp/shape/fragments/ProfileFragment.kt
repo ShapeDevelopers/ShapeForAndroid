@@ -1,15 +1,18 @@
 package com.shapeapp.shape.fragments
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
+import kotlinx.android.synthetic.main.fragment_profile.*
 
-//  TODO: check and change everything
+//  TODO: check and implement loading data from source (MVVM)
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,6 +34,8 @@ class ProfileFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+    private val avatarAnimator by lazy { generateAvatarAnimator() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -45,6 +50,36 @@ class ProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        avatar_circularimageview.setOnLongClickListener {
+            controlAvatarAnimator()
+            true
+        }
+    }
+
+    private fun controlAvatarAnimator() {
+        when (avatarAnimator.isStarted) {
+            true -> avatarAnimator.end()
+            false -> avatarAnimator.start()
+        }
+    }
+
+    private fun generateAvatarAnimator(): ObjectAnimator {
+        val scaleAnimator = ObjectAnimator.ofPropertyValuesHolder(
+            avatar_circularimageview,
+            PropertyValuesHolder.ofFloat("scaleX", 1.1f),
+            PropertyValuesHolder.ofFloat("scaleY", 1.1f)
+        )
+        scaleAnimator.apply {
+            duration = 400
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }
+        return scaleAnimator
     }
 
     // TODO: Rename method, update argument and hook method into UI event
