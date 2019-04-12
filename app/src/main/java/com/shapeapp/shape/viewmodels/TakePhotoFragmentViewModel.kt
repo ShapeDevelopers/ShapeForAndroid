@@ -15,6 +15,8 @@ class TakePhotoFragmentViewModel : ViewModel() {
     val photoUri: LiveData<Uri>
         get() = _photoUri
 
+    private var possiblePhotoUri: Uri? = null
+
     init {
         _photoUri.value = getEmptyContentUri()
     }
@@ -24,4 +26,11 @@ class TakePhotoFragmentViewModel : ViewModel() {
      */
     private fun getEmptyContentUri(): Uri? = null
 
+    fun startedWaitingForPhoto(possiblePhotoUri: Uri) {
+        this.possiblePhotoUri = possiblePhotoUri
+    }
+
+    fun finishedWaitingForPhoto() {
+        _photoUri.value = possiblePhotoUri
+    }
 }

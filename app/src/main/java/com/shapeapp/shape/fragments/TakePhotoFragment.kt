@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.constants.Authorities
@@ -21,7 +22,6 @@ import kotlinx.android.synthetic.main.fragment_take_photo.*
 import java.io.File
 import java.io.IOException
 
-//  TODO: transform to MVVM
 
 /**
  * A simple [Fragment] subclass.
@@ -38,17 +38,26 @@ class TakePhotoFragment : Fragment() {
 
     private var listener: OnFragmentInteractionListener? = null
 
-    /**
-     * Holds [Uri] to taken photo
-     */
-    private var photoFileUri: Uri? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProviders.of(this).get(TakePhotoFragmentViewModel::class.java)
 
         dispatchTakePictureIntent()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        connectUiToViewModel()
+    }
+
+    private fun connectUiToViewModel() {
+        viewModel.let {
+            it.photoUri.observe(this, Observer { photoUri ->
+                loadPhotoIntoUI(photoUri)
+            })
+        }
     }
 
     /**
@@ -62,10 +71,11 @@ class TakePhotoFragment : Fragment() {
                 val photoFile = tryToCreateImageFile()
                 photoFile?.let {
                     context?.let { context ->
-                        photoFileUri =
+                        val photoFileUri =
                             FileProvider.getUriForFile(context, Authorities.FILE_PROVIDER_AUTHORITY, photoFile)
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFileUri)
                         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                        viewModel.startedWaitingForPhoto(photoFileUri)
                     }
 
                 }
@@ -89,12 +99,16 @@ class TakePhotoFragment : Fragment() {
      */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            loadPhotoIntoUI()
+            viewModel.finishedWaitingForPhoto()
         }
     }
 
-    private fun loadPhotoIntoUI() {
-        taken_photo_imageview.setImageURI(photoFileUri)
+    private fun loadPhotoIntoUI(photoUri: Uri?) {
+        taken_photo_imageview.setImageURI(photoUri)
+        swapVisibilities()
+    }
+
+    private fun swapVisibilities() {
         taken_photo_imageview.visibility = View.VISIBLE
         camera_icon_imageview.visibility = View.INVISIBLE
     }
