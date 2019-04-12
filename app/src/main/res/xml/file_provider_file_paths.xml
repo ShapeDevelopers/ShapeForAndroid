@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- FileProvider expects these paths -->
+<!-- See: https://developer.android.com/training/camera/photobasics#TaskPath -->
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="my_photos" path="Android/data/com.shapeapp.shape/files/Pictures" />
+</paths>

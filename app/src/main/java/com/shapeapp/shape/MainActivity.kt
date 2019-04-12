@@ -11,11 +11,13 @@ import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.fragments.MessagesFragment
 import com.shapeapp.shape.fragments.ProfileFragment
 import com.shapeapp.shape.fragments.PublicFragment
+import com.shapeapp.shape.fragments.TakePhotoFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     ProfileFragment.OnFragmentInteractionListener,
-    MessagesFragment.OnFragmentInteractionListener {
+    MessagesFragment.OnFragmentInteractionListener,
+    TakePhotoFragment.OnFragmentInteractionListener {
 
     //  TODO: change implementation of listeners
     //  TODO: maybe one extracted listener for all Fragments (?)
@@ -38,9 +40,8 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
         bottom_navigation_view.setOnNavigationItemSelectedListener { currentItem: MenuItem ->
             when (currentItem.itemId) {
                 R.id.action_inbox -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
-                // TODO: accomplish loading the camera
-                R.id.action_camera -> {
-                }
+                // TODO: change parameters
+                R.id.action_camera -> loadFragment(TakePhotoFragment.newInstance("FIRST", "SECOND"))
                 //  TODO: provide real URI
                 R.id.action_public -> loadFragment(PublicFragment.newInstance("FAKE_USER_AVATAR_URI"))
                 // TODO: accomplish loading near me
