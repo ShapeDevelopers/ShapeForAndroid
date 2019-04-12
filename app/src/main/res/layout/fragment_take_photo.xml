@@ -42,7 +42,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Take new photo"
+        android:text="@string/take_new_photo_button"
         android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/taken_photo_imageview"
