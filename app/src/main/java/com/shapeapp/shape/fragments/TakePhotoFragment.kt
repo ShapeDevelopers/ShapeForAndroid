@@ -12,9 +12,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.constants.Authorities
 import com.shapeapp.shape.filehandlers.FileOperator
+import com.shapeapp.shape.viewmodels.TakePhotoFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_take_photo.*
 import java.io.File
 import java.io.IOException
@@ -32,6 +34,8 @@ import java.io.IOException
  */
 class TakePhotoFragment : Fragment() {
 
+    private lateinit var viewModel: TakePhotoFragmentViewModel
+
     private var listener: OnFragmentInteractionListener? = null
 
     /**
@@ -41,6 +45,8 @@ class TakePhotoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel = ViewModelProviders.of(this).get(TakePhotoFragmentViewModel::class.java)
 
         dispatchTakePictureIntent()
     }
