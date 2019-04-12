@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ReceivedImageFragment">
 
-    <!-- TODO: delete mock-ups (images, texts, ...)-->
     <!-- TODO: extract styles -->
 
     <ImageView
@@ -20,7 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mockup_fennec_fox" />
+        tools:srcCompat="@drawable/mockup_fennec_fox" />
 
     <TextView
         android:id="@+id/sender_nickname_textview"
