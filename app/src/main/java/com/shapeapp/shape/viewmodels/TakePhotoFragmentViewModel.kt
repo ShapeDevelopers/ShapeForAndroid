@@ -17,8 +17,18 @@ class TakePhotoFragmentViewModel : ViewModel() {
 
     private var possiblePhotoUri: Uri? = null
 
+    private val _isCameraIconVisible = MutableLiveData<Boolean>()
+    val isCameraIconVisible: LiveData<Boolean>
+        get() = _isCameraIconVisible
+
+    private val _isTakenPhotoVisible = MutableLiveData<Boolean>()
+    val isTakenPhotoVisible: LiveData<Boolean>
+        get() = _isTakenPhotoVisible
+
     init {
         _photoUri.value = getEmptyContentUri()
+        _isCameraIconVisible.value = true
+        _isTakenPhotoVisible.value = false
     }
 
     /**
@@ -32,5 +42,7 @@ class TakePhotoFragmentViewModel : ViewModel() {
 
     fun finishedWaitingForPhoto() {
         _photoUri.value = possiblePhotoUri
+        _isCameraIconVisible.value = false
+        _isTakenPhotoVisible.value = true
     }
 }

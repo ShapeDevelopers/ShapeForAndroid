@@ -42,14 +42,13 @@ class TakePhotoFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProviders.of(this).get(TakePhotoFragmentViewModel::class.java)
-
-        dispatchTakePictureIntent()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         connectUiToViewModel()
+        configureTakePictureButton()
     }
 
     private fun connectUiToViewModel() {
@@ -57,6 +56,29 @@ class TakePhotoFragment : Fragment() {
             it.photoUri.observe(this, Observer { photoUri ->
                 loadPhotoIntoUI(photoUri)
             })
+            it.isCameraIconVisible.observe(this, Observer { isCameraIconVisible ->
+                camera_icon_imageview.changeVisibility(isCameraIconVisible)
+            })
+            it.isTakenPhotoVisible.observe(this, Observer { isTakenPhotoVisible ->
+                taken_photo_imageview.changeVisibility(isTakenPhotoVisible)
+            })
+        }
+    }
+
+    /**
+     * Extension function for [View] to change visibility based on [Boolean]
+     */
+    private fun View.changeVisibility(shouldBeVisible: Boolean) {
+        when (shouldBeVisible) {
+            true -> this.visibility = View.VISIBLE
+            false -> this.visibility = View.INVISIBLE
+        }
+
+    }
+
+    private fun configureTakePictureButton() {
+        take_photo_button.setOnClickListener {
+            dispatchTakePictureIntent()
         }
     }
 
@@ -105,12 +127,6 @@ class TakePhotoFragment : Fragment() {
 
     private fun loadPhotoIntoUI(photoUri: Uri?) {
         taken_photo_imageview.setImageURI(photoUri)
-        swapVisibilities()
-    }
-
-    private fun swapVisibilities() {
-        taken_photo_imageview.visibility = View.VISIBLE
-        camera_icon_imageview.visibility = View.INVISIBLE
     }
 
     override fun onCreateView(
