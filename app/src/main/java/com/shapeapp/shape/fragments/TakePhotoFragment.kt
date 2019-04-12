@@ -36,12 +36,30 @@ class TakePhotoFragment : Fragment() {
 
     private lateinit var viewModel: TakePhotoFragmentViewModel
 
+    //  TODO: consider whether it is needed
     private var listener: OnFragmentInteractionListener? = null
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException("$context must implement OnFragmentInteractionListener")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         viewModel = ViewModelProviders.of(this).get(TakePhotoFragmentViewModel::class.java)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_take_photo, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -65,6 +83,10 @@ class TakePhotoFragment : Fragment() {
         }
     }
 
+    private fun loadPhotoIntoUI(photoUri: Uri?) {
+        taken_photo_imageview.setImageURI(photoUri)
+    }
+
     /**
      * Extension function for [View] to change visibility based on [Boolean]
      */
@@ -73,7 +95,6 @@ class TakePhotoFragment : Fragment() {
             true -> this.visibility = View.VISIBLE
             false -> this.visibility = View.INVISIBLE
         }
-
     }
 
     private fun configureTakePictureButton() {
@@ -99,7 +120,6 @@ class TakePhotoFragment : Fragment() {
                         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
                         viewModel.startedWaitingForPhoto(photoFileUri)
                     }
-
                 }
             }
         }
@@ -117,7 +137,7 @@ class TakePhotoFragment : Fragment() {
     }
 
     /**
-     * Loads photo to UI after user finishes taking it.
+     * Invoked when result from camera is coming back.
      */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
@@ -125,35 +145,14 @@ class TakePhotoFragment : Fragment() {
         }
     }
 
-    private fun loadPhotoIntoUI(photoUri: Uri?) {
-        taken_photo_imageview.setImageURI(photoUri)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_take_photo, container, false)
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException("$context must implement OnFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
     }
 
     /**
