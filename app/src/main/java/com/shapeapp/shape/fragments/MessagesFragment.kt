@@ -65,11 +65,6 @@ class MessagesFragment : Fragment() {
         fragmentLoadingDemandListener?.requestLoadFragment(profileFragment)
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-
-    }
-
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is FragmentLoadingDemandListener) {
