@@ -9,7 +9,6 @@ import com.shapeapp.shape.mockupsmakers.CardMockups
  * Repository singleton
  *
  * "somedata" and "_somedata" are for proper encapsulation
- *
  * example:
  * "_somedata" is private MutableLiveData<...> and "somedata" is public LiveData<...>
  * with custom getter that returns "_somedata" as LiveData<...>

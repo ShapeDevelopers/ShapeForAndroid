@@ -11,6 +11,9 @@ import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 
+/**
+ * Feeds [RecyclerView] with [Card] data
+ */
 class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
     RecyclerView.Adapter<SmallCardRecyclerViewAdapter.MyViewHolder>() {
 
