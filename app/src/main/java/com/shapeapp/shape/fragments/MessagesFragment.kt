@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
+import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
+import kotlinx.android.synthetic.main.fragment_messages.*
 
 //  TODO: check and change everything
 
@@ -33,6 +35,8 @@ class MessagesFragment : Fragment() {
     private var param2: String? = null
     private var listener: OnFragmentInteractionListener? = null
 
+    private var fragmentLoadingDemandListener: FragmentLoadingDemandListener? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -49,6 +53,23 @@ class MessagesFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_messages, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        configureButtons()
+    }
+
+    private fun configureButtons() {
+        my_profile_button.setOnClickListener {
+            loadProfileFragment()
+        }
+    }
+
+    private fun loadProfileFragment() {
+        val profileFragment = ProfileFragment.newInstance("FAKE_FIRST", "FAKE_SECOND")
+        fragmentLoadingDemandListener?.requestLoadFragment(profileFragment)
+    }
+
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
@@ -60,6 +81,12 @@ class MessagesFragment : Fragment() {
             listener = context
         } else {
             throw RuntimeException("$context must implement OnFragmentInteractionListener")
+        }
+
+        if (context is FragmentLoadingDemandListener) {
+            fragmentLoadingDemandListener = context
+        } else {
+            throw RuntimeException("$context must implement FragmentLoadingDemandListener")
         }
     }
 
