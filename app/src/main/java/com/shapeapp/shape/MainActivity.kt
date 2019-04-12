@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     ProfileFragment.OnFragmentInteractionListener,
-    MessagesFragment.OnFragmentInteractionListener,
     TakePhotoFragment.OnFragmentInteractionListener {
 
     //  TODO: change implementation of listeners
