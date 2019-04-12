@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/action_inbox"
@@ -17,8 +17,11 @@
         android:icon="@drawable/public_icon"
         android:title="@string/public_action_button"
         app:showAsAction="ifRoom" />
+
+    <!-- TODO: turn on when Fragment will be completed-->
     <item
         android:id="@+id/action_near_me"
+        android:enabled="false"
         android:icon="@drawable/near_me_icon"
         android:title="@string/near_me_action_button"
         app:showAsAction="ifRoom" />
