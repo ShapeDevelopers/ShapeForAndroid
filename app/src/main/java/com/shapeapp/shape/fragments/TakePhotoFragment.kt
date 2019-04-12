@@ -12,14 +12,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.constants.Authorities
 import com.shapeapp.shape.filehandlers.FileOperator
+import com.shapeapp.shape.viewmodels.TakePhotoFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_take_photo.*
 import java.io.File
 import java.io.IOException
 
-//  TODO: transform to MVVM
 
 /**
  * A simple [Fragment] subclass.
@@ -32,17 +34,73 @@ import java.io.IOException
  */
 class TakePhotoFragment : Fragment() {
 
+    private lateinit var viewModel: TakePhotoFragmentViewModel
+
+    //  TODO: consider whether it is needed
     private var listener: OnFragmentInteractionListener? = null
 
-    /**
-     * Holds [Uri] to taken photo
-     */
-    private var photoFileUri: Uri? = null
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException("$context must implement OnFragmentInteractionListener")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        dispatchTakePictureIntent()
+        viewModel = ViewModelProviders.of(this).get(TakePhotoFragmentViewModel::class.java)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_take_photo, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        connectUiToViewModel()
+        configureTakePictureButton()
+    }
+
+    private fun connectUiToViewModel() {
+        viewModel.let {
+            it.photoUri.observe(this, Observer { photoUri ->
+                loadPhotoIntoUI(photoUri)
+            })
+            it.isCameraIconVisible.observe(this, Observer { isCameraIconVisible ->
+                camera_icon_imageview.changeVisibility(isCameraIconVisible)
+            })
+            it.isTakenPhotoVisible.observe(this, Observer { isTakenPhotoVisible ->
+                taken_photo_imageview.changeVisibility(isTakenPhotoVisible)
+            })
+        }
+    }
+
+    private fun loadPhotoIntoUI(photoUri: Uri?) {
+        taken_photo_imageview.setImageURI(photoUri)
+    }
+
+    /**
+     * Extension function for [View] to change visibility based on [Boolean]
+     */
+    private fun View.changeVisibility(shouldBeVisible: Boolean) {
+        when (shouldBeVisible) {
+            true -> this.visibility = View.VISIBLE
+            false -> this.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun configureTakePictureButton() {
+        take_photo_button.setOnClickListener {
+            dispatchTakePictureIntent()
+        }
     }
 
     /**
@@ -56,12 +114,12 @@ class TakePhotoFragment : Fragment() {
                 val photoFile = tryToCreateImageFile()
                 photoFile?.let {
                     context?.let { context ->
-                        photoFileUri =
+                        val photoFileUri =
                             FileProvider.getUriForFile(context, Authorities.FILE_PROVIDER_AUTHORITY, photoFile)
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFileUri)
                         startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                        viewModel.startedWaitingForPhoto(photoFileUri)
                     }
-
                 }
             }
         }
@@ -79,45 +137,22 @@ class TakePhotoFragment : Fragment() {
     }
 
     /**
-     * Loads photo to UI after user finishes taking it.
+     * Invoked when result from camera is coming back.
      */
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            loadPhotoIntoUI()
-        }
-    }
-
-    private fun loadPhotoIntoUI() {
-        taken_photo_imageview.setImageURI(photoFileUri)
-        taken_photo_imageview.visibility = View.VISIBLE
-        camera_icon_imageview.visibility = View.INVISIBLE
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_take_photo, container, false)
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException("$context must implement OnFragmentInteractionListener")
+            viewModel.finishedWaitingForPhoto()
         }
     }
 
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    // TODO: Rename method, update argument and hook method into UI event
+    fun onButtonPressed(uri: Uri) {
+        listener?.onFragmentInteraction(uri)
     }
 
     /**

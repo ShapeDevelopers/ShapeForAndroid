@@ -33,4 +33,5 @@
     <string name="search_for_friend_content_description">Search for friend</string>
     <string name="background_image_content_description">Background image</string>
     <string name="taken_photo_content_description">Taken photo</string>
+    <string name="take_new_photo_button">Take new photo</string>
 </resources>
