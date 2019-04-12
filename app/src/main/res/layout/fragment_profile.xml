@@ -45,7 +45,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-light"
-            android:text="Profile"
+            android:text="@string/profile_main_title"
             android:textAlignment="center"
             android:textSize="30sp"
             android:typeface="normal"
@@ -98,7 +98,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-light"
-        android:text="AwesomeSealXOXO"
+        android:text="@string/profile_name_mockup"
         android:textColor="@color/colorPrimaryText"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -140,7 +140,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-thin"
-            android:text="Add friends"
+            android:text="@string/add_friends"
             android:textAlignment="center"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -166,7 +166,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-thin"
-            android:text="Search for friend"
+            android:text="@string/search_for_friend"
             android:textAlignment="center"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -200,7 +200,7 @@
                 android:id="@+id/name_title_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Name"
+                android:text="@string/name"
                 android:textColor="@color/colorSecondaryText" />
 
             <TextView
@@ -208,13 +208,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Sealo" />
+                android:text="@string/name_mockup" />
 
             <TextView
                 android:id="@+id/surname_title_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Surname"
+                android:text="@string/surname"
                 android:textColor="@color/colorSecondaryText" />
 
             <TextView
@@ -222,13 +222,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Awesome" />
+                android:text="@string/surname_mockup" />
 
             <TextView
                 android:id="@+id/sex_title_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sex"
+                android:text="@string/sex"
                 android:textColor="@color/colorSecondaryText" />
 
             <TextView
@@ -236,13 +236,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Female" />
+                android:text="@string/female" />
 
             <TextView
                 android:id="@+id/email_title_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="@string/email"
                 android:textColor="@color/colorSecondaryText" />
 
             <TextView
@@ -250,13 +250,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="awesome.seal@bestwaters.com" />
+                android:text="@string/email_mockup" />
 
             <TextView
                 android:id="@+id/birth_date_title_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Birth date"
+                android:text="@string/birth_date"
                 android:textColor="@color/colorSecondaryText" />
 
             <TextView
@@ -264,13 +264,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="28/02/1999" />
+                android:text="@string/birth_date_with_slashes_mockup" />
 
             <TextView
                 android:id="@+id/distance_title_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Distance"
+                android:text="@string/distance"
                 android:textColor="@color/colorSecondaryText" />
 
             <LinearLayout
@@ -294,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="23 km"
+                    android:text="@string/distance_in_km_mockup"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent" />
             </LinearLayout>

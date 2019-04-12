@@ -3,4 +3,32 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="inbox_action_button">Inbox</string>
+    <string name="camera_action_button">Camera</string>
+    <string name="public_action_button">Public</string>
+    <string name="near_me_action_button">Near me</string>
+    <string name="messages_main_title">Messages</string>
+    <string name="profile_main_title">Profile</string>
+    <string name="public_main_title">Public</string>
+    <string name="sent_title">Sent</string>
+    <string name="received_title">Received</string>
+    <string name="profile_name_mockup">AwesomeSealXOXO</string>
+    <string name="add_friends">Add friends</string>
+    <string name="search_for_friend">Search for friend</string>
+    <string name="name">Name</string>
+    <string name="name_mockup">Sealo</string>
+    <string name="surname">Surname</string>
+    <string name="surname_mockup">Awesome</string>
+    <string name="sex">Sex</string>
+    <string name="female">Female</string>
+    <string name="email">Email</string>
+    <string name="email_mockup">awesome.seal@bestwaters.com</string>
+    <string name="birth_date">Birth date</string>
+    <string name="birth_date_with_slashes_mockup">28/02/1999</string>
+    <string name="distance">Distance</string>
+    <string name="distance_in_km_mockup">23 km</string>
+    <string name="new_title">New</string>
+    <string name="official_title">Official</string>
+    <string name="minutes_symbol">min</string>
+    <string name="latest_title">Latest</string>
 </resources>

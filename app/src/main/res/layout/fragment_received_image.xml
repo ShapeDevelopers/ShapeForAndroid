@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:fontFamily="sans-serif-condensed"
-        android:text="min"
+        android:text="@string/minutes_symbol"
         android:textAlignment="textStart"
         android:textColor="@color/colorHintGrey"
         android:textSize="18sp"
