@@ -162,6 +162,7 @@ class PublicFragment : Fragment() {
 
     private fun setButtonsOnClickListeners() {
         my_profile_button.setOnClickListener { loadProfileFragment() }
+        //  TODO: replace with [BottomSheetDialog] (?)
         my_public_shares_button.setOnClickListener { showMyPublicSharesDialog() }
     }
 
