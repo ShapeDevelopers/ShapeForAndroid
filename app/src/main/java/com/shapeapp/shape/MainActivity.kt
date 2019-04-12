@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
             when (currentItem.itemId) {
                 R.id.action_inbox -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
                 // TODO: change parameters
-                R.id.action_camera -> loadFragment(TakePhotoFragment.newInstance("FIRST", "SECOND"))
+                R.id.action_camera -> loadFragment(TakePhotoFragment.newInstance())
                 //  TODO: provide real URI
                 R.id.action_public -> loadFragment(PublicFragment.newInstance("FAKE_USER_AVATAR_URI"))
                 // TODO: accomplish loading near me
