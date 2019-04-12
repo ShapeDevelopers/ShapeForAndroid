@@ -15,6 +15,7 @@ import com.shapeapp.shape.mockupsmakers.CardMockups
  * with custom getter that returns "_somedata" as LiveData<...>
  * See: www.youtube.com/watch?v=5qlIPTDE274 (time: 2:46)
  */
+@Suppress("ObjectPropertyName")
 object Repository {
 
     //  TODO: add model, remote data source and others
