@@ -29,4 +29,8 @@
     <string name="official_title">Official</string>
     <string name="minutes_symbol">min</string>
     <string name="latest_title">Latest</string>
+    <string name="add_friends_content_description">Add friends</string>
+    <string name="search_for_friend_content_description">Search for friend</string>
+    <string name="background_image_content_description">Background image</string>
+    <string name="taken_photo_content_description">Taken photo</string>
 </resources>

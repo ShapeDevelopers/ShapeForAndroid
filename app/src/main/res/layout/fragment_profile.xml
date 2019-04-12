@@ -131,7 +131,8 @@
             app:layout_constraintBottom_toTopOf="@+id/add_friends_textview"
             app:layout_constraintEnd_toEndOf="@+id/add_friends_textview"
             app:layout_constraintStart_toStartOf="@+id/add_friends_textview"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/add_friends_content_description" />
 
         <TextView
             android:id="@+id/add_friends_textview"
@@ -157,7 +158,8 @@
             app:layout_constraintBottom_toTopOf="@+id/search_for_friend_textview"
             app:layout_constraintEnd_toEndOf="@+id/search_for_friend_textview"
             app:layout_constraintStart_toStartOf="@+id/search_for_friend_textview"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/search_for_friend_content_description" />
 
         <TextView
             android:id="@+id/search_for_friend_textview"

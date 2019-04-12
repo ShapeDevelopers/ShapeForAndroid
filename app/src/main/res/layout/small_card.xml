@@ -22,7 +22,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/mockup_golden_retriever" />
+            tools:srcCompat="@drawable/mockup_golden_retriever"
+            android:contentDescription="@string/background_image_content_description" />
 
         <!-- TODO: extract shadow values to style (?) -->
 

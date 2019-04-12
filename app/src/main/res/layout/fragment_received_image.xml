@@ -19,7 +19,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mockup_fennec_fox" />
+        app:srcCompat="@drawable/mockup_fennec_fox"
+        android:contentDescription="@string/background_image_content_description" />
 
     <TextView
         android:id="@+id/sender_nickname_textview"
