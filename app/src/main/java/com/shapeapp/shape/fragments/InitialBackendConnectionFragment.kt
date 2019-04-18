@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
 import com.shapeapp.shape.backendcalls.RetrofitBackendClient
-import com.shapeapp.shape.backendcalls.User
+import com.shapeapp.shape.data.Card
 import kotlinx.android.synthetic.main.fragment_initial_backend_connection.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,32 +22,25 @@ import retrofit2.Response
  */
 class InitialBackendConnectionFragment : Fragment() {
 
+    //  TODO: delete (only for easy testing the connection)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //  TODO: delete
         makeNetworkCall()
     }
 
     private fun makeNetworkCall() {
-        //  TODO: delete
-
         val backendApi = RetrofitBackendClient.backendApi
+        val networkCall = backendApi.getCards()
 
-        val networkCall = backendApi.getUser()
-
-        networkCall.enqueue(object : Callback<User> {
-            override fun onResponse(call: Call<User>, response: Response<User>) {
+        networkCall.enqueue(object : Callback<List<Card>> {
+            override fun onResponse(call: Call<List<Card>>, response: Response<List<Card>>) {
                 when (response.isSuccessful) {
                     true -> {
-                        val user = response.body()
-                        val name = user?.name ?: "No name provided"
-                        val surname = user?.surname ?: "No surname provided"
-                        val email = user?.email ?: "No email provided"
-                        val birthDate = user?.birthDate ?: "No birth date provided"
-
-                        val receivedData = "name: $name \nsurname: $surname \nemail: $email \nbirthDate: $birthDate"
-                        response_textview.text = receivedData
+                        val cards = response.body() ?: listOf()
+                        val cardsAsText = cardsToTextList(cards)
+                        response_textview.text = cardsAsText
                     }
                     false -> {
                         val responseCode = response.code()
@@ -57,11 +50,19 @@ class InitialBackendConnectionFragment : Fragment() {
                 }
             }
 
-            override fun onFailure(call: Call<User>, t: Throwable) {
+            override fun onFailure(call: Call<List<Card>>, t: Throwable) {
                 val failureMessage = "Failure: ${t.message}"
                 response_textview.text = failureMessage
             }
         })
+    }
+
+    private fun cardsToTextList(cards: List<Card>): String {
+        var cardsAsText = ""
+        for (card in cards) {
+            cardsAsText += "$card,\n"
+        }
+        return cardsAsText
     }
 
     override fun onCreateView(

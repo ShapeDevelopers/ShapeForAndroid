@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 object RetrofitBackendClient {
 
-    private const val BASE_URL = "http://shape-prod.eu-north-1.elasticbeanstalk.com/"
+    private const val BASE_URL = "https://my-json-server.typicode.com/ShapeDevelopers/ShapeMockups/"
 
     val backendApi by lazy { initBackendApi() }
 
