@@ -6,7 +6,7 @@ import retrofit2.http.GET
 /**
  * Defines REST API for Retrofit
  */
-interface BackendAPI {
+interface BackendApi {
 
     @GET("user")
     fun getUser(): Call<User>

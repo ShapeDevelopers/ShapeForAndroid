@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
-import com.shapeapp.shape.backendcalls.BackendAPI
+import com.shapeapp.shape.backendcalls.BackendApi
 import com.shapeapp.shape.backendcalls.User
 import kotlinx.android.synthetic.main.fragment_initial_backend_connection.*
 import retrofit2.Call
@@ -41,7 +41,7 @@ class InitialBackendConnectionFragment : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val backendApi = retrofit.create(BackendAPI::class.java)
+        val backendApi = retrofit.create(BackendApi::class.java)
 
         val networkCall = backendApi.getUser()
 
