@@ -47,4 +47,14 @@ class Card() : Parcelable {
         }
     }
 
+    override fun toString(): String {
+        return "Card(\n" +
+                "extraText='$extraText',\n" +
+                "imageUrl='$imageUrl',\n" +
+                "senderNickname= '$senderNickname',\n" +
+                "remainingTimeInMin='$remainingTimeInMin',\n" +
+                "votesForCounter='$votesForCounter',\n" +
+                "votesAgainstCounter='$votesAgainstCounter'\n" +
+                ")"
+    }
 }
