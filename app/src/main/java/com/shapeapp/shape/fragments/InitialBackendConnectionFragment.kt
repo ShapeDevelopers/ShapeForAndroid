@@ -43,13 +43,7 @@ class InitialBackendConnectionFragment : Fragment() {
                         val cards = response.body() ?: listOf()
                         var cardsAsText = ""
                         for (card in cards) {
-                            val cardInfo = "extraText: ${card.extraText}\n" +
-                                    "imageUrl: ${card.imageUrl}\n" +
-                                    "senderNickname: ${card.senderNickname}\n" +
-                                    "remainingTimeInMin: ${card.remainingTimeInMin}\n" +
-                                    "votesForCounter: ${card.votesForCounter}\n" +
-                                    "votesAgainstCounter: ${card.votesAgainstCounter}"
-                            cardsAsText += "[$cardInfo],\n"
+                            cardsAsText += "$card,\n"
                         }
                         response_textview.text = cardsAsText
                     }
