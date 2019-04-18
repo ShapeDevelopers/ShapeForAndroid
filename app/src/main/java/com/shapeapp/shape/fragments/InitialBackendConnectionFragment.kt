@@ -14,11 +14,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 /**
- * A simple [Fragment] subclass.
+ * It is designed ONLY for testing the connection with network.
  *
  * Use the [InitialBackendConnectionFragment.newInstance] factory method to
  * create an instance of this fragment.
- *
  */
 class InitialBackendConnectionFragment : Fragment() {
 
