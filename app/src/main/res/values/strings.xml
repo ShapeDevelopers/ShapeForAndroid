@@ -34,4 +34,5 @@
     <string name="background_image_content_description">Background image</string>
     <string name="taken_photo_content_description">Taken photo</string>
     <string name="take_new_photo_button">Take new photo</string>
+    <string name="initial_backend_connect_main_title">Initial backend connection</string>
 </resources>
