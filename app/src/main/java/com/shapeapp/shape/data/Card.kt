@@ -2,17 +2,24 @@ package com.shapeapp.shape.data
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 /**
  * Contains single card's data
  */
 class Card() : Parcelable {
 
+    @SerializedName("extraText")
     var extraText = ""
+    @SerializedName("imageUrl")
     var imageUrl = ""
+    @SerializedName("senderNickname")
     var senderNickname = ""
+    @SerializedName("remainingTimeInMin")
     var remainingTimeInMin = 0
+    @SerializedName("votesForCounter")
     var votesForCounter = 0
+    @SerializedName("votesAgainstCounter")
     var votesAgainstCounter = 0
 
     constructor(parcel: Parcel) : this() {
