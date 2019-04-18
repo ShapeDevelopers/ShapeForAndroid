@@ -22,18 +22,16 @@ import retrofit2.Response
  */
 class InitialBackendConnectionFragment : Fragment() {
 
+    //  TODO: delete (only for easy testing the connection)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //  TODO: delete
         makeNetworkCall()
     }
 
     private fun makeNetworkCall() {
-        //  TODO: delete
-
         val backendApi = RetrofitBackendClient.backendApi
-
         val networkCall = backendApi.getCards()
 
         networkCall.enqueue(object : Callback<List<Card>> {
@@ -41,10 +39,7 @@ class InitialBackendConnectionFragment : Fragment() {
                 when (response.isSuccessful) {
                     true -> {
                         val cards = response.body() ?: listOf()
-                        var cardsAsText = ""
-                        for (card in cards) {
-                            cardsAsText += "$card,\n"
-                        }
+                        val cardsAsText = cardsToTextList(cards)
                         response_textview.text = cardsAsText
                     }
                     false -> {
@@ -59,8 +54,15 @@ class InitialBackendConnectionFragment : Fragment() {
                 val failureMessage = "Failure: ${t.message}"
                 response_textview.text = failureMessage
             }
-
         })
+    }
+
+    private fun cardsToTextList(cards: List<Card>): String {
+        var cardsAsText = ""
+        for (card in cards) {
+            cardsAsText += "$card,\n"
+        }
+        return cardsAsText
     }
 
     override fun onCreateView(
