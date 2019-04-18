@@ -8,10 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
-import com.shapeapp.shape.fragments.MessagesFragment
-import com.shapeapp.shape.fragments.ProfileFragment
-import com.shapeapp.shape.fragments.PublicFragment
-import com.shapeapp.shape.fragments.TakePhotoFragment
+import com.shapeapp.shape.fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -46,9 +43,9 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
                 R.id.action_camera -> loadFragment(TakePhotoFragment.newInstance())
                 //  TODO: provide real URI
                 R.id.action_public -> loadFragment(PublicFragment.newInstance("FAKE_USER_AVATAR_URI"))
-                // TODO: accomplish loading near me
-                R.id.action_near_me -> {
-                }
+                // TODO: Remove loading [InitialBackendConnectionFragment]
+                // TODO: accomplish loading near me with near me Fragment
+                R.id.action_near_me -> loadFragment(InitialBackendConnectionFragment.newInstance())
             }
             true
         }
