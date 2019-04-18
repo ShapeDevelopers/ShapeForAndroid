@@ -1,5 +1,6 @@
 package com.shapeapp.shape.backendcalls
 
+import com.shapeapp.shape.data.Card
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -8,6 +9,6 @@ import retrofit2.http.GET
  */
 interface BackendApi {
 
-    @GET("user")
-    fun getUser(): Call<User>
+    @GET("cards")
+    fun getCards(): Call<List<Card>>
 }
