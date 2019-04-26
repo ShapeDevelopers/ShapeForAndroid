@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     ProfileFragment.OnFragmentInteractionListener {
 
+    //  TODO: Use Navigation from Jetpack->Architecture Components
     //  TODO: change implementation of listeners
     //  TODO: maybe one extracted listener for all Fragments (?)
     //  TODO: move that listener to separate file
