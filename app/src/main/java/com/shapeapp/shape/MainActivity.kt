@@ -15,8 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  * Manages viewing [Fragment]s on the screen and provides in-app navigation
  */
 class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
-    ProfileFragment.OnFragmentInteractionListener,
-    TakePhotoFragment.OnFragmentInteractionListener {
+    ProfileFragment.OnFragmentInteractionListener {
 
     //  TODO: change implementation of listeners
     //  TODO: maybe one extracted listener for all Fragments (?)

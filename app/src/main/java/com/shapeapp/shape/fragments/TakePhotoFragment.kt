@@ -1,7 +1,6 @@
 package com.shapeapp.shape.fragments
 
 import android.app.Activity.RESULT_OK
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -35,18 +34,6 @@ import java.io.IOException
 class TakePhotoFragment : Fragment() {
 
     private lateinit var viewModel: TakePhotoFragmentViewModel
-
-    //  TODO: consider whether it is needed
-    private var listener: OnFragmentInteractionListener? = null
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException("$context must implement OnFragmentInteractionListener")
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -145,31 +132,6 @@ class TakePhotoFragment : Fragment() {
         }
     }
 
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
 
     companion object {
 
