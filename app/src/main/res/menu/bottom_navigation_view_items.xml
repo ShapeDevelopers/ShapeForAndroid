@@ -18,7 +18,6 @@
         android:title="@string/public_action_button"
         app:showAsAction="ifRoom" />
 
-    <!-- TODO: turn off, and then turn on when Fragment will be completed -->
     <item
         android:id="@+id/action_near_me"
         android:icon="@drawable/near_me_icon"
