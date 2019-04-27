@@ -26,22 +26,11 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
         setContentView(R.layout.activity_main)
 
         configureBottomNavigation()
-
-        if (savedInstanceState == null) {
-            tapOnPublicAction()
-        }
     }
 
     private fun configureBottomNavigation() {
         val navController = findNavController(R.id.nav_host_fragment)
         bottom_navigation_view.setupWithNavController(navController)
-    }
-
-    /**
-     * Behaves the same as tapping on the Public action
-     */
-    private fun tapOnPublicAction() {
-        bottom_navigation_view.selectedItemId = R.id.publicFragment
     }
 
     override fun onFragmentInteraction(uri: Uri) {
