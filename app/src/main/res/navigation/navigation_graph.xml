@@ -51,6 +51,8 @@
             app:argType="com.shapeapp.shape.data.Card" />
         <action
             android:id="@+id/action_receivedImageFragment_to_publicFragment"
-            app:destination="@id/publicFragment" />
+            app:destination="@id/publicFragment"
+            app:popUpTo="@+id/publicFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
