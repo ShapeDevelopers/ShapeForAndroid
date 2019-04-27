@@ -3,11 +3,12 @@ package com.shapeapp.shape
 
 import android.net.Uri
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
-import com.shapeapp.shape.fragments.*
+import com.shapeapp.shape.fragments.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -33,21 +34,23 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     }
 
     private fun configureBottomNavigation() {
-        //  TODO: add other Fragments to load
-        //  TODO: change arguments for Fragments
-        bottom_navigation_view.setOnNavigationItemSelectedListener { currentItem: MenuItem ->
-            when (currentItem.itemId) {
-                R.id.action_inbox -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
-                // TODO: change parameters
-                R.id.action_camera -> loadFragment(TakePhotoFragment.newInstance())
-                //  TODO: provide real URI
-                R.id.action_public -> loadFragment(PublicFragment.newInstance("FAKE_USER_AVATAR_URI"))
-                // TODO: Remove loading [InitialBackendConnectionFragment]
-                // TODO: accomplish loading near me with near me Fragment
-                R.id.action_near_me -> loadFragment(InitialBackendConnectionFragment.newInstance())
-            }
-            true
-        }
+//        //  TODO: add other Fragments to load
+//        //  TODO: change arguments for Fragments
+//        bottom_navigation_view.setOnNavigationItemSelectedListener { currentItem: MenuItem ->
+//            when (currentItem.itemId) {
+//                R.id.action_inbox -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
+//                // TODO: change parameters
+//                R.id.takePhotoFragment -> loadFragment(TakePhotoFragment.newInstance())
+//                //  TODO: provide real URI
+//                R.id.action_public -> loadFragment(PublicFragment.newInstance("FAKE_USER_AVATAR_URI"))
+//                // TODO: Remove loading [InitialBackendConnectionFragment]
+//                // TODO: accomplish loading near me with near me Fragment
+//                R.id.action_near_me -> loadFragment(InitialBackendConnectionFragment.newInstance())
+//            }
+//            true
+//        }
+        val navController = findNavController(R.id.nav_host_fragment)
+        bottom_navigation_view.setupWithNavController(navController)
     }
 
     private fun loadFragment(fragmentToLoad: Fragment) {
