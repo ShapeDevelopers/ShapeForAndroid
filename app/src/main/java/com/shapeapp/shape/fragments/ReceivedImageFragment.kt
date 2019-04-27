@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
@@ -24,6 +25,8 @@ private const val ARG_CARD_PARCELABLE = "ARG_CARD_PARCELABLE"
 class ReceivedImageFragment : Fragment() {
 
     private lateinit var viewModel: ReceivedImageFragmentViewModel
+
+    private val args: ReceivedImageFragmentArgs by navArgs()
 
 
     companion object {
@@ -46,12 +49,15 @@ class ReceivedImageFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            val card: Card = it.getParcelable(ARG_CARD_PARCELABLE) ?: Card()
-            val viewModelFactory = ReceivedImageFragmentViewModelFactory(card)
-            viewModel =
-                ViewModelProviders.of(this, viewModelFactory).get(ReceivedImageFragmentViewModel::class.java)
-        }
+//        arguments?.let {
+//            val card: Card = it.getParcelable(ARG_CARD_PARCELABLE) ?: Card()
+//            val viewModelFactory = ReceivedImageFragmentViewModelFactory(card)
+//            viewModel =
+//                ViewModelProviders.of(this, viewModelFactory).get(ReceivedImageFragmentViewModel::class.java)
+//        }
+        val card = args.card
+        val viewModelFactory = ReceivedImageFragmentViewModelFactory(card)
+        viewModel = ViewModelProviders.of(this,viewModelFactory).get(ReceivedImageFragmentViewModel::class.java)
     }
 
     override fun onCreateView(

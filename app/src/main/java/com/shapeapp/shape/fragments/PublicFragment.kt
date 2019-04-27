@@ -121,9 +121,11 @@ class PublicFragment : Fragment() {
     private fun setClickListenerForRecyclerViewsAdapters() {
         val cardClickListener = object : RecyclerViewCardClickListener {
             override fun onCardClick(clickedCard: Card, cardItemView: View) {
-                fragmentLoadingDemandListener?.requestLoadFragment(
-                    ReceivedImageFragment.newInstance(clickedCard)
-                )
+//                fragmentLoadingDemandListener?.requestLoadFragment(
+//                    ReceivedImageFragment.newInstance(clickedCard)
+//                )
+                val action = PublicFragmentDirections.actionPublicFragmentToReceivedImageFragment2(clickedCard)
+                findNavController().navigate(action)
             }
         }
         newCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
