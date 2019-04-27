@@ -19,4 +19,9 @@
         android:name="com.shapeapp.shape.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/takePhotoFragment"
+        android:name="com.shapeapp.shape.fragments.TakePhotoFragment"
+        android:label="fragment_take_photo"
+        tools:layout="@layout/fragment_take_photo" />
 </navigation>
