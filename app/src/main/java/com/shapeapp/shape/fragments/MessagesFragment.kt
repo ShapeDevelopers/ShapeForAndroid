@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.shapeapp.shape.R
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import kotlinx.android.synthetic.main.fragment_messages.*
@@ -59,8 +60,7 @@ class MessagesFragment : Fragment() {
     }
 
     private fun loadProfileFragment() {
-        val profileFragment = ProfileFragment.newInstance("FAKE_FIRST", "FAKE_SECOND")
-        fragmentLoadingDemandListener?.requestLoadFragment(profileFragment)
+        findNavController().navigate(R.id.action_messagesFragment_to_profileFragment)
     }
 
     override fun onAttach(context: Context) {
