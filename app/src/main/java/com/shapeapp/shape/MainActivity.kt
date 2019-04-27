@@ -12,7 +12,7 @@ import com.shapeapp.shape.fragments.ProfileFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
- * Manages viewing [Fragment]s on the screen and provides in-app navigation
+ * Provides in-app navigation with Navigation Component
  */
 class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     ProfileFragment.OnFragmentInteractionListener {
