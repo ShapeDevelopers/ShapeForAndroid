@@ -156,6 +156,7 @@ class PublicFragment : Fragment() {
     }
 
     private fun showMyPublicSharesDialog() {
+        //  TODO: wait for support for DialogFragment in Navigation Component, then reimplement
         fragmentManager?.let { MyPublicSharesDialog().show(it, "dialog") }
     }
 
