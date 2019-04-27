@@ -8,7 +8,7 @@
         android:title="@string/inbox_action_button"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_camera"
+        android:id="@+id/takePhotoFragment"
         android:icon="@drawable/camera_icon"
         android:title="@string/camera_action_button"
         app:showAsAction="ifRoom" />
