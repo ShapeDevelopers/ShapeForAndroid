@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
@@ -52,7 +53,7 @@ class ReceivedImageFragment : Fragment() {
     private fun enableSwipeToClose() {
         root_layout.setOnTouchListener(object : OnFourWaysSwipeListener(context!!) {
             override fun onSwipeBottom() {
-                activity?.run { supportFragmentManager.popBackStack() }
+                findNavController().navigate(R.id.action_receivedImageFragment_to_publicFragment)
             }
         })
     }
