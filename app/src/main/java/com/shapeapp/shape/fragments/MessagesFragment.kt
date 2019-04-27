@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.fragment_messages.*
 //  TODO: complete messages loading
 
 /**
- * A simple [Fragment] subclass.
+ * Shows sent, received and latest messages.
  */
 class MessagesFragment : Fragment() {
 
