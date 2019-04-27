@@ -73,14 +73,6 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
 //        }
     }
 
-//    private fun isAnyFragmentLoaded(): Boolean {
-//        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
-//        return when (fragment) {
-//            null -> false
-//            else -> true
-//        }
-//    }
-
     /**
      * Behaves the same as tapping on the Public action
      */
