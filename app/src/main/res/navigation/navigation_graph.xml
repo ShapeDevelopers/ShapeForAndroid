@@ -49,5 +49,8 @@
         <argument
             android:name="card"
             app:argType="com.shapeapp.shape.data.Card" />
+        <action
+            android:id="@+id/action_receivedImageFragment_to_publicFragment"
+            app:destination="@id/publicFragment" />
     </fragment>
 </navigation>
