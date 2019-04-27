@@ -16,7 +16,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.dialogs.MyPublicSharesDialog
-import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 import com.shapeapp.shape.repositories.Repository
@@ -29,9 +28,6 @@ private const val ARG_USER_AVATAR_URI = "ARG_USER_AVATAR_URI"
 
 /**
  * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [FragmentLoadingDemandListener] interface
- * to handle interaction events.
  * Use the [PublicFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
