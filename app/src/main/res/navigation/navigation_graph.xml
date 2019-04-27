@@ -34,4 +34,9 @@
         android:name="com.shapeapp.shape.fragments.InitialBackendConnectionFragment"
         android:label="fragment_initial_backend_connection"
         tools:layout="@layout/fragment_initial_backend_connection" />
+    <fragment
+        android:id="@+id/receivedImageFragment"
+        android:name="com.shapeapp.shape.fragments.ReceivedImageFragment"
+        android:label="fragment_received_image"
+        tools:layout="@layout/fragment_received_image" />
 </navigation>
