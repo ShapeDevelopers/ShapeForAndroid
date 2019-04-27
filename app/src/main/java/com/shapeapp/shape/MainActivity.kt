@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
      * Behaves the same as tapping on the Public action
      */
     private fun tapOnPublicAction() {
-        bottom_navigation_view.selectedItemId = R.id.action_public
+        bottom_navigation_view.selectedItemId = R.id.publicFragment
     }
 
     override fun onFragmentInteraction(uri: Uri) {
