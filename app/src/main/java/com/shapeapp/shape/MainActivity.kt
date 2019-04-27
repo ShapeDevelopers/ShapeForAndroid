@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     ProfileFragment.OnFragmentInteractionListener {
 
-    //  TODO: Use Navigation from Jetpack->Architecture Components
     //  TODO: change implementation of listeners
     //  TODO: maybe one extracted listener for all Fragments (?)
     //  TODO: move that listener to separate file
@@ -34,46 +33,8 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     }
 
     private fun configureBottomNavigation() {
-//        //  TODO: add other Fragments to load
-//        //  TODO: change arguments for Fragments
-//        bottom_navigation_view.setOnNavigationItemSelectedListener { currentItem: MenuItem ->
-//            when (currentItem.itemId) {
-//                R.id.action_inbox -> loadFragment(MessagesFragment.newInstance("FIRST", "SECOND"))
-//                // TODO: change parameters
-//                R.id.takePhotoFragment -> loadFragment(TakePhotoFragment.newInstance())
-//                //  TODO: provide real URI
-//                R.id.action_public -> loadFragment(PublicFragment.newInstance("FAKE_USER_AVATAR_URI"))
-//                // TODO: Remove loading [InitialBackendConnectionFragment]
-//                // TODO: accomplish loading near me with near me Fragment
-//                R.id.action_near_me -> loadFragment(InitialBackendConnectionFragment.newInstance())
-//            }
-//            true
-//        }
         val navController = findNavController(R.id.nav_host_fragment)
         bottom_navigation_view.setupWithNavController(navController)
-    }
-
-    private fun loadFragment(fragmentToLoad: Fragment) {
-        //  TODO: delete (now Navigation Component handles this)
-//        when (isAnyFragmentLoaded()) {
-//            true -> {
-//                supportFragmentManager
-//                    .beginTransaction()
-//                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-//                    .replace(R.id.fragment_container, fragmentToLoad)
-//                    .addToBackStack(null)
-//                    .commit()
-//            }
-//            false -> {
-//                supportFragmentManager
-//                    .beginTransaction()
-//                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-//                    .add(R.id.fragment_container, fragmentToLoad)
-//                    .addToBackStack(null)
-//                    .commit()
-//            }
-//
-//        }
     }
 
     /**
@@ -88,7 +49,7 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     }
 
     override fun requestLoadFragment(fragmentToLoad: Fragment) {
-        loadFragment(fragmentToLoad)
+        //  TODO: delete
     }
 }
 
