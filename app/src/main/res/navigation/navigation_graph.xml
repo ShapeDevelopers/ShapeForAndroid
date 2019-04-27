@@ -24,4 +24,9 @@
         android:name="com.shapeapp.shape.fragments.TakePhotoFragment"
         android:label="fragment_take_photo"
         tools:layout="@layout/fragment_take_photo" />
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.shapeapp.shape.fragments.MessagesFragment"
+        android:label="fragment_messages"
+        tools:layout="@layout/fragment_messages" />
 </navigation>
