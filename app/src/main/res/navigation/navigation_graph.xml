@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_publicFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_publicFragment_to_receivedImageFragment2"
+            app:destination="@id/receivedImageFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
