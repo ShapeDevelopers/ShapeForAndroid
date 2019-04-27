@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/publicFragment">
+
+    <fragment
+        android:id="@+id/publicFragment"
+        android:name="com.shapeapp.shape.fragments.PublicFragment"
+        android:label="fragment_public"
+        tools:layout="@layout/fragment_public" >
+        <action
+            android:id="@+id/action_publicFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_publicFragment_to_receivedImageFragment2"
+            app:destination="@id/receivedImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.shapeapp.shape.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/takePhotoFragment"
+        android:name="com.shapeapp.shape.fragments.TakePhotoFragment"
+        android:label="fragment_take_photo"
+        tools:layout="@layout/fragment_take_photo" />
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.shapeapp.shape.fragments.MessagesFragment"
+        android:label="fragment_messages"
+        tools:layout="@layout/fragment_messages" >
+        <action
+            android:id="@+id/action_messagesFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/initialBackendConnectionFragment"
+        android:name="com.shapeapp.shape.fragments.InitialBackendConnectionFragment"
+        android:label="fragment_initial_backend_connection"
+        tools:layout="@layout/fragment_initial_backend_connection" />
+    <fragment
+        android:id="@+id/receivedImageFragment"
+        android:name="com.shapeapp.shape.fragments.ReceivedImageFragment"
+        android:label="fragment_received_image"
+        tools:layout="@layout/fragment_received_image" >
+        <argument
+            android:name="card"
+            app:argType="com.shapeapp.shape.data.Card" />
+        <action
+            android:id="@+id/action_receivedImageFragment_to_publicFragment"
+            app:destination="@id/publicFragment"
+            app:popUpTo="@+id/publicFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
