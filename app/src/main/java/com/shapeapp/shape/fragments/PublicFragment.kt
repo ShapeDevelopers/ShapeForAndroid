@@ -1,6 +1,5 @@
 package com.shapeapp.shape.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +40,6 @@ class PublicFragment : Fragment() {
 
     private lateinit var viewModel: PublicFragmentViewModel
 
-    private var fragmentLoadingDemandListener: FragmentLoadingDemandListener? = null
     private var userAvatarUri: String? = null
     private val officialCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val newCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
@@ -63,16 +61,6 @@ class PublicFragment : Fragment() {
                     putString(ARG_USER_AVATAR_URI, userAvatarUri)
                 }
             }
-    }
-
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is FragmentLoadingDemandListener) {
-            fragmentLoadingDemandListener = context
-        } else {
-            throw RuntimeException("$context must implement FragmentLoadingDemandListener")
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -190,10 +178,5 @@ class PublicFragment : Fragment() {
     private fun Snackbar.changeTextColor(color: Int) {
         val textView = view.findViewById<TextView>(R.id.snackbar_text)
         textView.setTextColor(color)
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        fragmentLoadingDemandListener = null
     }
 }
