@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -167,8 +168,7 @@ class PublicFragment : Fragment() {
     }
 
     private fun loadProfileFragment() {
-        val profileFragment = ProfileFragment.newInstance("FAKE_FIRST", "FAKE_SECOND")
-        fragmentLoadingDemandListener?.requestLoadFragment(profileFragment)
+        findNavController().navigate(R.id.action_publicFragment_to_profileFragment3)
     }
 
     private fun showMyPublicSharesDialog() {
