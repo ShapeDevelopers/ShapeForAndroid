@@ -29,4 +29,9 @@
         android:name="com.shapeapp.shape.fragments.MessagesFragment"
         android:label="fragment_messages"
         tools:layout="@layout/fragment_messages" />
+    <fragment
+        android:id="@+id/initialBackendConnectionFragment"
+        android:name="com.shapeapp.shape.fragments.InitialBackendConnectionFragment"
+        android:label="fragment_initial_backend_connection"
+        tools:layout="@layout/fragment_initial_backend_connection" />
 </navigation>
