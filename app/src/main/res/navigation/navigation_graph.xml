@@ -11,7 +11,7 @@
         android:label="fragment_public"
         tools:layout="@layout/fragment_public" >
         <action
-            android:id="@+id/action_publicFragment_to_profileFragment3"
+            android:id="@+id/action_publicFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
     <fragment

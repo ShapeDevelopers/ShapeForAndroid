@@ -168,7 +168,7 @@ class PublicFragment : Fragment() {
     }
 
     private fun loadProfileFragment() {
-        findNavController().navigate(R.id.action_publicFragment_to_profileFragment3)
+        findNavController().navigate(R.id.action_publicFragment_to_profileFragment)
     }
 
     private fun showMyPublicSharesDialog() {
