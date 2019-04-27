@@ -9,7 +9,11 @@
         android:id="@+id/publicFragment"
         android:name="com.shapeapp.shape.fragments.PublicFragment"
         android:label="fragment_public"
-        tools:layout="@layout/fragment_public" />
+        tools:layout="@layout/fragment_public" >
+        <action
+            android:id="@+id/action_publicFragment_to_profileFragment3"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.shapeapp.shape.fragments.ProfileFragment"
