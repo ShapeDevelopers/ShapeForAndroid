@@ -1,6 +1,5 @@
 package com.shapeapp.shape.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.shapeapp.shape.R
-import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import kotlinx.android.synthetic.main.fragment_messages.*
 
 //  TODO: check and change everything
@@ -28,8 +26,6 @@ class MessagesFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
-    private var fragmentLoadingDemandListener: FragmentLoadingDemandListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,15 +57,6 @@ class MessagesFragment : Fragment() {
 
     private fun loadProfileFragment() {
         findNavController().navigate(R.id.action_messagesFragment_to_profileFragment)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is FragmentLoadingDemandListener) {
-            fragmentLoadingDemandListener = context
-        } else {
-            throw RuntimeException("$context must implement FragmentLoadingDemandListener")
-        }
     }
 
     companion object {
