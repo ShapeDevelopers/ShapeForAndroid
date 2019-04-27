@@ -33,6 +33,7 @@ private const val ARG_USER_AVATAR_URI = "ARG_USER_AVATAR_URI"
  */
 class PublicFragment : Fragment() {
     //  TODO: replace my profile button with user avatar
+    //  TODO: use Safe Args in order to retrieve parameters
 
     private lateinit var viewModel: PublicFragmentViewModel
 
