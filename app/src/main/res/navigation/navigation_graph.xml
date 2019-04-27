@@ -15,7 +15,11 @@
             app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_publicFragment_to_receivedImageFragment2"
-            app:destination="@id/receivedImageFragment" />
+            app:destination="@id/receivedImageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -52,6 +56,10 @@
         <action
             android:id="@+id/action_receivedImageFragment_to_publicFragment"
             app:destination="@id/publicFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/publicFragment"
             app:popUpToInclusive="true" />
     </fragment>
