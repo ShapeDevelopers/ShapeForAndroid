@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import com.shapeapp.shape.fragmentinterfaces.FragmentLoadingDemandListener
 import com.shapeapp.shape.fragments.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -52,34 +51,35 @@ class MainActivity : AppCompatActivity(), FragmentLoadingDemandListener,
     }
 
     private fun loadFragment(fragmentToLoad: Fragment) {
-        when (isAnyFragmentLoaded()) {
-            true -> {
-                supportFragmentManager
-                    .beginTransaction()
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .replace(R.id.fragment_container, fragmentToLoad)
-                    .addToBackStack(null)
-                    .commit()
-            }
-            false -> {
-                supportFragmentManager
-                    .beginTransaction()
-                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                    .add(R.id.fragment_container, fragmentToLoad)
-                    .addToBackStack(null)
-                    .commit()
-            }
-
-        }
+        //  TODO: delete (now Navigation Component handles this)
+//        when (isAnyFragmentLoaded()) {
+//            true -> {
+//                supportFragmentManager
+//                    .beginTransaction()
+//                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+//                    .replace(R.id.fragment_container, fragmentToLoad)
+//                    .addToBackStack(null)
+//                    .commit()
+//            }
+//            false -> {
+//                supportFragmentManager
+//                    .beginTransaction()
+//                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+//                    .add(R.id.fragment_container, fragmentToLoad)
+//                    .addToBackStack(null)
+//                    .commit()
+//            }
+//
+//        }
     }
 
-    private fun isAnyFragmentLoaded(): Boolean {
-        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
-        return when (fragment) {
-            null -> false
-            else -> true
-        }
-    }
+//    private fun isAnyFragmentLoaded(): Boolean {
+//        val fragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+//        return when (fragment) {
+//            null -> false
+//            else -> true
+//        }
+//    }
 
     /**
      * Behaves the same as tapping on the Public action
