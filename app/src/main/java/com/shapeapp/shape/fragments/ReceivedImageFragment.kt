@@ -15,12 +15,9 @@ import com.shapeapp.shape.viewmodels.ReceivedImageFragmentViewModel
 import com.shapeapp.shape.viewmodels.ReceivedImageFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_received_image.*
 
-private const val ARG_CARD_PARCELABLE = "ARG_CARD_PARCELABLE"
 
 /**
  * Shows data based on given [Card]
- * Use the [ReceivedImageFragment.newInstance] factory method to
- * create an instance of this fragment.
  */
 class ReceivedImageFragment : Fragment() {
 
@@ -29,35 +26,11 @@ class ReceivedImageFragment : Fragment() {
     private val args: ReceivedImageFragmentArgs by navArgs()
 
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param card given [Card].
-         * @return A new instance of fragment ReceivedImageFragment.
-         */
-        @JvmStatic
-        fun newInstance(card: Card) =
-            ReceivedImageFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable("ARG_CARD_PARCELABLE", card)
-                }
-            }
-    }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        arguments?.let {
-//            val card: Card = it.getParcelable(ARG_CARD_PARCELABLE) ?: Card()
-//            val viewModelFactory = ReceivedImageFragmentViewModelFactory(card)
-//            viewModel =
-//                ViewModelProviders.of(this, viewModelFactory).get(ReceivedImageFragmentViewModel::class.java)
-//        }
         val card = args.card
         val viewModelFactory = ReceivedImageFragmentViewModelFactory(card)
-        viewModel = ViewModelProviders.of(this,viewModelFactory).get(ReceivedImageFragmentViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ReceivedImageFragmentViewModel::class.java)
     }
 
     override fun onCreateView(
