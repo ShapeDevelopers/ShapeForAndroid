@@ -87,6 +87,13 @@ class InitialBackendConnectionFragment : Fragment() {
         return cardsAsText
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        // Remove pending code execution
+        networkHandler.removeCallbacks(checkNetworkRunnable)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
