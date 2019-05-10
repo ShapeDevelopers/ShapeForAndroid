@@ -31,14 +31,14 @@ class InitialBackendConnectionFragment : Fragment() {
     private val checkNetworkRunnable: Runnable = object : Runnable {
         override fun run() {
             is_online_textview.text = NetworkInformer.isOnline().toString()
-            networkHandler.postDelayed(this, 1000)
+            handler.postDelayed(this, 1000)
         }
     }
 
     /**
      * Executes [Runnable] task on UI thread
      */
-    private val networkHandler = Handler()
+    private val handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,7 +91,7 @@ class InitialBackendConnectionFragment : Fragment() {
         super.onDestroyView()
 
         // Remove pending code execution
-        networkHandler.removeCallbacks(checkNetworkRunnable)
+        handler.removeCallbacks(checkNetworkRunnable)
     }
 
     override fun onCreateView(
