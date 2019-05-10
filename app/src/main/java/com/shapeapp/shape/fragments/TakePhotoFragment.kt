@@ -24,12 +24,8 @@ import java.io.IOException
 
 /**
  * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [TakePhotoFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
  * Use the [TakePhotoFragment.newInstance] factory method to
  * create an instance of this fragment.
- *
  */
 class TakePhotoFragment : Fragment() {
 
