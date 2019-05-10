@@ -16,7 +16,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.dialogs.MyPublicSharesBSD
-import com.shapeapp.shape.dialogs.MyPublicSharesDialog
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 import com.shapeapp.shape.repositories.Repository
@@ -148,18 +147,11 @@ class PublicFragment : Fragment() {
 
     private fun setButtonsOnClickListeners() {
         my_profile_button.setOnClickListener { loadProfileFragment() }
-//        //  TODO: replace with [BottomSheetDialog] (?)
-//        my_public_shares_button.setOnClickListener { showMyPublicSharesDialog() }
         my_public_shares_button.setOnClickListener { showMyPublicSharesBSD() }
     }
 
     private fun loadProfileFragment() {
         findNavController().navigate(R.id.action_publicFragment_to_profileFragment)
-    }
-
-    private fun showMyPublicSharesDialog() {
-        //  TODO: wait for support for DialogFragment in Navigation Component, then reimplement
-        fragmentManager?.let { MyPublicSharesDialog().show(it, "dialog") }
     }
 
     private fun showMyPublicSharesBSD() {
