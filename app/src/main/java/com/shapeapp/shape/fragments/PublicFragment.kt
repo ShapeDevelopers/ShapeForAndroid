@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -128,7 +127,6 @@ class PublicFragment : Fragment() {
 
         configureRecyclerViews()
         setButtonsOnClickListeners()
-        showSnackbar()
     }
 
     private fun configureRecyclerViews() {
@@ -157,14 +155,6 @@ class PublicFragment : Fragment() {
     private fun showMyPublicSharesBSD() {
         //  TODO: wait for support for BottomSheetDialogFragment in Navigation Component, then reimplement
         fragmentManager?.let { MyPublicSharesBSD().show(it, "BSD") }
-    }
-
-    private fun showSnackbar() {
-        //  TODO: delete this function
-        val snackbar = Snackbar.make(root_coordinatorlayout, "Hello user!", Snackbar.LENGTH_SHORT)
-        val greyColor = ContextCompat.getColor(context!!, R.color.colorHintGrey)
-        snackbar.changeTextColor(greyColor)
-        snackbar.show()
     }
 
     /**
