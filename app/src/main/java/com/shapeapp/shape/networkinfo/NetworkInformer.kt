@@ -18,6 +18,7 @@ object NetworkInformer {
         val runtime = Runtime.getRuntime()
         try {
             val ipProcess = runtime.exec("/system/bin/ping -c 1 $GOOGLE_DNS_SERVER_IP")
+            //  wait until the process has terminated
             val exitValue = ipProcess.waitFor()
             return (exitValue == 0)
         } catch (e: IOException) {
