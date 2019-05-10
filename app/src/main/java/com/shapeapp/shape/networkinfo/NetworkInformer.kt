@@ -7,6 +7,8 @@ import java.io.IOException
  */
 object NetworkInformer {
 
+    private const val GOOGLE_DNS_SERVER_IP = "8.8.8.8"
+
     /**
      * Checks if device is online
      *
@@ -15,7 +17,7 @@ object NetworkInformer {
     fun isOnline(): Boolean {
         val runtime = Runtime.getRuntime()
         try {
-            val ipProcess = runtime.exec("/system/bin/ping -c 1 8.8.8.8")
+            val ipProcess = runtime.exec("/system/bin/ping -c 1 $GOOGLE_DNS_SERVER_IP")
             val exitValue = ipProcess.waitFor()
             return (exitValue == 0)
         } catch (e: IOException) {
