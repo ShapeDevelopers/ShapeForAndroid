@@ -1,6 +1,7 @@
 package com.shapeapp.shape.fragments
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
 import com.shapeapp.shape.backendcalls.RetrofitBackendClient
 import com.shapeapp.shape.data.Card
+import com.shapeapp.shape.networkinfo.NetworkInformer
 import kotlinx.android.synthetic.main.fragment_initial_backend_connection.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,10 +25,31 @@ class InitialBackendConnectionFragment : Fragment() {
 
     //  TODO: delete (only for easy testing the connection)
 
+    /**
+     * Defines (network check) code to be sent by [Handler] to execution
+     */
+    private val checkNetworkRunnable: Runnable = object : Runnable {
+        override fun run() {
+            is_online_textview.text = NetworkInformer.isOnline().toString()
+            handler.postDelayed(this, 1000)
+        }
+    }
+
+    /**
+     * Executes [Runnable] task on UI thread
+     */
+    private val handler = Handler()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         makeNetworkCall()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        checkNetworkRunnable.run()
     }
 
     private fun makeNetworkCall() {
@@ -62,6 +85,13 @@ class InitialBackendConnectionFragment : Fragment() {
             cardsAsText += "$card,\n"
         }
         return cardsAsText
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        // Remove pending code execution
+        handler.removeCallbacks(checkNetworkRunnable)
     }
 
     override fun onCreateView(
