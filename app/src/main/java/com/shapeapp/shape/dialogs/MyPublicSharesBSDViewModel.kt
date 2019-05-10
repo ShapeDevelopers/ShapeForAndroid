@@ -6,11 +6,9 @@ import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.repositories.Repository
 
 /**
- * [ViewModel] for [MyPublicSharesDialog]
+ * [ViewModel] for [MyPublicSharesBSD]
  */
-class MyPublicSharesDialogViewModel(private val cardRepository: Repository) : ViewModel() {
-
-    //  TODO: delete ([MyPublicSharesDialog] was replaced with [MyPublicSharesBSD])
+class MyPublicSharesBSDViewModel(private val cardRepository: Repository) : ViewModel() {
 
     var myPublicSharesCards: LiveData<List<Card>>
         private set
@@ -18,6 +16,5 @@ class MyPublicSharesDialogViewModel(private val cardRepository: Repository) : Vi
     init {
         myPublicSharesCards = cardRepository.publicSharesCards
     }
-
 
 }

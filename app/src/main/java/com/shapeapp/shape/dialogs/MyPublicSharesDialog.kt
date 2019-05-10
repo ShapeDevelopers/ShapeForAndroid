@@ -23,6 +23,8 @@ import com.shapeapp.shape.repositories.Repository
  */
 class MyPublicSharesDialog : DialogFragment() {
 
+    //  TODO: delete (replaced with [MyPublicSharesBSD])
+
     private lateinit var viewModel: MyPublicSharesDialogViewModel
     private val cardRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
