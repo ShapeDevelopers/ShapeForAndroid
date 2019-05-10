@@ -163,6 +163,7 @@ class PublicFragment : Fragment() {
     }
 
     private fun showMyPublicSharesBSD() {
+        //  TODO: wait for support for BottomSheetDialogFragment in Navigation Component, then reimplement
         fragmentManager?.let { MyPublicSharesBSD().show(it, "BSD") }
     }
 

@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.bsd_my_public_shares.*
 
 class MyPublicSharesBSD : BottomSheetDialogFragment() {
 
+    //  TODO: change background (?)
+
     private lateinit var viewModel: MyPublicSharesBSDViewModel
     private val cardRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 

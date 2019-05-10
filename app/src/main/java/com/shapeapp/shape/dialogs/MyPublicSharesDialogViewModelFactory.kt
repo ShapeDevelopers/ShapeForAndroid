@@ -10,6 +10,8 @@ import com.shapeapp.shape.repositories.Repository
 class MyPublicSharesDialogViewModelFactory(private val cardRepository: Repository) :
     ViewModelProvider.NewInstanceFactory() {
 
+    //  TODO: delete ([MyPublicSharesDialog] was replaced with [MyPublicSharesBSD])
+
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return MyPublicSharesDialogViewModel(cardRepository) as T
