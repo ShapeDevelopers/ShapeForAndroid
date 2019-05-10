@@ -17,7 +17,8 @@ object NetworkInformer {
     fun isOnline(): Boolean {
         val runtime = Runtime.getRuntime()
         try {
-            val ipProcess = runtime.exec("/system/bin/ping -c 1 $GOOGLE_DNS_SERVER_IP")
+            val packetsNumber = "1"
+            val ipProcess = runtime.exec("/system/bin/ping -c $packetsNumber $GOOGLE_DNS_SERVER_IP")
             //  wait until the process has terminated
             val exitValue = ipProcess.waitFor()
             return (exitValue == 0)
