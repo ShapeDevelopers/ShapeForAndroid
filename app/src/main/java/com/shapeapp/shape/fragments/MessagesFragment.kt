@@ -69,7 +69,8 @@ class MessagesFragment : Fragment() {
     private fun setListenersForRecyclerViewAdapters() {
         val messageClickListener = object : RecyclerViewMessageClickListener {
             override fun onMessageClick(clickedMessage: Message, messageItemView: View) {
-                //  TODO: implement navigation
+                findNavController().navigate(R.id.action_messagesFragment_to_chatFragment)
+                //  TODO: pass Message data to [ChatFragment]
             }
         }
         sentMessagesRecyclerViewAdapter.messageClickListener = messageClickListener
