@@ -13,6 +13,8 @@ import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 
 /**
  * Feeds [RecyclerView] with [Card] data
+ *
+ * If you need to be informed about clicks, set [cardClickListener]
  */
 class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
     RecyclerView.Adapter<SmallCardRecyclerViewAdapter.MyViewHolder>() {
