@@ -37,7 +37,7 @@ object CardMockups {
 
     private fun generateRandomVotesNumber() = Random().nextInt(23764)
 
-    private fun getRandomDrawableUriString(): String {
+    fun getRandomDrawableUriString(): String {
         val randomNumber = Random().nextInt(3)
         val drawableName: String = when (randomNumber) {
             0 -> "mockup_golden_retriever"

@@ -11,6 +11,8 @@
     <!-- TODO: Extract dimensions -->
     <!-- TODO: Delete mock-ups -->
 
+    <!-- TODO: make avatar circular -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar_layout"
         android:layout_width="match_parent"
@@ -65,9 +67,21 @@
         android:text="@string/sent_title"
         android:textColor="@color/colorTeal"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/received_title_textview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_bar_layout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sent_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/received_title_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sent_title_textview" />
 
     <TextView
         android:id="@+id/received_title_textview"
@@ -82,6 +96,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sent_title_textview" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/received_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/latest_title_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/received_title_textview" />
+
     <TextView
         android:id="@+id/latest_title_textview"
         android:layout_width="wrap_content"
@@ -94,5 +121,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/received_title_textview" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/latest_recyclerview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/latest_title_textview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

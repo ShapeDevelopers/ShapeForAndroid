@@ -64,7 +64,9 @@ class PublicFragment : Fragment() {
         arguments?.let {
             userAvatarUri = it.getString(ARG_USER_AVATAR_URI)
         }
+        //  TODO: change naming to "obtainViewModel"
         configureViewModel()
+        //  TODO: change naming to "feedRecyclerViewAdapters"
         connectRecyclerViewAdaptersToViewModel()
         setClickListenerForRecyclerViewsAdapters()
     }

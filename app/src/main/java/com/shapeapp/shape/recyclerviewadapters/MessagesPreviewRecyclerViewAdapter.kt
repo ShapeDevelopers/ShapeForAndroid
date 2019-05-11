@@ -1,0 +1,59 @@
+package com.shapeapp.shape.recyclerviewadapters
+
+import android.net.Uri
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.shapeapp.shape.R
+import com.shapeapp.shape.data.Message
+import com.shapeapp.shape.mockupsmakers.CardMockups
+
+/**
+ * Feeds [RecyclerView] with previewed [Message] data
+ */
+class MessagesPreviewRecyclerViewAdapter(var messagesDataset: List<Message>) :
+    RecyclerView.Adapter<MessagesPreviewRecyclerViewAdapter.MyViewHolder>() {
+
+    //  TODO: implement OnClick...
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val messageView = LayoutInflater
+            .from(parent.context)
+            .inflate(R.layout.message_item_preview, parent, false)
+        return MyViewHolder(messageView)
+    }
+
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.apply {
+            //  TODO: make own random drawable for message or move method from [CardMockups] outside it
+            //  TODO: load real avatar based in nickname (?)
+            senderAvatar.setImageURI(Uri.parse(CardMockups.getRandomDrawableUriString()))
+            senderNickname.text = messagesDataset[adapterPosition].senderNickname
+            intro.text = messagesDataset[adapterPosition].textContent
+            fullDate.text = messagesDataset[adapterPosition].dateStampFull
+        }
+    }
+
+    override fun getItemCount(): Int {
+        return messagesDataset.size
+    }
+
+
+    inner class MyViewHolder(messageView: View) : RecyclerView.ViewHolder(messageView), View.OnClickListener {
+
+        var senderAvatar: ImageView = messageView.findViewById(R.id.sender_avatar_imageview)
+        var senderNickname: TextView = messageView.findViewById(R.id.sender_nickname_textview)
+        var intro: TextView = messageView.findViewById(R.id.intro_textview)
+        var fullDate: TextView = messageView.findViewById(R.id.full_date_textview)
+
+
+        override fun onClick(v: View?) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+    }
+
+}
