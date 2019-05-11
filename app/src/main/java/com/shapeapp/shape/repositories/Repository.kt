@@ -19,6 +19,7 @@ object Repository {
 
     //  TODO: add model, remote data source and others
     //  see: https://developer.android.com/jetpack/docs/guide
+    //  TODO: make interface "Repository", change this class to MessagesRepository
 
     private val _officialCards = MutableLiveData<List<Card>>()
     val officialCards: LiveData<List<Card>>
