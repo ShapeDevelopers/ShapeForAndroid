@@ -111,9 +111,9 @@ class PublicFragment : Fragment() {
                 findNavController().navigate(action)
             }
         }
-        newCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
-        officialCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
-        latestCardsRecyclerViewAdapter.recyclerViewCardClickListener = cardClickListener
+        newCardsRecyclerViewAdapter.cardClickListener = cardClickListener
+        officialCardsRecyclerViewAdapter.cardClickListener = cardClickListener
+        latestCardsRecyclerViewAdapter.cardClickListener = cardClickListener
     }
 
     override fun onCreateView(
