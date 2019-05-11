@@ -1,5 +1,7 @@
 package com.shapeapp.shape.mockupsmakers
 
+import java.util.*
+
 /**
  * Helper class that provides some mock-up text data
  * e.g.: [List<String>] with animal species
@@ -96,5 +98,44 @@ object TextMockups {
         "Canada",
         "Estonia"
     )
+
+    val fruits = listOf(
+        "apple",
+        "pomegranate",
+        "lemon",
+        "raspberry",
+        "apricot",
+        "banana",
+        "lychee",
+        "nectarine",
+        "orange",
+        "fig",
+        "lime",
+        "quince",
+        "mandarin",
+        "watermelon",
+        "boysenberry",
+        "cherry",
+        "mango",
+        "papaya",
+        "coconut",
+        "strawberry",
+        "plum",
+        "blueberry",
+        "kiwifruit",
+        "grape"
+    )
+
+    fun generateRandomText(): String {
+        val sourceWords = animals
+        val sourceWordsNumber = sourceWords.size
+        val newTextWordsNumber = Random().nextInt(sourceWordsNumber)
+        var newText = "I like "
+        for (index in 0 until newTextWordsNumber) {
+            val randomNumber = Random().nextInt(sourceWordsNumber)
+            newText += " ${sourceWords[randomNumber]}"
+        }
+        return newText
+    }
 
 }
