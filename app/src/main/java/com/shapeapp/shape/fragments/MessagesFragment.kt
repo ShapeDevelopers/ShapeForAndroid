@@ -11,7 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
+import com.shapeapp.shape.data.Message
 import com.shapeapp.shape.recyclerviewadapters.MessagesPreviewRecyclerViewAdapter
+import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewMessageClickListener
 import com.shapeapp.shape.repositories.Repository
 import com.shapeapp.shape.viewmodels.MessagesFragmentViewModel
 import com.shapeapp.shape.viewmodels.MessagesFragmentViewModelFactory
@@ -34,7 +36,7 @@ class MessagesFragment : Fragment() {
         super.onCreate(savedInstanceState)
         obtainViewModel()
         feedRecyclerViewAdapters()
-        //  TODO: implement OnClick...
+        setListenersForRecyclerViewAdapters()
     }
 
     private fun obtainViewModel() {
@@ -62,6 +64,17 @@ class MessagesFragment : Fragment() {
             latestMessagesRecyclerViewAdapter.messagesDataset = messages
             latestMessagesRecyclerViewAdapter.notifyDataSetChanged()
         })
+    }
+
+    private fun setListenersForRecyclerViewAdapters() {
+        val messageClickListener = object : RecyclerViewMessageClickListener {
+            override fun onMessageClick(clickedMessage: Message, messageItemView: View) {
+                //  TODO: implement navigation
+            }
+        }
+        sentMessagesRecyclerViewAdapter.messageClickListener = messageClickListener
+        receivedMessagesRecyclerViewAdapter.messageClickListener = messageClickListener
+        latestMessagesRecyclerViewAdapter.messageClickListener = messageClickListener
     }
 
     override fun onCreateView(
