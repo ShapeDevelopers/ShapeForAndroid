@@ -4,13 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.Message
 import com.shapeapp.shape.fragments.MessagesFragment
-import com.shapeapp.shape.repositories.CardsRepository
 import com.shapeapp.shape.repositories.MessagesRepository
 
 /**
  * [ViewModel] for [MessagesFragment]
  */
-class MessagesFragmentViewModel(private val messageRepository: CardsRepository) : ViewModel() {
+class MessagesFragmentViewModel(private val messagesRepository: MessagesRepository) : ViewModel() {
 
     //  TODO: finish
 

@@ -2,12 +2,12 @@ package com.shapeapp.shape.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.repositories.MessagesRepository
 
 /**
  * Knows how to initiate [MessagesFragmentViewModel]
  */
-class MessagesFragmentViewModelFactory(private val messagesRepository: CardsRepository) :
+class MessagesFragmentViewModelFactory(private val messagesRepository: MessagesRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")

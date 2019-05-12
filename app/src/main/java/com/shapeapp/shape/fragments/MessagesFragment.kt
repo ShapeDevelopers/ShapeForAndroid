@@ -14,7 +14,7 @@ import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Message
 import com.shapeapp.shape.recyclerviewadapters.MessagesPreviewRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewMessageClickListener
-import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.repositories.MessagesRepository
 import com.shapeapp.shape.viewmodels.MessagesFragmentViewModel
 import com.shapeapp.shape.viewmodels.MessagesFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_messages.*
@@ -40,8 +40,7 @@ class MessagesFragment : Fragment() {
     }
 
     private fun obtainViewModel() {
-        //  TODO: delete inadequate repo and make real repo for MESSAGES
-        val messagesRepository: CardsRepository = CardsRepository
+        val messagesRepository = MessagesRepository
         val viewModelFactory = MessagesFragmentViewModelFactory(messagesRepository)
         viewModel =
             activity?.run { ViewModelProviders.of(this, viewModelFactory).get(MessagesFragmentViewModel::class.java) }
