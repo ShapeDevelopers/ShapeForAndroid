@@ -13,6 +13,8 @@ import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 
 /**
  * Feeds [RecyclerView] with [Card] data
+ *
+ * If you need to be informed about clicks, set [cardClickListener]
  */
 class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
     RecyclerView.Adapter<SmallCardRecyclerViewAdapter.MyViewHolder>() {
@@ -20,7 +22,7 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
     /**
      * Listener that will be informed about user click on a card
      */
-    var recyclerViewCardClickListener: RecyclerViewCardClickListener? = null
+    var cardClickListener: RecyclerViewCardClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val materialCardView = LayoutInflater
@@ -57,7 +59,7 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
         override fun onClick(view: View) {
             val clickedCard = myDataset[adapterPosition]
             //  if there is listener, inform it that user has clicked on an item
-            recyclerViewCardClickListener?.onCardClick(clickedCard, view)
+            cardClickListener?.onCardClick(clickedCard, view)
         }
 
     }

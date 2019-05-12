@@ -9,7 +9,7 @@
         android:id="@+id/publicFragment"
         android:name="com.shapeapp.shape.fragments.PublicFragment"
         android:label="fragment_public"
-        tools:layout="@layout/fragment_public" >
+        tools:layout="@layout/fragment_public">
         <action
             android:id="@+id/action_publicFragment_to_profileFragment"
             app:destination="@id/profileFragment"
@@ -39,10 +39,17 @@
         android:id="@+id/messagesFragment"
         android:name="com.shapeapp.shape.fragments.MessagesFragment"
         android:label="fragment_messages"
-        tools:layout="@layout/fragment_messages" >
+        tools:layout="@layout/fragment_messages">
         <action
             android:id="@+id/action_messagesFragment_to_profileFragment"
             app:destination="@id/profileFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_messagesFragment_to_chatFragment"
+            app:destination="@id/chatFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -57,7 +64,7 @@
         android:id="@+id/receivedImageFragment"
         android:name="com.shapeapp.shape.fragments.ReceivedImageFragment"
         android:label="fragment_received_image"
-        tools:layout="@layout/fragment_received_image" >
+        tools:layout="@layout/fragment_received_image">
         <argument
             android:name="card"
             app:argType="com.shapeapp.shape.data.Card" />
@@ -70,5 +77,14 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@+id/publicFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.shapeapp.shape.fragments.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" >
+        <argument
+            android:name="message"
+            app:argType="com.shapeapp.shape.data.Message" />
     </fragment>
 </navigation>
