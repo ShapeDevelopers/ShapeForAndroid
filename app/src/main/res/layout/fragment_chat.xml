@@ -52,6 +52,17 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
+                android:id="@+id/sender_nickname_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/sender_avatar_imageview"
+                app:layout_constraintStart_toStartOf="@+id/sender_avatar_imageview"
+                tools:text="Alex" />
+
+            <TextView
                 android:id="@+id/full_date_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
