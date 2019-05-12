@@ -34,7 +34,7 @@ class MessagesPreviewRecyclerViewAdapter(var messagesDataset: List<Message>) :
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.apply {
             //  TODO: make own random drawable for message or move method from [CardMockups] outside it
-            //  TODO: load real avatar based in nickname (?)
+            //  TODO: load real avatar based on nickname (?)
             senderAvatar.setImageURI(Uri.parse(CardMockups.getRandomDrawableUriString()))
             senderNickname.text = messagesDataset[adapterPosition].senderNickname
             intro.text = messagesDataset[adapterPosition].textContent

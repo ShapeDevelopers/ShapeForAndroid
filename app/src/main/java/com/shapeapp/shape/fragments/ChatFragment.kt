@@ -37,7 +37,7 @@ class ChatFragment : Fragment() {
 
     private fun loadMessage() {
         val senderName = arguments.message.senderNickname
-        //  TODO: load real avatar based in nickname (?)
+        //  TODO: load real avatar based on nickname (?)
         val senderAvatarUri = Uri.parse(CardMockups.getRandomDrawableUriString())
         val text = arguments.message.textContent
         val fullDate = arguments.message.dateStampFull
