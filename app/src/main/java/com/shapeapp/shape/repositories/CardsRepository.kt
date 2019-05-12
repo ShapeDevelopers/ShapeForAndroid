@@ -6,7 +6,7 @@ import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.mockupsmakers.CardMockups
 
 /**
- * CardsRepository singleton
+ * Repository with cards - singleton
  *
  * "somedata" and "_somedata" are for proper encapsulation
  * example:
