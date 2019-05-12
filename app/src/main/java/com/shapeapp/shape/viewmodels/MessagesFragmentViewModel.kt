@@ -14,7 +14,6 @@ import com.shapeapp.shape.repositories.CardsRepository
 class MessagesFragmentViewModel(private val messageRepository: CardsRepository) : ViewModel() {
 
     //  TODO: implement full data loading from repository
-    //  TODO: make CardsRepository abstract
 
     //  TODO: finish
 
