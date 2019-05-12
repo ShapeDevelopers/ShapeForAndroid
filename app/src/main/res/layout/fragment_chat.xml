@@ -62,16 +62,16 @@
                 app:layout_constraintStart_toStartOf="@+id/sender_avatar_imageview"
                 tools:text="Alex" />
 
-            <TextView
-                android:id="@+id/full_date_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="03-11-2019 11:29" />
+            <ImageView
+                android:id="@+id/sender_avatar_imageview"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/full_date_textview"
+                tools:src="@tools:sample/avatars[5]" />
 
             <TextView
                 android:id="@+id/text_textview"
@@ -87,16 +87,17 @@
                 app:layout_constraintTop_toTopOf="@+id/sender_avatar_imageview"
                 tools:text="I hope you enjoyed the chocolate I left you yesterday. Let me know when you get home :)!" />
 
-            <ImageView
-                android:id="@+id/sender_avatar_imageview"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:scaleType="centerCrop"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/full_date_textview"
-                tools:src="@tools:sample/avatars[5]" />
+            <TextView
+                android:id="@+id/full_date_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="03-11-2019 11:29" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
