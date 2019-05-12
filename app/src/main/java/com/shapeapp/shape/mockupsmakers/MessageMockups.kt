@@ -7,7 +7,8 @@ import com.shapeapp.shape.data.Message
  */
 object MessageMockups {
 
-    val randomFullMessages by lazy { generateFullMessages() }
+    val randomFullMessages
+        get() = generateFullMessages()
 
     private fun generateFullMessages(senders: List<String> = TextMockups.names): List<Message> {
         val messages = ArrayList<Message>()
