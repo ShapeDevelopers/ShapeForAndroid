@@ -1,6 +1,7 @@
 package com.shapeapp.shape.fragments
 
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
+import com.shapeapp.shape.mockupsmakers.CardMockups
 import kotlinx.android.synthetic.main.fragment_chat.*
 
 
@@ -35,9 +37,12 @@ class ChatFragment : Fragment() {
 
     private fun loadMessage() {
         val senderName = arguments.message.senderNickname
+        //  TODO: load real avatar based in nickname (?)
+        val senderAvatarUri = Uri.parse(CardMockups.getRandomDrawableUriString())
         val text = arguments.message.textContent
         val fullDate = arguments.message.dateStampFull
         sender_nickname_textview.text = senderName
+        sender_avatar_imageview.setImageURI(senderAvatarUri)
         text_textview.text = text
         full_date_textview.text = fullDate
     }
