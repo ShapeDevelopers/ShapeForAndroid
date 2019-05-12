@@ -1,19 +1,16 @@
 package com.shapeapp.shape.viewmodels
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.Message
 import com.shapeapp.shape.fragments.MessagesFragment
-import com.shapeapp.shape.mockupsmakers.MessageMockups
 import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.repositories.MessagesRepository
 
 /**
  * [ViewModel] for [MessagesFragment]
  */
 class MessagesFragmentViewModel(private val messageRepository: CardsRepository) : ViewModel() {
-
-    //  TODO: implement full data loading from repository
 
     //  TODO: finish
 
@@ -25,9 +22,9 @@ class MessagesFragmentViewModel(private val messageRepository: CardsRepository) 
         private set
 
     init {
-        sentMessages = MutableLiveData<List<Message>>().apply { value = MessageMockups.randomFullMessages }
-        receivedMessages = MutableLiveData<List<Message>>().apply { value = MessageMockups.randomFullMessages }
-        latestMessages = MutableLiveData<List<Message>>().apply { value = MessageMockups.randomFullMessages }
+        sentMessages = MessagesRepository.sentMessages
+        receivedMessages = MessagesRepository.receivedMessages
+        latestMessages = MessagesRepository.latestMessages
     }
 
 }
