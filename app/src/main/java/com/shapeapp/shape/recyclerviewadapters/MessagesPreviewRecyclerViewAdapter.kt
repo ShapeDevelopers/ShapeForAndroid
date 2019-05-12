@@ -1,5 +1,6 @@
 package com.shapeapp.shape.recyclerviewadapters
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,7 @@ class MessagesPreviewRecyclerViewAdapter(var messagesDataset: List<Message>) :
         return MyViewHolder(messageView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.apply {
             //  TODO: make own random drawable for message or move method from [CardMockups] outside it
@@ -36,7 +38,8 @@ class MessagesPreviewRecyclerViewAdapter(var messagesDataset: List<Message>) :
             senderAvatar.setImageURI(Uri.parse(CardMockups.getRandomDrawableUriString()))
             senderNickname.text = messagesDataset[adapterPosition].senderNickname
             intro.text = messagesDataset[adapterPosition].textContent
-            fullDate.text = messagesDataset[adapterPosition].dateStampFull
+            val fixClippingItalicTextAtRightEdge = "\u00A0" // Unicode NO-BREAK SPACE
+            fullDate.text = messagesDataset[adapterPosition].dateStampFull + fixClippingItalicTextAtRightEdge
         }
     }
 
