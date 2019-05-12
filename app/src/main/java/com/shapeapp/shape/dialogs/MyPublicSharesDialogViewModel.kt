@@ -3,12 +3,12 @@ package com.shapeapp.shape.dialogs
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.Card
-import com.shapeapp.shape.repositories.Repository
+import com.shapeapp.shape.repositories.CardsRepository
 
 /**
  * [ViewModel] for [MyPublicSharesDialog]
  */
-class MyPublicSharesDialogViewModel(private val cardRepository: Repository) : ViewModel() {
+class MyPublicSharesDialogViewModel(private val cardRepository: CardsRepository) : ViewModel() {
 
     //  TODO: delete ([MyPublicSharesDialog] was replaced with [MyPublicSharesBSD])
 

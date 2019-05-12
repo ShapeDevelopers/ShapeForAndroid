@@ -3,12 +3,12 @@ package com.shapeapp.shape.dialogs
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.Card
-import com.shapeapp.shape.repositories.Repository
+import com.shapeapp.shape.repositories.CardsRepository
 
 /**
  * [ViewModel] for [MyPublicSharesBSD]
  */
-class MyPublicSharesBSDViewModel(private val cardRepository: Repository) : ViewModel() {
+class MyPublicSharesBSDViewModel(private val cardRepository: CardsRepository) : ViewModel() {
 
     var myPublicSharesCards: LiveData<List<Card>>
         private set

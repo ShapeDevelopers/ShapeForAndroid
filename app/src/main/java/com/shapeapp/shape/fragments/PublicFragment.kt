@@ -17,7 +17,7 @@ import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.dialogs.MyPublicSharesBSD
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
-import com.shapeapp.shape.repositories.Repository
+import com.shapeapp.shape.repositories.CardsRepository
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModel
 import com.shapeapp.shape.viewmodels.PublicFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_public.*
@@ -72,7 +72,7 @@ class PublicFragment : Fragment() {
     }
 
     private fun configureViewModel() {
-        val cardRepository = Repository
+        val cardRepository = CardsRepository
         val viewModelFactory = PublicFragmentViewModelFactory(cardRepository)
         viewModel =
             activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicFragmentViewModel::class.java) }

@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.shapeapp.shape.R
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
-import com.shapeapp.shape.repositories.Repository
+import com.shapeapp.shape.repositories.CardsRepository
 import kotlinx.android.synthetic.main.bsd_my_public_shares.*
 
 class MyPublicSharesBSD : BottomSheetDialogFragment() {
@@ -32,7 +32,7 @@ class MyPublicSharesBSD : BottomSheetDialogFragment() {
     }
 
     private fun configureViewModel() {
-        val cardRepository = Repository
+        val cardRepository = CardsRepository
         val viewModelFactory = MyPublicSharesBSDViewModelFactory(cardRepository)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MyPublicSharesBSDViewModel::class.java)
         viewModel.myPublicSharesCards.observe(this, Observer { cards ->

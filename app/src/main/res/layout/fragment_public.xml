@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO: implement real image loading from Repository-->
+        <!-- TODO: implement real image loading from CardsRepository-->
         <!-- TODO: extract styles-->
         <!-- TODO: extract dimensions-->
 

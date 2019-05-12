@@ -6,7 +6,7 @@ import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.mockupsmakers.CardMockups
 
 /**
- * Repository singleton
+ * CardsRepository singleton
  *
  * "somedata" and "_somedata" are for proper encapsulation
  * example:
@@ -15,11 +15,11 @@ import com.shapeapp.shape.mockupsmakers.CardMockups
  * See: www.youtube.com/watch?v=5qlIPTDE274 (time: 2:46)
  */
 @Suppress("ObjectPropertyName")
-object Repository {
+object CardsRepository {
 
     //  TODO: add model, remote data source and others
     //  see: https://developer.android.com/jetpack/docs/guide
-    //  TODO: make interface "Repository", change this class to MessagesRepository
+    //  TODO: make interface "CardsRepository", change this class to MessagesRepository
 
     private val _officialCards = MutableLiveData<List<Card>>()
     val officialCards: LiveData<List<Card>>

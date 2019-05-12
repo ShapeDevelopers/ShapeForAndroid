@@ -6,15 +6,15 @@ import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.Message
 import com.shapeapp.shape.fragments.MessagesFragment
 import com.shapeapp.shape.mockupsmakers.MessageMockups
-import com.shapeapp.shape.repositories.Repository
+import com.shapeapp.shape.repositories.CardsRepository
 
 /**
  * [ViewModel] for [MessagesFragment]
  */
-class MessagesFragmentViewModel(private val messageRepository: Repository) : ViewModel() {
+class MessagesFragmentViewModel(private val messageRepository: CardsRepository) : ViewModel() {
 
     //  TODO: implement full data loading from repository
-    //  TODO: make Repository abstract
+    //  TODO: make CardsRepository abstract
 
     //  TODO: finish
 
