@@ -44,4 +44,10 @@ class CameraFragment : Fragment() {
         super.onStart()
         fotoapparat.start()
     }
+
+    override fun onStop() {
+        super.onStop()
+        fotoapparat.stop()
+    }
+
 }
