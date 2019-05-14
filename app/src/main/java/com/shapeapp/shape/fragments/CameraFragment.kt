@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
 import io.fotoapparat.Fotoapparat
 import io.fotoapparat.parameter.ScaleType
+import io.fotoapparat.result.BitmapPhoto
 import kotlinx.android.synthetic.main.fragment_camera.*
 
 /**
@@ -54,11 +55,19 @@ class CameraFragment : Fragment() {
             .toBitmap()
             .whenAvailable { bitmapPhoto ->
                 photo_container_imageview.setImageBitmap(bitmapPhoto?.bitmap)
-                val relativeRotationDeg = bitmapPhoto?.rotationDegrees ?: 0
-                val relativeRotationDegFloat = relativeRotationDeg.toFloat()
-                photo_container_imageview.rotation = -relativeRotationDegFloat
+                val rotationDeg = determineRotation(bitmapPhoto)
+                photo_container_imageview.rotation = rotationDeg
                 photo_container_imageview.visibility = View.VISIBLE
             }
+    }
+
+    /**
+     * Determines right rotation for view after taking photo with [Fotoapparat]
+     */
+    private fun determineRotation(bitmapPhoto: BitmapPhoto?): Float {
+        val relativeRotationDeg = bitmapPhoto?.rotationDegrees ?: 0
+        val relativeRotationDegFloat = relativeRotationDeg.toFloat()
+        return -relativeRotationDegFloat
     }
 
     override fun onStart() {
