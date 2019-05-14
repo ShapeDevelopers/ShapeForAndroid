@@ -30,6 +30,7 @@ class CameraFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initCamera()
+        configureCaptureButton()
     }
 
     private fun initCamera() {
@@ -38,6 +39,26 @@ class CameraFragment : Fragment() {
             view = camera_cameraview,
             scaleType = ScaleType.CenterCrop
         )
+    }
+
+    private fun configureCaptureButton() {
+        capture_fab.setOnClickListener {
+            takePicture()
+        }
+    }
+
+    private fun takePicture() {
+        val photoResult = fotoapparat.takePicture()
+        // Asynchronously converts photo to bitmap and returns the result on the main thread
+        photoResult
+            .toBitmap()
+            .whenAvailable { bitmapPhoto ->
+                photo_container_imageview.setImageBitmap(bitmapPhoto?.bitmap)
+                val relativeRotationDeg = bitmapPhoto?.rotationDegrees ?: 0
+                val relativeRotationDegFloat = relativeRotationDeg.toFloat()
+                photo_container_imageview.rotation = -relativeRotationDegFloat
+                photo_container_imageview.visibility = View.VISIBLE
+            }
     }
 
     override fun onStart() {
