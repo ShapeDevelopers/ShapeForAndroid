@@ -5,4 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".fragments.CameraFragment">
 
+    <io.fotoapparat.view.CameraView
+        android:id="@+id/camera_cameraview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </FrameLayout>
