@@ -46,6 +46,7 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configureRecyclerView()
+        scrollRecyclerView()
     }
 
     private fun configureRecyclerView() {
@@ -54,6 +55,11 @@ class ChatFragment : Fragment() {
             layoutManager = linearLayoutManager
             adapter = messagesRecyclerViewAdapter
         }
+    }
+
+    private fun scrollRecyclerView() {
+        val bottomPosition = messagesRecyclerViewAdapter.messagesDataset.size - 1
+        messages_recyclerview.scrollToPosition(bottomPosition)
     }
 
 }
