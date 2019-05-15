@@ -8,11 +8,6 @@
         android:title="@string/inbox_action_button"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/takePhotoFragment"
-        android:icon="@drawable/camera_icon"
-        android:title="@string/camera_action_button"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/cameraFragment"
         android:icon="@drawable/camera_star_icon"
         android:title="NCam"
