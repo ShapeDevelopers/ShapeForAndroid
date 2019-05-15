@@ -66,14 +66,12 @@ class PublicFragment : Fragment() {
         arguments?.let {
             userAvatarUri = it.getString(ARG_USER_AVATAR_URI)
         }
-        //  TODO: change naming to "obtainViewModel"
-        configureViewModel()
-        //  TODO: change naming to "feedRecyclerViewAdapters"
-        connectRecyclerViewAdaptersToViewModel()
+        obtainViewModel()
+        feedRecyclerViewAdapters()
         setClickListenerForRecyclerViewsAdapters()
     }
 
-    private fun configureViewModel() {
+    private fun obtainViewModel() {
         val cardRepository = CardsRepository
         val viewModelFactory = PublicFragmentViewModelFactory(cardRepository)
         viewModel =
@@ -81,7 +79,7 @@ class PublicFragment : Fragment() {
                 ?: throw Exception("Invalid Activity")
     }
 
-    private fun connectRecyclerViewAdaptersToViewModel() {
+    private fun feedRecyclerViewAdapters() {
         //  for "New" RecyclerView
         viewModel.newCards.observe(this, Observer { newCards ->
             newCardsRecyclerViewAdapter.changeDataAndNotify(newCards)
