@@ -79,8 +79,8 @@
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat">
         <argument
-            android:name="message"
-            app:argType="com.shapeapp.shape.data.Message" />
+            android:name="messages"
+            app:argType="com.shapeapp.shape.data.Message[]" />
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
