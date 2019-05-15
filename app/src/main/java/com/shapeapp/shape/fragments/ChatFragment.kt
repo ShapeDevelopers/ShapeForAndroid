@@ -8,8 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.mockupsmakers.CardMockups
+import com.shapeapp.shape.mockupsmakers.MessageMockups
+import com.shapeapp.shape.recyclerviewadapters.MessagesFullRecyclerViewAdapter
+import kotlinx.android.synthetic.main.fragment_chat.*
 import kotlinx.android.synthetic.main.message_full_item.*
 
 
@@ -22,6 +27,19 @@ class ChatFragment : Fragment() {
 
     private val arguments: ChatFragmentArgs by navArgs()
 
+    private val messagesRecyclerViewAdapter = MessagesFullRecyclerViewAdapter(emptyList())
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        feedRecyclerViewAdapter()
+    }
+
+    private fun feedRecyclerViewAdapter() {
+        //  TODO: load messages list from arguments
+        messagesRecyclerViewAdapter.messagesDataset = MessageMockups.randomFullMessages
+        messagesRecyclerViewAdapter.notifyDataSetChanged()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +51,15 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadMessage()
+        configureRecyclerView()
+    }
+
+    private fun configureRecyclerView() {
+        val linearLayoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        messages_recyclerview.apply {
+            layoutManager = linearLayoutManager
+            adapter = messagesRecyclerViewAdapter
+        }
     }
 
     private fun loadMessage() {
