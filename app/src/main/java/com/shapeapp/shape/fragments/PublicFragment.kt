@@ -26,6 +26,8 @@ import kotlinx.android.synthetic.main.fragment_public.*
 private const val ARG_USER_AVATAR_URI = "ARG_USER_AVATAR_URI"
 
 /**
+ * Shows: new, official, and latest Cards lists.
+ *
  * A simple [Fragment] subclass.
  * Use the [PublicFragment.newInstance] factory method to
  * create an instance of this fragment.
