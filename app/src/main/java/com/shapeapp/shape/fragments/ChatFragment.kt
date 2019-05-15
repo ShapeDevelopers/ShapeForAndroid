@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
-import com.shapeapp.shape.mockupsmakers.MessageMockups
 import com.shapeapp.shape.recyclerviewadapters.MessagesFullRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_chat.*
 
@@ -22,6 +22,7 @@ class ChatFragment : Fragment() {
     //  TODO: implement ViewModel
 
     private val messagesRecyclerViewAdapter = MessagesFullRecyclerViewAdapter(emptyList())
+    private val arguments: ChatFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +30,8 @@ class ChatFragment : Fragment() {
     }
 
     private fun feedRecyclerViewAdapter() {
-        //  TODO: load messages list from arguments
-        messagesRecyclerViewAdapter.messagesDataset = MessageMockups.randomFullMessages
+        val messages = arguments.messages.toList()
+        messagesRecyclerViewAdapter.messagesDataset = messages
         messagesRecyclerViewAdapter.notifyDataSetChanged()
     }
 
