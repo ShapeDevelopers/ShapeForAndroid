@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <!-- TODO: Extract styles -->
-    <!-- TODO: Extract dimensions -->
     <!-- TODO: Delete mock-ups -->
 
 
@@ -23,17 +21,8 @@
 
         <TextView
             android:id="@+id/main_title_textview"
-            android:layout_width="89dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="sans-serif-light"
+            style="@style/styleFragmentMainTitle"
             android:text="@string/profile_main_title"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:typeface="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -112,12 +101,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/add_friends_content_description"
             android:src="@drawable/contacts_icon"
             app:layout_constraintBottom_toTopOf="@+id/add_friends_textview"
             app:layout_constraintEnd_toEndOf="@+id/add_friends_textview"
             app:layout_constraintStart_toStartOf="@+id/add_friends_textview"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/add_friends_content_description" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/add_friends_textview"
@@ -139,12 +128,12 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@android:color/transparent"
+            android:contentDescription="@string/search_for_friend_content_description"
             android:src="@drawable/search_icon"
             app:layout_constraintBottom_toTopOf="@+id/search_for_friend_textview"
             app:layout_constraintEnd_toEndOf="@+id/search_for_friend_textview"
             app:layout_constraintStart_toStartOf="@+id/search_for_friend_textview"
-            app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="@string/search_for_friend_content_description" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/search_for_friend_textview"
@@ -185,10 +174,8 @@
 
             <TextView
                 android:id="@+id/name_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/name" />
 
             <TextView
                 android:id="@+id/name_textview"
@@ -199,10 +186,8 @@
 
             <TextView
                 android:id="@+id/surname_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/surname"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/surname" />
 
             <TextView
                 android:id="@+id/surname_textview"
@@ -213,10 +198,8 @@
 
             <TextView
                 android:id="@+id/sex_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sex"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/sex" />
 
             <TextView
                 android:id="@+id/sex_textview"
@@ -227,10 +210,8 @@
 
             <TextView
                 android:id="@+id/email_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/email" />
 
             <TextView
                 android:id="@+id/email_textview"
@@ -241,10 +222,8 @@
 
             <TextView
                 android:id="@+id/birth_date_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/birth_date"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/birth_date" />
 
             <TextView
                 android:id="@+id/birth_date_textview"
@@ -255,10 +234,8 @@
 
             <TextView
                 android:id="@+id/distance_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/distance"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/distance" />
 
             <LinearLayout
                 android:id="@+id/distance_box"
