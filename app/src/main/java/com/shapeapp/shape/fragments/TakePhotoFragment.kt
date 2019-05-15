@@ -24,6 +24,8 @@ import java.io.IOException
 // TODO: delete, it was replaced by [CameraFragment]
 
 /**
+ * Takes photo.
+ *
  * A simple [Fragment] subclass.
  * Use the [TakePhotoFragment.newInstance] factory method to
  * create an instance of this fragment.
