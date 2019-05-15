@@ -81,14 +81,11 @@
 
             <TextView
                 android:id="@+id/new_title_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/styleCategoryTitle"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:fontFamily="sans-serif-light"
                 android:text="@string/new_title"
                 android:textColor="@color/colorAccent"
-                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,14 +111,11 @@
 
             <TextView
                 android:id="@+id/official_title_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/styleCategoryTitle"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:fontFamily="sans-serif-light"
                 android:text="@string/official_title"
                 android:textColor="@color/colorViolet"
-                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -148,14 +142,11 @@
 
             <TextView
                 android:id="@+id/latest_title_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/styleCategoryTitle"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:fontFamily="sans-serif-light"
                 android:text="@string/latest_title"
                 android:textColor="@color/colorSecondaryText"
-                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
