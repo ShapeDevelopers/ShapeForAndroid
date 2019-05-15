@@ -49,13 +49,13 @@ class CameraFragment : Fragment() {
     }
 
     private fun requestCameraPermission() {
-        when (isCameraPermissionGranted()) {
+        when (isCameraPermissionAlreadyGranted()) {
             true -> initCamera()
             false -> requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_REQUEST_CODE)
         }
     }
 
-    private fun isCameraPermissionGranted(): Boolean {
+    private fun isCameraPermissionAlreadyGranted(): Boolean {
         return ContextCompat.checkSelfPermission(
             context!!,
             Manifest.permission.CAMERA
