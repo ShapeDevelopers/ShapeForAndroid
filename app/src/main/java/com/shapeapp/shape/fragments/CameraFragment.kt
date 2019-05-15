@@ -51,6 +51,23 @@ class CameraFragment : Fragment() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
+    /**
+     * Handles permissions request response.
+     */
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            CAMERA_PERMISSION_REQUEST_CODE -> {
+                when (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    true -> {
+                        initCamera()
+                    }
+                    false -> {
+                        Toast.makeText(context, "User hasn't accepted permission", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
