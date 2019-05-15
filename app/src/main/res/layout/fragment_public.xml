@@ -12,10 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- TODO: implement real image loading from CardsRepository-->
-        <!-- TODO: extract styles-->
-        <!-- TODO: extract dimensions-->
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/top_bar_layout"
             android:layout_width="match_parent"
