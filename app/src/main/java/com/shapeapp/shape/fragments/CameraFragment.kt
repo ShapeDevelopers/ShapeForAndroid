@@ -81,7 +81,6 @@ class CameraFragment : Fragment() {
                 when (wasUserGrantedPermission(grantResults)) {
                     true -> {
                         initCamera()
-                        Toast.makeText(context, "User has accepted permission", Toast.LENGTH_SHORT).show()
                     }
                     false -> {
                         Toast.makeText(context, "User hasn't accepted permission", Toast.LENGTH_SHORT).show()
