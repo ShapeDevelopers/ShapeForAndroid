@@ -18,6 +18,8 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 /**
+ * Shows info about user's profile and friends-related options.
+ *
  * A simple [Fragment] subclass.
  * Use the [ProfileFragment.newInstance] factory method to
  * create an instance of this fragment.
