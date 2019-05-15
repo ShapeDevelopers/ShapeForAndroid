@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
 import io.fotoapparat.Fotoapparat
@@ -17,6 +18,8 @@ import kotlinx.android.synthetic.main.fragment_camera.*
  *
  */
 class CameraFragment : Fragment() {
+
+    //  TODO: implement MVVM
 
     private lateinit var fotoapparat: Fotoapparat
 
@@ -32,6 +35,7 @@ class CameraFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initCamera()
         configureCaptureButton()
+        configurePhotoContainer()
     }
 
     private fun initCamera() {
@@ -68,6 +72,13 @@ class CameraFragment : Fragment() {
         val relativeRotationDeg = bitmapPhoto?.rotationDegrees ?: 0
         val relativeRotationDegFloat = relativeRotationDeg.toFloat()
         return -relativeRotationDegFloat
+    }
+
+    private fun configurePhotoContainer() {
+        //  TODO: provide further actions with photo
+        photo_container_imageview.setOnClickListener {
+            Toast.makeText(context, "Your photo was saved", Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun onStart() {
