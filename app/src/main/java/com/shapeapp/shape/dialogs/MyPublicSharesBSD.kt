@@ -13,6 +13,9 @@ import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.repositories.CardsRepository
 import kotlinx.android.synthetic.main.bsd_my_public_shares.*
 
+/**
+ * Shows list of "My public shares" cards
+ */
 class MyPublicSharesBSD : BottomSheetDialogFragment() {
 
     //  TODO: change background (?)
