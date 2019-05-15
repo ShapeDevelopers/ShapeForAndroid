@@ -43,12 +43,12 @@ class CameraFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requestCameraPermission()
+        configureCaptureBehaviour()
         configureCaptureButton()
         configurePhotoContainer()
     }
 
-    private fun requestCameraPermission() {
+    private fun configureCaptureBehaviour() {
         when (isCameraPermissionAlreadyGranted()) {
             true -> initCamera()
             false -> requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_REQUEST_CODE)
