@@ -2,11 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="@dimen/small_card_width"
-    android:layout_height="@dimen/small_card_height"
-    android:layout_margin="@dimen/small_card_margin"
-    android:orientation="vertical"
-    app:cardCornerRadius="@dimen/small_card_corner_radius">
+    style="@style/styleSmallCard">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,7 +32,6 @@
             android:fontFamily="sans-serif-light"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/small_card_text_size"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
