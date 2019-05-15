@@ -17,16 +17,8 @@
 
         <TextView
             android:id="@+id/main_title_textview"
-            android:layout_width="89dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="sans-serif-light"
+            style="@style/styleFragmentMainTitle"
             android:text="@string/chat_main_title"
-            android:textAlignment="center"
-            android:textSize="30sp"
-            android:typeface="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
