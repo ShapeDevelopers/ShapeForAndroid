@@ -1,11 +1,14 @@
 package com.shapeapp.shape.fragments
 
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
 import io.fotoapparat.Fotoapparat
@@ -21,7 +24,30 @@ class CameraFragment : Fragment() {
     //  TODO: implement MVVM
     //  TODO: save photo to persistent storage
 
+    companion object {
+        /**
+         * Camera permission request code, to match with code in [onRequestPermissionsResult]
+         */
+        private const val CAMERA_PERMISSION_REQUEST_CODE = 111
+    }
+
     private lateinit var fotoapparat: Fotoapparat
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        requestCameraPermission()
+    }
+
+    private fun requestCameraPermission() {
+        if (ContextCompat.checkSelfPermission(
+                context!!,
+                Manifest.permission.CAMERA
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
+            requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_REQUEST_CODE)
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
