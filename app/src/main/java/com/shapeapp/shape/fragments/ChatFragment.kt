@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
 import com.shapeapp.shape.mockupsmakers.CardMockups
-import kotlinx.android.synthetic.main.fragment_chat.*
+import kotlinx.android.synthetic.main.message_full_item.*
 
 
 /**
