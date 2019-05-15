@@ -33,6 +33,7 @@ class CameraFragment : Fragment() {
 
     private var fotoapparat: Fotoapparat? = null
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -62,6 +63,15 @@ class CameraFragment : Fragment() {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
+    private fun initCamera() {
+        fotoapparat = Fotoapparat(
+            context = context ?: throw Exception("Invalid context"),
+            view = preview_cameraview,
+            scaleType = ScaleType.CenterCrop
+        )
+        fotoapparat?.start()
+    }
+
     /**
      * Handles permissions request response.
      */
@@ -83,15 +93,6 @@ class CameraFragment : Fragment() {
 
     private fun wasUserGrantedPermission(grantResults: IntArray): Boolean {
         return grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun initCamera() {
-        fotoapparat = Fotoapparat(
-            context = context ?: throw Exception("Invalid context"),
-            view = preview_cameraview,
-            scaleType = ScaleType.CenterCrop
-        )
-        fotoapparat?.start()
     }
 
     private fun configureCaptureButton() {
