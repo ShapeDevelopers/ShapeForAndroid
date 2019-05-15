@@ -49,10 +49,9 @@ class CameraFragment : Fragment() {
     }
 
     private fun requestCameraPermission() {
-        if (!isCameraPermissionGranted()) {
-            requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_REQUEST_CODE)
-        } else {
-            initCamera()
+        when (isCameraPermissionGranted()) {
+            true -> initCamera()
+            false -> requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_REQUEST_CODE)
         }
     }
 
