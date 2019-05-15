@@ -22,6 +22,8 @@ import java.io.File
 import java.io.IOException
 
 
+// TODO: to be replaced by [CameraFragment]
+
 /**
  * A simple [Fragment] subclass.
  * Use the [TakePhotoFragment.newInstance] factory method to
