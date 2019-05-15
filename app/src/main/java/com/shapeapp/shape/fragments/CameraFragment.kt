@@ -31,16 +31,28 @@ class CameraFragment : Fragment() {
         private const val CAMERA_PERMISSION_REQUEST_CODE = 111
     }
 
-    private lateinit var fotoapparat: Fotoapparat
+    private var fotoapparat: Fotoapparat? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_camera, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         requestCameraPermission()
+        configureCaptureButton()
+        configurePhotoContainer()
     }
 
     private fun requestCameraPermission() {
         if (!isCameraPermissionGranted()) {
             requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_REQUEST_CODE)
+        } else {
+            initCamera()
         }
     }
 
@@ -60,6 +72,7 @@ class CameraFragment : Fragment() {
                 when (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     true -> {
                         initCamera()
+                        Toast.makeText(context, "User has accepted permission", Toast.LENGTH_SHORT).show()
                     }
                     false -> {
                         Toast.makeText(context, "User hasn't accepted permission", Toast.LENGTH_SHORT).show()
@@ -69,27 +82,13 @@ class CameraFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_camera, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        initCamera()
-        configureCaptureButton()
-        configurePhotoContainer()
-    }
-
     private fun initCamera() {
         fotoapparat = Fotoapparat(
             context = context ?: throw Exception("Invalid context"),
             view = preview_cameraview,
             scaleType = ScaleType.CenterCrop
         )
+        fotoapparat?.start()
     }
 
     private fun configureCaptureButton() {
@@ -99,16 +98,17 @@ class CameraFragment : Fragment() {
     }
 
     private fun takePicture() {
-        val photoResult = fotoapparat.takePicture()
+        val photoResult = fotoapparat?.takePicture()
         // Asynchronously converts photo to bitmap and returns the result on the main thread
-        photoResult
-            .toBitmap()
-            .whenAvailable { bitmapPhoto ->
-                photo_container_imageview.setImageBitmap(bitmapPhoto?.bitmap)
-                val rotationDeg = determineRotation(bitmapPhoto)
-                photo_container_imageview.rotation = rotationDeg
-                photo_container_imageview.visibility = View.VISIBLE
-            }
+        photoResult?.let {
+            it.toBitmap()
+                .whenAvailable { bitmapPhoto ->
+                    photo_container_imageview.setImageBitmap(bitmapPhoto?.bitmap)
+                    val rotationDeg = determineRotation(bitmapPhoto)
+                    photo_container_imageview.rotation = rotationDeg
+                    photo_container_imageview.visibility = View.VISIBLE
+                }
+        }
     }
 
     /**
@@ -129,12 +129,12 @@ class CameraFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        fotoapparat.start()
+        fotoapparat?.start()
     }
 
     override fun onStop() {
         super.onStop()
-        fotoapparat.stop()
+        fotoapparat?.stop()
     }
 
 }
