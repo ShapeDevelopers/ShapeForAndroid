@@ -39,13 +39,16 @@ class CameraFragment : Fragment() {
     }
 
     private fun requestCameraPermission() {
-        if (ContextCompat.checkSelfPermission(
-                context!!,
-                Manifest.permission.CAMERA
-            ) == PackageManager.PERMISSION_DENIED
-        ) {
+        if (!isCameraPermissionGranted()) {
             requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_REQUEST_CODE)
         }
+    }
+
+    private fun isCameraPermissionGranted(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            context!!,
+            Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED
     }
 
 
