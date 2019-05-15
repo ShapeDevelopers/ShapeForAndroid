@@ -17,28 +17,23 @@
             android:id="@+id/background_imageview"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:contentDescription="@string/background_image_content_description"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/mockup_golden_retriever"
-            android:contentDescription="@string/background_image_content_description" />
-
-        <!-- TODO: extract shadow values to style (?) -->
+            tools:srcCompat="@drawable/mockup_golden_retriever" />
 
         <TextView
             android:id="@+id/nickname_textview"
+            style="@style/styleTextWithShadow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="sans-serif-light"
-            android:shadowColor="@android:color/black"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/small_card_text_size"
