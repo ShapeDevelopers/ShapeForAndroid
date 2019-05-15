@@ -7,10 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.MessagesFragment">
 
-    <!-- TODO: Extract styles -->
-    <!-- TODO: Extract dimensions -->
-    <!-- TODO: Delete mock-ups -->
-
     <!-- TODO: make avatar circular -->
 
     <androidx.constraintlayout.widget.ConstraintLayout

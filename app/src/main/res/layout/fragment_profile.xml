@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <!-- TODO: Extract styles -->
-    <!-- TODO: Extract dimensions -->
     <!-- TODO: Delete mock-ups -->
 
 
