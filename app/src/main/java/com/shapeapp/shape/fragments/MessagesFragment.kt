@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Message
+import com.shapeapp.shape.mockupsmakers.MessageMockups
 import com.shapeapp.shape.recyclerviewadapters.MessagesPreviewRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewMessageClickListener
 import com.shapeapp.shape.repositories.MessagesRepository
@@ -68,8 +69,11 @@ class MessagesFragment : Fragment() {
     private fun setListenersForRecyclerViewAdapters() {
         val messageClickListener = object : RecyclerViewMessageClickListener {
             override fun onMessageClick(clickedMessage: Message, messageItemView: View) {
-//                val actionWithArgument = MessagesFragmentDirections.actionMessagesFragmentToChatFragment(clickedMessage)
-                findNavController().navigate(R.id.action_messagesFragment_to_chatFragment)
+                //  TODO: replace mockup messages with real ones
+                //  TODO: consider if [MessageFragment] should sent messages set or not
+                val messages = MessageMockups.randomFullMessages.toTypedArray()
+                val actionWithArgument = MessagesFragmentDirections.actionMessagesFragmentToChatFragment(messages)
+                findNavController().navigate(actionWithArgument)
             }
         }
         sentMessagesRecyclerViewAdapter.messageClickListener = messageClickListener
