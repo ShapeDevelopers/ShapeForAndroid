@@ -83,7 +83,7 @@ class CameraFragment : Fragment() {
                         initCamera()
                     }
                     false -> {
-                        Toast.makeText(context, "User hasn't accepted permission", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "You won't be able to take photos :(", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
