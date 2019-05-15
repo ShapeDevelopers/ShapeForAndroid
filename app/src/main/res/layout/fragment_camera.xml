@@ -38,7 +38,7 @@
         android:src="@drawable/circle_icon"
         app:backgroundTint="#FFFFFF"
         app:fabSize="auto"
-        app:layout_constraintBottom_toBottomOf="@+id/preview_cameraview"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
