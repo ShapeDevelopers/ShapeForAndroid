@@ -174,10 +174,8 @@
 
             <TextView
                 android:id="@+id/name_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/name" />
 
             <TextView
                 android:id="@+id/name_textview"
@@ -188,10 +186,8 @@
 
             <TextView
                 android:id="@+id/surname_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/surname"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/surname" />
 
             <TextView
                 android:id="@+id/surname_textview"
@@ -202,10 +198,8 @@
 
             <TextView
                 android:id="@+id/sex_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/sex"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/sex" />
 
             <TextView
                 android:id="@+id/sex_textview"
@@ -216,10 +210,8 @@
 
             <TextView
                 android:id="@+id/email_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/email" />
 
             <TextView
                 android:id="@+id/email_textview"
@@ -230,10 +222,8 @@
 
             <TextView
                 android:id="@+id/birth_date_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/birth_date"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/birth_date" />
 
             <TextView
                 android:id="@+id/birth_date_textview"
@@ -244,10 +234,8 @@
 
             <TextView
                 android:id="@+id/distance_title_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/distance"
-                android:textColor="@color/colorSecondaryText" />
+                style="@style/styleProfileDataTitle"
+                android:text="@string/distance" />
 
             <LinearLayout
                 android:id="@+id/distance_box"
