@@ -42,15 +42,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_bar_layout">
 
-        <include layout="@layout/message_full_item" />
+        <include
+            layout="@layout/message_full_item"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="455dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/input_layout"
         android:layout_width="0dp"
-        android:background="@color/colorCardBackground"
         android:layout_height="wrap_content"
+        android:background="@color/colorCardBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -84,5 +87,16 @@
             app:layout_constraintEnd_toStartOf="@+id/send_fab"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messages_recyclerview"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/content_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
