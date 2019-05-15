@@ -39,7 +39,7 @@ class CameraFragment : Fragment() {
 
     private fun initCamera() {
         fotoapparat = Fotoapparat(
-            context = context!!,
+            context = context ?: throw Exception("Invalid context"),
             view = preview_cameraview,
             scaleType = ScaleType.CenterCrop
         )
