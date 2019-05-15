@@ -14,8 +14,7 @@ import io.fotoapparat.result.BitmapPhoto
 import kotlinx.android.synthetic.main.fragment_camera.*
 
 /**
- * A simple [Fragment] subclass.
- *
+ * Provides in-app photo capturing.
  */
 class CameraFragment : Fragment() {
 
