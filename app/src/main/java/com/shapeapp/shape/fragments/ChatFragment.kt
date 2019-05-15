@@ -1,7 +1,6 @@
 package com.shapeapp.shape.fragments
 
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +10,9 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
-import com.shapeapp.shape.mockupsmakers.CardMockups
 import com.shapeapp.shape.mockupsmakers.MessageMockups
 import com.shapeapp.shape.recyclerviewadapters.MessagesFullRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_chat.*
-import kotlinx.android.synthetic.main.message_full_item.*
 
 
 /**
@@ -50,7 +47,6 @@ class ChatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadMessage()
         configureRecyclerView()
     }
 
@@ -60,18 +56,6 @@ class ChatFragment : Fragment() {
             layoutManager = linearLayoutManager
             adapter = messagesRecyclerViewAdapter
         }
-    }
-
-    private fun loadMessage() {
-        val senderName = arguments.message.senderNickname
-        //  TODO: load real avatar based on nickname (?)
-        val senderAvatarUri = Uri.parse(CardMockups.getRandomDrawableUriString())
-        val text = arguments.message.textContent
-        val fullDate = arguments.message.dateStampFull
-        sender_nickname_textview.text = senderName
-        sender_avatar_imageview.setImageURI(senderAvatarUri)
-        text_textview.text = text
-        full_date_textview.text = fullDate
     }
 
 }
