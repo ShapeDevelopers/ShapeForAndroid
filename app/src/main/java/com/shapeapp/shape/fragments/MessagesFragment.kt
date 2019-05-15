@@ -71,7 +71,8 @@ class MessagesFragment : Fragment() {
             override fun onMessageClick(clickedMessage: Message, messageItemView: View) {
                 //  TODO: replace mockup messages with real ones
                 //  TODO: consider if [MessageFragment] should sent messages set or not
-                val messages = MessageMockups.randomFullMessages.toTypedArray()
+                val randomMessages = MessageMockups.randomFullMessages
+                val messages = (randomMessages + clickedMessage).toTypedArray()
                 val actionWithArgument = MessagesFragmentDirections.actionMessagesFragmentToChatFragment(messages)
                 findNavController().navigate(actionWithArgument)
             }
