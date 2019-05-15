@@ -21,8 +21,7 @@ import kotlinx.android.synthetic.main.fragment_take_photo.*
 import java.io.File
 import java.io.IOException
 
-
-// TODO: to be replaced by [CameraFragment]
+// TODO: delete, it was replaced by [CameraFragment]
 
 /**
  * A simple [Fragment] subclass.
