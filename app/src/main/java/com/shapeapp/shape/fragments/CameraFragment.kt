@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_camera.*
 class CameraFragment : Fragment() {
 
     //  TODO: implement MVVM
+    //  TODO: save photo to persistent storage
 
     private lateinit var fotoapparat: Fotoapparat
 
