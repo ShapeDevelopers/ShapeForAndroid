@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
@@ -21,8 +20,6 @@ import kotlinx.android.synthetic.main.fragment_chat.*
 class ChatFragment : Fragment() {
 
     //  TODO: implement ViewModel
-
-    private val arguments: ChatFragmentArgs by navArgs()
 
     private val messagesRecyclerViewAdapter = MessagesFullRecyclerViewAdapter(emptyList())
 
