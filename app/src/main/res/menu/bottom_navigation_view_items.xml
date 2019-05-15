@@ -10,7 +10,7 @@
     <item
         android:id="@+id/cameraFragment"
         android:icon="@drawable/camera_star_icon"
-        android:title="NCam"
+        android:title="@string/camera_action_button"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/publicFragment"
