@@ -40,24 +40,21 @@
 
         <TextView
             android:id="@+id/main_title_textview"
+            style="@style/styleFragmentMainTitle"
             android:text="@string/messages_main_title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/styleFragmentMainTitle" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/sent_title_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/styleCategoryTitle"
         android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-light"
         android:text="@string/sent_title"
         android:textColor="@color/colorTeal"
-        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_bar_layout" />
 
@@ -76,13 +73,10 @@
 
     <TextView
         android:id="@+id/received_title_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/styleCategoryTitle"
         android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-light"
         android:text="@string/received_title"
         android:textColor="@color/colorAccent"
-        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/latest_title_textview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sent_title_textview" />
@@ -102,13 +96,10 @@
 
     <TextView
         android:id="@+id/latest_title_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/styleCategoryTitle"
         android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-light"
         android:text="@string/latest_title"
         android:textColor="@color/colorSecondaryText"
-        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/received_title_textview" />
