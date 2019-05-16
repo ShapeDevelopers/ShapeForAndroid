@@ -62,19 +62,19 @@ class InitialBackendConnectionFragment : Fragment() {
                     true -> {
                         val cards = response.body() ?: listOf()
                         val cardsAsText = cardsToTextList(cards)
-                        response_textview.text = cardsAsText
+                        response_textview?.text = cardsAsText
                     }
                     false -> {
                         val responseCode = response.code()
                         val message = "Code: $responseCode"
-                        response_textview.text = message
+                        response_textview?.text = message
                     }
                 }
             }
 
             override fun onFailure(call: Call<List<Card>>, t: Throwable) {
                 val failureMessage = "Failure: ${t.message}"
-                response_textview.text = failureMessage
+                response_textview?.text = failureMessage
             }
         })
     }
