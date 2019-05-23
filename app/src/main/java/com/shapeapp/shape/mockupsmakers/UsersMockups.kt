@@ -14,7 +14,7 @@ object UsersMockups {
 
     private fun generateRandomUser(): User {
         val nickname = getRandomNick()
-        val avatarUri = CardMockups.getRandomDrawableUriString()
+        val avatarUri = DrawablesMockups.getRandomDrawableUriString()
         val name = getRandomName()
         val surname = "${getRandomName()}ovsky"
         val sex = getRandomSex()
