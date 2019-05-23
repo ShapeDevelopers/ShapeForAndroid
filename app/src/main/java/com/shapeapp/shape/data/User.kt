@@ -2,19 +2,35 @@ package com.shapeapp.shape.data
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 /**
  * Contains single user's data
  */
 class User() : Parcelable {
 
+    @SerializedName("nickname")
     var nickname = ""
+
+    @SerializedName("avatarUri")
     var avatarUri = ""
+
+    @SerializedName("name")
     var name = ""
+
+    @SerializedName("surname")
     var surname = ""
+
+    @SerializedName("sex")
     var sex = ""
+
+    @SerializedName("email")
     var email = ""
+
+    @SerializedName("birthDate")
     var birthDate = ""
+
+    @SerializedName("radarRadius")
     var radarRadius = ""
 
     constructor(parcel: Parcel) : this() {
