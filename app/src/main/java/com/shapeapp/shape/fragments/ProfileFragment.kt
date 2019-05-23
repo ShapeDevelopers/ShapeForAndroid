@@ -56,7 +56,8 @@ class ProfileFragment : Fragment() {
             sex_textview.text = sex
             email_textview.text = email
             birth_date_textview.text = birthDate
-            //  TODO: finish loading distance
+            distance_progressBar.progress = radarRadius.toInt()
+            distance_value_textview.text = "$radarRadius km"
         }
     }
 
