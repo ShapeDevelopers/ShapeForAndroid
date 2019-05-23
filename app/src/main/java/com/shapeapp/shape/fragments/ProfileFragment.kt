@@ -2,11 +2,13 @@ package com.shapeapp.shape.fragments
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -16,6 +18,8 @@ import kotlinx.android.synthetic.main.fragment_profile.*
  * Shows info about user's profile and friends-related options.
  */
 class ProfileFragment : Fragment() {
+
+    private val arguments: ProfileFragmentArgs by navArgs()
 
     private val avatarAnimator by lazy { generateAvatarAnimator() }
 
@@ -37,6 +41,22 @@ class ProfileFragment : Fragment() {
         avatar_circularimageview.setOnLongClickListener {
             controlAvatarAnimator()
             true
+        }
+
+        loadArgumentsToUi()
+    }
+
+    private fun loadArgumentsToUi() {
+        val user = arguments.user
+        user.run {
+            avatar_circularimageview.setImageURI(Uri.parse(avatarUri))
+            nickname_textview.text = nickname
+            name_textview.text = name
+            surname_textview.text = surname
+            sex_textview.text = sex
+            email_textview.text = email
+            birth_date_textview.text = birthDate
+            //  TODO: finish loading distance
         }
     }
 
