@@ -12,6 +12,7 @@ object UsersMockups {
     val randomUser
         get() = generateRandomUser()
 
+
     private fun generateRandomUser(): User {
         val nickname = getRandomNick()
         val avatarUri = DrawablesMockups.getRandomDrawableUriString()
