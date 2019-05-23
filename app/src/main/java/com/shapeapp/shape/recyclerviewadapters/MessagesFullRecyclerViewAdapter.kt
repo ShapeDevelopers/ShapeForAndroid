@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Message
-import com.shapeapp.shape.mockupsmakers.CardMockups
+import com.shapeapp.shape.mockupsmakers.DrawablesMockups
 
 /**
  * Feeds [RecyclerView] with full [Message] data
@@ -32,7 +32,7 @@ class MessagesFullRecyclerViewAdapter(var messagesDataset: List<Message>) :
         holder.apply {
             senderNickname.text = messagesDataset[adapterPosition].senderNickname
             //  TODO: load real avatar
-            senderAvatar.setImageURI(Uri.parse(CardMockups.getRandomDrawableUriString()))
+            senderAvatar.setImageURI(Uri.parse(DrawablesMockups.getRandomDrawableUriString()))
             text.text = messagesDataset[adapterPosition].textContent
             fullDate.text = messagesDataset[adapterPosition].dateStampFull
         }

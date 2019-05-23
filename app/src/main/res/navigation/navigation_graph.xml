@@ -29,7 +29,11 @@
         android:id="@+id/profileFragment"
         android:name="com.shapeapp.shape.fragments.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <argument
+            android:name="user"
+            app:argType="com.shapeapp.shape.data.User" />
+    </fragment>
     <fragment
         android:id="@+id/messagesFragment"
         android:name="com.shapeapp.shape.fragments.MessagesFragment"

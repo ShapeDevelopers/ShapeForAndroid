@@ -2,42 +2,29 @@ package com.shapeapp.shape.fragments
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 //  TODO: check and implement loading data from source (MVVM)
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 /**
  * Shows info about user's profile and friends-related options.
- *
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- *
  */
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private val arguments: ProfileFragmentArgs by navArgs()
 
     private val avatarAnimator by lazy { generateAvatarAnimator() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -54,6 +41,25 @@ class ProfileFragment : Fragment() {
         avatar_circularimageview.setOnLongClickListener {
             controlAvatarAnimator()
             true
+        }
+
+        loadArgumentsToUi()
+    }
+
+    private fun loadArgumentsToUi() {
+        val user = arguments.user
+        user.run {
+            avatar_circularimageview.setImageURI(Uri.parse(avatarUri))
+            nickname_textview.text = nickname
+            name_textview.text = name
+            surname_textview.text = surname
+            sex_textview.text = sex
+            email_textview.text = email
+            birth_date_textview.text = birthDate
+            //  TODO: consider min/max for progressBar
+            distance_progressBar.progress = radarRadius.toInt()
+            //  TODO: use resource string with placeholders
+            distance_value_textview.text = "$radarRadius km"
         }
     }
 
@@ -78,23 +84,4 @@ class ProfileFragment : Fragment() {
         return scaleAnimator
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

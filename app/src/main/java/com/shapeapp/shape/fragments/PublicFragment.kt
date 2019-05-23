@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.dialogs.MyPublicSharesBSD
+import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 import com.shapeapp.shape.repositories.CardsRepository
@@ -151,7 +152,10 @@ class PublicFragment : Fragment() {
     }
 
     private fun loadProfileFragment() {
-        findNavController().navigate(R.id.action_publicFragment_to_profileFragment)
+        //  TODO: provide real User or UsersRepository
+        val user = UsersMockups.randomUser
+        val actionWithArgument = PublicFragmentDirections.actionPublicFragmentToProfileFragment(user)
+        findNavController().navigate(actionWithArgument)
     }
 
     private fun showMyPublicSharesBSD() {

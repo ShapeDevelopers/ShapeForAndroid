@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.ProfileFragment">
 
-    <!-- TODO: Delete mock-ups -->
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top_bar_layout"
@@ -55,14 +53,14 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/mockup_seal"
         app:civ_border_color="@color/colorAccent"
         app:civ_border_width="2dp"
         app:civ_shadow_radius="1"
         app:layout_constraintBottom_toTopOf="@+id/nickname_textview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_bar_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/top_bar_layout"
+        tools:srcCompat="@drawable/mockup_seal" />
 
     <TextView
         android:id="@+id/nickname_textview"
@@ -72,14 +70,14 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-light"
-        android:text="@string/profile_name_mockup"
         android:textColor="@color/colorPrimaryText"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/friends_actions_box"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avatar_circularimageview" />
+        app:layout_constraintTop_toBottomOf="@+id/avatar_circularimageview"
+        tools:text="@string/profile_name_mockup" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/friends_actions_box"
@@ -182,7 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@string/name_mockup" />
+                tools:text="@string/name_mockup" />
 
             <TextView
                 android:id="@+id/surname_title_textview"
@@ -194,7 +192,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@string/surname_mockup" />
+                tools:text="@string/surname_mockup" />
 
             <TextView
                 android:id="@+id/sex_title_textview"
@@ -206,7 +204,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@string/female" />
+                tools:text="@string/female" />
 
             <TextView
                 android:id="@+id/email_title_textview"
@@ -218,7 +216,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@string/email_mockup" />
+                tools:text="@string/email_mockup" />
 
             <TextView
                 android:id="@+id/birth_date_title_textview"
@@ -230,7 +228,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@string/birth_date_with_slashes_mockup" />
+                tools:text="@string/birth_date_with_slashes_mockup" />
 
             <TextView
                 android:id="@+id/distance_title_textview"
@@ -250,7 +248,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="9"
                     android:gravity="center"
-                    android:progress="70" />
+                    tools:progress="70" />
 
                 <TextView
                     android:id="@+id/distance_value_textview"
@@ -258,9 +256,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/distance_in_km_mockup"
                     android:textAlignment="center"
-                    android:textColor="@color/colorAccent" />
+                    android:textColor="@color/colorAccent"
+                    tools:text="@string/distance_in_km_mockup" />
             </LinearLayout>
 
         </LinearLayout>

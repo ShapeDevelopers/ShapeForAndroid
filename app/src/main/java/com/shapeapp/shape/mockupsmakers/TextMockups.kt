@@ -1,6 +1,8 @@
 package com.shapeapp.shape.mockupsmakers
 
-import java.util.*
+import kotlin.random.Random
+import kotlin.random.nextInt
+
 
 /**
  * Helper class that provides some mock-up text data
@@ -36,6 +38,8 @@ object TextMockups {
         "yak",
         "zebra"
     )
+    val randomAnimal
+        get() = getRandomElement(animals)
 
     val cities = listOf(
         "Oslo",
@@ -54,6 +58,8 @@ object TextMockups {
         "Los Angeles",
         "Buenos Aires"
     )
+    val randomCity
+        get() = getRandomElement(cities)
 
     val names = listOf(
         "Lucas",
@@ -75,6 +81,8 @@ object TextMockups {
         "Logan",
         "James"
     )
+    val randomName
+        get() = getRandomElement(names)
 
     val countries = listOf(
         "Germany",
@@ -98,6 +106,8 @@ object TextMockups {
         "Canada",
         "Estonia"
     )
+    val randomCountry
+        get() = getRandomElement(countries)
 
     val fruits = listOf(
         "apple",
@@ -125,14 +135,23 @@ object TextMockups {
         "kiwifruit",
         "grape"
     )
+    val randomFruit
+        get() = getRandomElement(fruits)
+
+
+    private fun getRandomElement(list: List<String>): String {
+        val availableRange = 0 until list.size
+        val randomPosition = Random.nextInt(availableRange)
+        return list[randomPosition]
+    }
 
     fun generateRandomText(): String {
         val sourceWords = animals
         val sourceWordsNumber = sourceWords.size
-        val newTextWordsNumber = Random().nextInt(sourceWordsNumber)
+        val newTextWordsNumber = Random.nextInt(sourceWordsNumber)
         var newText = "I like "
         for (index in 0 until newTextWordsNumber) {
-            val randomNumber = Random().nextInt(sourceWordsNumber)
+            val randomNumber = Random.nextInt(sourceWordsNumber)
             newText += " ${sourceWords[randomNumber]}"
         }
         return newText

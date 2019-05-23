@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Message
 import com.shapeapp.shape.mockupsmakers.MessageMockups
+import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.MessagesPreviewRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewMessageClickListener
 import com.shapeapp.shape.repositories.MessagesRepository
@@ -103,7 +104,10 @@ class MessagesFragment : Fragment() {
     }
 
     private fun loadProfileFragment() {
-        findNavController().navigate(R.id.action_messagesFragment_to_profileFragment)
+        //  TODO: provide real User or UsersRepository
+        val user = UsersMockups.randomUser
+        val actionWithArgument = MessagesFragmentDirections.actionMessagesFragmentToProfileFragment(user)
+        findNavController().navigate(actionWithArgument)
     }
 
     private fun configureRecyclerViews() {
