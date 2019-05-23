@@ -56,7 +56,9 @@ class ProfileFragment : Fragment() {
             sex_textview.text = sex
             email_textview.text = email
             birth_date_textview.text = birthDate
+            //  TODO: consider min/max for progressBar
             distance_progressBar.progress = radarRadius.toInt()
+            //  TODO: use resource string with placeholders
             distance_value_textview.text = "$radarRadius km"
         }
     }
