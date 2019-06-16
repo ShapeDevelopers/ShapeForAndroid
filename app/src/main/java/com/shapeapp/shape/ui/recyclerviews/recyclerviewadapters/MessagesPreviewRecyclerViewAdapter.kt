@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.entities.Message
 import com.shapeapp.shape.mockupsmakers.DrawablesMockups
-import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewMessageClickListener
+import com.shapeapp.shape.ui.recyclerviews.recyclerviewinterfaces.RecyclerViewMessageClickListener
 
 /**
  * Feeds [RecyclerView] with previewed [Message] data

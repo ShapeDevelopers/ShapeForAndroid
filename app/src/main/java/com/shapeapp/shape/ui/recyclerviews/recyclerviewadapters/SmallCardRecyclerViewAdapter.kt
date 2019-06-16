@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.entities.Card
-import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
+import com.shapeapp.shape.ui.recyclerviews.recyclerviewinterfaces.RecyclerViewCardClickListener
 
 /**
  * Feeds [RecyclerView] with [Card] data
