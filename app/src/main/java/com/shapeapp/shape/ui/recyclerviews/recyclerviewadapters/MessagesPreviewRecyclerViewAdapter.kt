@@ -1,4 +1,4 @@
-package com.shapeapp.shape.recyclerviewadapters
+package com.shapeapp.shape.ui.recyclerviews.recyclerviewadapters
 
 import android.annotation.SuppressLint
 import android.net.Uri

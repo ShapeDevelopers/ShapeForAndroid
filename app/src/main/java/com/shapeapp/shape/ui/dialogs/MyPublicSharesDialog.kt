@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
-import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
+import com.shapeapp.shape.ui.recyclerviews.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.repositories.CardsRepository
 
 /**

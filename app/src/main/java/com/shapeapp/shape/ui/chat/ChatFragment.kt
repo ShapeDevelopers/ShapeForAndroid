@@ -10,8 +10,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
-import com.shapeapp.shape.recyclerviewadapters.MessagesFullRecyclerViewAdapter
-import com.shapeapp.shape.ui.chat.ChatFragmentArgs
+import com.shapeapp.shape.ui.recyclerviews.recyclerviewadapters.MessagesFullRecyclerViewAdapter
 import kotlinx.android.synthetic.main.fragment_chat.*
 
 
