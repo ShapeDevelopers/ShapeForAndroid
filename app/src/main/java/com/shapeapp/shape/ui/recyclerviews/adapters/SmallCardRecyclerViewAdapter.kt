@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui.recyclerviews.recyclerviewadapters
+package com.shapeapp.shape.ui.recyclerviews.adapters
 
 import android.net.Uri
 import android.view.LayoutInflater
