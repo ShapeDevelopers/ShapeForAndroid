@@ -1,6 +1,6 @@
-package com.shapeapp.shape.backendcalls
+package com.shapeapp.shape.data.network.backendcalls
 
-import com.shapeapp.shape.backendcalls.RetrofitBackendClient.backendApi
+import com.shapeapp.shape.data.network.backendcalls.RetrofitBackendClient.backendApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

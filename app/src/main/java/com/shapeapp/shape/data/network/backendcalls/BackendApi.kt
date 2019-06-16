@@ -1,4 +1,4 @@
-package com.shapeapp.shape.backendcalls
+package com.shapeapp.shape.data.network.backendcalls
 
 import com.shapeapp.shape.data.entities.Card
 import retrofit2.Call
