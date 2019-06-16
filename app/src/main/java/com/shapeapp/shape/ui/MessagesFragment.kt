@@ -1,4 +1,4 @@
-package com.shapeapp.shape.fragments
+package com.shapeapp.shape.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,13 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Message
+import com.shapeapp.shape.ui.MessagesFragmentDirections
 import com.shapeapp.shape.mockupsmakers.MessageMockups
 import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.MessagesPreviewRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewMessageClickListener
 import com.shapeapp.shape.repositories.MessagesRepository
-import com.shapeapp.shape.ui.MessagesFragmentViewModel
-import com.shapeapp.shape.ui.MessagesFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_messages.*
 
 //  TODO: complete messages loading
@@ -74,7 +73,10 @@ class MessagesFragment : Fragment() {
                 //  TODO: consider if [MessageFragment] should sent messages set or not
                 val randomMessages = MessageMockups.randomFullMessages
                 val messages = (randomMessages + clickedMessage).toTypedArray()
-                val actionWithArgument = MessagesFragmentDirections.actionMessagesFragmentToChatFragment(messages)
+                val actionWithArgument =
+                    MessagesFragmentDirections.actionMessagesFragmentToChatFragment(
+                        messages
+                    )
                 findNavController().navigate(actionWithArgument)
             }
         }
@@ -106,7 +108,8 @@ class MessagesFragment : Fragment() {
     private fun loadProfileFragment() {
         //  TODO: provide real User or UsersRepository
         val user = UsersMockups.randomUser
-        val actionWithArgument = MessagesFragmentDirections.actionMessagesFragmentToProfileFragment(user)
+        val actionWithArgument =
+            MessagesFragmentDirections.actionMessagesFragmentToProfileFragment(user)
         findNavController().navigate(actionWithArgument)
     }
 

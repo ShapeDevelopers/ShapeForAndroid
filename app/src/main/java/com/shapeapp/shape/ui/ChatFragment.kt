@@ -1,4 +1,4 @@
-package com.shapeapp.shape.fragments
+package com.shapeapp.shape.ui
 
 
 import android.os.Bundle

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/publicFragment"
-        android:name="com.shapeapp.shape.fragments.PublicFragment"
+        android:name="com.shapeapp.shape.ui.PublicFragment"
         android:label="fragment_public"
         tools:layout="@layout/fragment_public">
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.shapeapp.shape.fragments.ProfileFragment"
+        android:name="com.shapeapp.shape.ui.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <argument
@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/messagesFragment"
-        android:name="com.shapeapp.shape.fragments.MessagesFragment"
+        android:name="com.shapeapp.shape.ui.MessagesFragment"
         android:label="fragment_messages"
         tools:layout="@layout/fragment_messages">
         <action
@@ -56,12 +56,12 @@
     </fragment>
     <fragment
         android:id="@+id/initialBackendConnectionFragment"
-        android:name="com.shapeapp.shape.fragments.InitialBackendConnectionFragment"
+        android:name="com.shapeapp.shape.ui.InitialBackendConnectionFragment"
         android:label="fragment_initial_backend_connection"
         tools:layout="@layout/fragment_initial_backend_connection" />
     <fragment
         android:id="@+id/receivedImageFragment"
-        android:name="com.shapeapp.shape.fragments.ReceivedImageFragment"
+        android:name="com.shapeapp.shape.ui.ReceivedImageFragment"
         android:label="fragment_received_image"
         tools:layout="@layout/fragment_received_image">
         <argument
@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.shapeapp.shape.fragments.ChatFragment"
+        android:name="com.shapeapp.shape.ui.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat">
         <argument
@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/cameraFragment"
-        android:name="com.shapeapp.shape.fragments.CameraFragment"
+        android:name="com.shapeapp.shape.ui.CameraFragment"
         android:label="fragment_camera"
         tools:layout="@layout/fragment_camera" />
 </navigation>

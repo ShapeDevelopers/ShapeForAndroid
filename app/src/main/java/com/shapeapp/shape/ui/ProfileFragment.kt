@@ -1,4 +1,4 @@
-package com.shapeapp.shape.fragments
+package com.shapeapp.shape.ui
 
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
+import com.shapeapp.shape.ui.ProfileFragmentArgs
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 //  TODO: check and implement loading data from source (MVVM)

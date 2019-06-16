@@ -3,7 +3,6 @@ package com.shapeapp.shape.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.Message
-import com.shapeapp.shape.fragments.MessagesFragment
 import com.shapeapp.shape.repositories.MessagesRepository
 
 /**

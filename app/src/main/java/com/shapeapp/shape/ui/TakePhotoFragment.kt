@@ -1,4 +1,4 @@
-package com.shapeapp.shape.fragments
+package com.shapeapp.shape.ui
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
@@ -16,7 +16,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.constants.Authorities
 import com.shapeapp.shape.filehandlers.FileOperator
-import com.shapeapp.shape.ui.TakePhotoFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_take_photo.*
 import java.io.File
 import java.io.IOException
@@ -103,7 +102,9 @@ class TakePhotoFragment : Fragment() {
                         val photoFileUri =
                             FileProvider.getUriForFile(context, Authorities.FILE_PROVIDER_AUTHORITY, photoFile)
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFileUri)
-                        startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+                        startActivityForResult(takePictureIntent,
+                            REQUEST_IMAGE_CAPTURE
+                        )
                         viewModel.startedWaitingForPhoto(photoFileUri)
                     }
                 }

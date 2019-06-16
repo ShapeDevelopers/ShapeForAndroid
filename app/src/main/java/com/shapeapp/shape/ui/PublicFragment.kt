@@ -1,4 +1,4 @@
-package com.shapeapp.shape.fragments
+package com.shapeapp.shape.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,8 +19,6 @@ import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 import com.shapeapp.shape.repositories.CardsRepository
-import com.shapeapp.shape.ui.PublicFragmentViewModel
-import com.shapeapp.shape.ui.PublicFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_public.*
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -108,7 +106,10 @@ class PublicFragment : Fragment() {
     private fun setClickListenerForRecyclerViewsAdapters() {
         val cardClickListener = object : RecyclerViewCardClickListener {
             override fun onCardClick(clickedCard: Card, cardItemView: View) {
-                val action = PublicFragmentDirections.actionPublicFragmentToReceivedImageFragment2(clickedCard)
+                val action =
+                    PublicFragmentDirections.actionPublicFragmentToReceivedImageFragment2(
+                        clickedCard
+                    )
                 findNavController().navigate(action)
             }
         }
@@ -154,7 +155,8 @@ class PublicFragment : Fragment() {
     private fun loadProfileFragment() {
         //  TODO: provide real User or UsersRepository
         val user = UsersMockups.randomUser
-        val actionWithArgument = PublicFragmentDirections.actionPublicFragmentToProfileFragment(user)
+        val actionWithArgument =
+            PublicFragmentDirections.actionPublicFragmentToProfileFragment(user)
         findNavController().navigate(actionWithArgument)
     }
 

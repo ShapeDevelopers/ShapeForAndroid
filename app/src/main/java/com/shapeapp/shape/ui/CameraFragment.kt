@@ -1,4 +1,4 @@
-package com.shapeapp.shape.fragments
+package com.shapeapp.shape.ui
 
 
 import android.Manifest
@@ -52,7 +52,9 @@ class CameraFragment : Fragment() {
     private fun configureCaptureBehaviour() {
         when (isCameraPermissionAlreadyGranted()) {
             true -> initCamera()
-            false -> requestPermissions(arrayOf(Manifest.permission.CAMERA), CAMERA_PERMISSION_REQUEST_CODE)
+            false -> requestPermissions(arrayOf(Manifest.permission.CAMERA),
+                CAMERA_PERMISSION_REQUEST_CODE
+            )
         }
     }
 
