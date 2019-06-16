@@ -12,8 +12,8 @@ import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
-import com.shapeapp.shape.viewmodels.ReceivedImageFragmentViewModel
-import com.shapeapp.shape.viewmodels.ReceivedImageFragmentViewModelFactory
+import com.shapeapp.shape.ui.ReceivedImageFragmentViewModel
+import com.shapeapp.shape.ui.ReceivedImageFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_received_image.*
 
 

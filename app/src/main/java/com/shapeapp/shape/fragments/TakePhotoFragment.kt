@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.shapeapp.shape.R
 import com.shapeapp.shape.constants.Authorities
 import com.shapeapp.shape.filehandlers.FileOperator
-import com.shapeapp.shape.viewmodels.TakePhotoFragmentViewModel
+import com.shapeapp.shape.ui.TakePhotoFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_take_photo.*
 import java.io.File
 import java.io.IOException

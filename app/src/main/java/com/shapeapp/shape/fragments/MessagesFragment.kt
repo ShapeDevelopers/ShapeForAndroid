@@ -17,8 +17,8 @@ import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.MessagesPreviewRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewMessageClickListener
 import com.shapeapp.shape.repositories.MessagesRepository
-import com.shapeapp.shape.viewmodels.MessagesFragmentViewModel
-import com.shapeapp.shape.viewmodels.MessagesFragmentViewModelFactory
+import com.shapeapp.shape.ui.MessagesFragmentViewModel
+import com.shapeapp.shape.ui.MessagesFragmentViewModelFactory
 import kotlinx.android.synthetic.main.fragment_messages.*
 
 //  TODO: complete messages loading

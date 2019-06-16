@@ -1,4 +1,4 @@
-package com.shapeapp.shape.viewmodels
+package com.shapeapp.shape.ui
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
