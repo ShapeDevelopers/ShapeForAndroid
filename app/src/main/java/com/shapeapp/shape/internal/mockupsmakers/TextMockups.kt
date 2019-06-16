@@ -1,4 +1,4 @@
-package com.shapeapp.shape.mockupsmakers
+package com.shapeapp.shape.internal.mockupsmakers
 
 import kotlin.random.Random
 import kotlin.random.nextInt

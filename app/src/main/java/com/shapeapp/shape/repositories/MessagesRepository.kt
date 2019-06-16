@@ -3,7 +3,7 @@ package com.shapeapp.shape.repositories
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.shapeapp.shape.data.entities.Message
-import com.shapeapp.shape.mockupsmakers.MessageMockups
+import com.shapeapp.shape.internal.mockupsmakers.MessageMockups
 
 /**
  * Repository with messages - singleton

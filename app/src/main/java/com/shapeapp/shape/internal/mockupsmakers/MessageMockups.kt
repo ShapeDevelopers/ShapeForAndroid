@@ -1,4 +1,4 @@
-package com.shapeapp.shape.mockupsmakers
+package com.shapeapp.shape.internal.mockupsmakers
 
 import com.shapeapp.shape.data.entities.Message
 

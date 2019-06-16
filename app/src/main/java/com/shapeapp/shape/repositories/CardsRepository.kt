@@ -3,7 +3,7 @@ package com.shapeapp.shape.repositories
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.shapeapp.shape.data.entities.Card
-import com.shapeapp.shape.mockupsmakers.CardMockups
+import com.shapeapp.shape.internal.mockupsmakers.CardMockups
 
 /**
  * Repository with cards - singleton
