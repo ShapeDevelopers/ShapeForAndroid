@@ -1,6 +1,6 @@
 package com.shapeapp.shape.mockupsmakers
 
-import com.shapeapp.shape.data.Card
+import com.shapeapp.shape.data.entities.Card
 import java.util.*
 
 /**

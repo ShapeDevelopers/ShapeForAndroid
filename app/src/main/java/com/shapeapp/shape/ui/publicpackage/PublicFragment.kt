@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
-import com.shapeapp.shape.data.Card
+import com.shapeapp.shape.data.entities.Card
 import com.shapeapp.shape.dialogs.MyPublicSharesBSD
 import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter

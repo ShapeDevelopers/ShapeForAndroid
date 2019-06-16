@@ -1,6 +1,6 @@
 package com.shapeapp.shape.mockupsmakers
 
-import com.shapeapp.shape.data.Message
+import com.shapeapp.shape.data.entities.Message
 
 /**
  * Generates [Message]s mock-ups

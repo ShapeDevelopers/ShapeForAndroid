@@ -1,4 +1,4 @@
-package com.shapeapp.shape.data
+package com.shapeapp.shape.data.entities
 
 import android.os.Parcel
 import android.os.Parcelable

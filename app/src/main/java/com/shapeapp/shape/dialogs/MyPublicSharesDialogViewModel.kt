@@ -2,7 +2,7 @@ package com.shapeapp.shape.dialogs
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.shapeapp.shape.data.Card
+import com.shapeapp.shape.data.entities.Card
 import com.shapeapp.shape.repositories.CardsRepository
 
 /**

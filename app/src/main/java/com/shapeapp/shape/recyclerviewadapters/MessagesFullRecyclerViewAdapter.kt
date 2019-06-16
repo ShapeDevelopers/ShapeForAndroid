@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
-import com.shapeapp.shape.data.Message
+import com.shapeapp.shape.data.entities.Message
 import com.shapeapp.shape.mockupsmakers.DrawablesMockups
 
 /**
