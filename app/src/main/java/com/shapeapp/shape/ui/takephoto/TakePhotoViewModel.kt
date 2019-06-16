@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 /**
  * [ViewModel] for [TakePhotoFragment]
  */
-class TakePhotoFragmentViewModel : ViewModel() {
+class TakePhotoViewModel : ViewModel() {
 
     private val _photoUri = MutableLiveData<Uri>()
     val photoUri: LiveData<Uri>

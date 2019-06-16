@@ -31,12 +31,12 @@ import java.io.IOException
  */
 class TakePhotoFragment : Fragment() {
 
-    private lateinit var viewModel: TakePhotoFragmentViewModel
+    private lateinit var viewModel: TakePhotoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel = ViewModelProviders.of(this).get(TakePhotoFragmentViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(TakePhotoViewModel::class.java)
     }
 
     override fun onCreateView(
