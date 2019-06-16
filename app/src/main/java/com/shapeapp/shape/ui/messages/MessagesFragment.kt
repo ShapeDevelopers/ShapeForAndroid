@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui
+package com.shapeapp.shape.ui.messages
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Message
-import com.shapeapp.shape.ui.MessagesFragmentDirections
+import com.shapeapp.shape.ui.messages.MessagesFragmentDirections
 import com.shapeapp.shape.mockupsmakers.MessageMockups
 import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.MessagesPreviewRecyclerViewAdapter
