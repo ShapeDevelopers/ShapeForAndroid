@@ -56,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/initialBackendConnectionFragment"
-        android:name="com.shapeapp.shape.ui.InitialBackendConnectionFragment"
+        android:name="com.shapeapp.shape.ui.initialbackendconnection.InitialBackendConnectionFragment"
         android:label="fragment_initial_backend_connection"
         tools:layout="@layout/fragment_initial_backend_connection" />
     <fragment

@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui
+package com.shapeapp.shape.ui.initialbackendconnection
 
 import android.os.Bundle
 import android.os.Handler
