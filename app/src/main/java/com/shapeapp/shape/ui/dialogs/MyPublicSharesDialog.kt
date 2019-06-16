@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.ui.recyclerviews.adapters.SmallCardRecyclerViewAdapter
-import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.data.repositories.CardsRepository
 
 /**
  * Shows list of "My public shares" cards

@@ -2,7 +2,7 @@ package com.shapeapp.shape.ui.messages
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shapeapp.shape.repositories.MessagesRepository
+import com.shapeapp.shape.data.repositories.MessagesRepository
 
 /**
  * Knows how to initiate [MessagesViewModel]

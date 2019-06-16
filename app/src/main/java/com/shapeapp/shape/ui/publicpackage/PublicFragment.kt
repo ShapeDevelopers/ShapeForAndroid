@@ -18,7 +18,7 @@ import com.shapeapp.shape.ui.dialogs.MyPublicSharesBSD
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
 import com.shapeapp.shape.ui.recyclerviews.adapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.ui.recyclerviews.interfaces.RecyclerViewCardClickListener
-import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.data.repositories.CardsRepository
 import kotlinx.android.synthetic.main.fragment_public.*
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

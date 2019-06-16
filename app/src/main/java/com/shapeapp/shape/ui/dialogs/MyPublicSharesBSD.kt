@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.shapeapp.shape.R
 import com.shapeapp.shape.ui.recyclerviews.adapters.SmallCardRecyclerViewAdapter
-import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.data.repositories.CardsRepository
 import kotlinx.android.synthetic.main.bsd_my_public_shares.*
 
 /**

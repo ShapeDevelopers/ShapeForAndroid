@@ -3,7 +3,7 @@ package com.shapeapp.shape.ui.dialogs
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.entities.Card
-import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.data.repositories.CardsRepository
 
 /**
  * [ViewModel] for [MyPublicSharesBSD]

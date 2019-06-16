@@ -2,7 +2,7 @@ package com.shapeapp.shape.ui.dialogs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.data.repositories.CardsRepository
 
 /**
  * Knows how to initiate [MyPublicSharesBSDViewModel]
