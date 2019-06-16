@@ -72,7 +72,7 @@ class PublicFragment : Fragment() {
 
     private fun obtainViewModel() {
         val cardRepository = CardsRepository
-        val viewModelFactory = PublicFragmentViewModelFactory(cardRepository)
+        val viewModelFactory = PublicViewModelFactory(cardRepository)
         viewModel =
             activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
