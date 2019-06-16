@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui.recyclerviews.recyclerviewinterfaces
+package com.shapeapp.shape.ui.recyclerviews.interfaces
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
