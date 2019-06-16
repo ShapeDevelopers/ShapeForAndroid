@@ -7,7 +7,7 @@ import com.shapeapp.shape.repositories.MessagesRepository
 /**
  * Knows how to initiate [MessagesViewModel]
  */
-class MessagesFragmentViewModelFactory(private val messagesRepository: MessagesRepository) :
+class MessagesViewModelFactory(private val messagesRepository: MessagesRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")

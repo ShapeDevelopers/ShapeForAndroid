@@ -41,7 +41,7 @@ class MessagesFragment : Fragment() {
 
     private fun obtainViewModel() {
         val messagesRepository = MessagesRepository
-        val viewModelFactory = MessagesFragmentViewModelFactory(messagesRepository)
+        val viewModelFactory = MessagesViewModelFactory(messagesRepository)
         viewModel =
             activity?.run { ViewModelProviders.of(this, viewModelFactory).get(MessagesViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
