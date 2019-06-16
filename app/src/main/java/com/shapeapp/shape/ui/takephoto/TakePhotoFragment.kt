@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui
+package com.shapeapp.shape.ui.takephoto
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
