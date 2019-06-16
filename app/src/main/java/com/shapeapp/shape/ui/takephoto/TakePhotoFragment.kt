@@ -102,7 +102,8 @@ class TakePhotoFragment : Fragment() {
                         val photoFileUri =
                             FileProvider.getUriForFile(context, Authorities.FILE_PROVIDER_AUTHORITY, photoFile)
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFileUri)
-                        startActivityForResult(takePictureIntent,
+                        startActivityForResult(
+                            takePictureIntent,
                             REQUEST_IMAGE_CAPTURE
                         )
                         viewModel.startedWaitingForPhoto(photoFileUri)

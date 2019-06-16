@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.shapeapp.shape.R
-import com.shapeapp.shape.data.network.backendcalls.RetrofitBackendClient
 import com.shapeapp.shape.data.database.entities.Card
+import com.shapeapp.shape.data.network.backendcalls.RetrofitBackendClient
 import com.shapeapp.shape.data.network.status.NetworkInformer
 import kotlinx.android.synthetic.main.fragment_initial_backend_connection.*
 import retrofit2.Call

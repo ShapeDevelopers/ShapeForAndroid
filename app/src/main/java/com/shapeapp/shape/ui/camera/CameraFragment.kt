@@ -52,7 +52,8 @@ class CameraFragment : Fragment() {
     private fun configureCaptureBehaviour() {
         when (isCameraPermissionAlreadyGranted()) {
             true -> initCamera()
-            false -> requestPermissions(arrayOf(Manifest.permission.CAMERA),
+            false -> requestPermissions(
+                arrayOf(Manifest.permission.CAMERA),
                 CAMERA_PERMISSION_REQUEST_CODE
             )
         }

@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Message
+import com.shapeapp.shape.data.repositories.MessagesRepository
 import com.shapeapp.shape.internal.mockupsmakers.MessageMockups
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
 import com.shapeapp.shape.ui.recyclerviews.adapters.MessagesPreviewRecyclerViewAdapter
 import com.shapeapp.shape.ui.recyclerviews.interfaces.RecyclerViewMessageClickListener
-import com.shapeapp.shape.data.repositories.MessagesRepository
 import kotlinx.android.synthetic.main.fragment_messages.*
 
 //  TODO: complete messages loading
