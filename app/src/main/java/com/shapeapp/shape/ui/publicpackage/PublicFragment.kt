@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui
+package com.shapeapp.shape.ui.publicpackage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -19,6 +19,7 @@ import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 import com.shapeapp.shape.repositories.CardsRepository
+import com.shapeapp.shape.ui.publicpackage.PublicFragmentDirections
 import kotlinx.android.synthetic.main.fragment_public.*
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
