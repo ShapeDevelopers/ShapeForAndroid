@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.shapeapp.shape.data.Card
 
 /**
- * Knows how to initiate [ReceivedImageFragmentViewModel]
+ * Knows how to initiate [ReceivedImageViewModel]
  */
 class ReceivedImageFragmentViewModelFactory(private val card: Card) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return ReceivedImageFragmentViewModel(card) as T
+        return ReceivedImageViewModel(card) as T
     }
 }

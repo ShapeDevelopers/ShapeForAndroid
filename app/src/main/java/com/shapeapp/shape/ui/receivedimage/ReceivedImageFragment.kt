@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
-import com.shapeapp.shape.ui.receivedimage.ReceivedImageFragmentArgs
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
 import kotlinx.android.synthetic.main.fragment_received_image.*
 
@@ -21,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_received_image.*
  */
 class ReceivedImageFragment : Fragment() {
 
-    private lateinit var viewModel: ReceivedImageFragmentViewModel
+    private lateinit var viewModel: ReceivedImageViewModel
 
     private val args: ReceivedImageFragmentArgs by navArgs()
 
@@ -30,7 +29,7 @@ class ReceivedImageFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val card = args.card
         val viewModelFactory = ReceivedImageFragmentViewModelFactory(card)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ReceivedImageFragmentViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(ReceivedImageViewModel::class.java)
     }
 
     override fun onCreateView(

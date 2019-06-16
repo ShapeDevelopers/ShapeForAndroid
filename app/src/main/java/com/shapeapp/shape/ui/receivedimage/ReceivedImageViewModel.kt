@@ -9,7 +9,7 @@ import com.shapeapp.shape.data.Card
 /**
  * [ViewModel] for [ReceivedImageFragment]
  */
-class ReceivedImageFragmentViewModel(card: Card) : ViewModel() {
+class ReceivedImageViewModel(card: Card) : ViewModel() {
 
     //  TODO: send vote change to [CardsRepository]
 
