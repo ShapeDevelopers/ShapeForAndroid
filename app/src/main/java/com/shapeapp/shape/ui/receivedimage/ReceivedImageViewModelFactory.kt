@@ -7,7 +7,7 @@ import com.shapeapp.shape.data.Card
 /**
  * Knows how to initiate [ReceivedImageViewModel]
  */
-class ReceivedImageFragmentViewModelFactory(private val card: Card) : ViewModelProvider.NewInstanceFactory() {
+class ReceivedImageViewModelFactory(private val card: Card) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

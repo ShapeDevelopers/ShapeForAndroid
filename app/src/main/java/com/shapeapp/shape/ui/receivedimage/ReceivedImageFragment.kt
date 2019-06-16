@@ -28,7 +28,7 @@ class ReceivedImageFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val card = args.card
-        val viewModelFactory = ReceivedImageFragmentViewModelFactory(card)
+        val viewModelFactory = ReceivedImageViewModelFactory(card)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ReceivedImageViewModel::class.java)
     }
 
