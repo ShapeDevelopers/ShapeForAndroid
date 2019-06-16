@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatFragment"
-        android:name="com.shapeapp.shape.ui.ChatFragment"
+        android:name="com.shapeapp.shape.ui.chat.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat">
         <argument
