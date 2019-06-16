@@ -1,4 +1,4 @@
-package com.shapeapp.shape.data.network.networkinfo
+package com.shapeapp.shape.data.network.status
 
 import java.io.IOException
 
