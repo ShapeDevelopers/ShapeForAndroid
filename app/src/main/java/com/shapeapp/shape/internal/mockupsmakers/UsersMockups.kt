@@ -1,6 +1,6 @@
 package com.shapeapp.shape.internal.mockupsmakers
 
-import com.shapeapp.shape.data.entities.User
+import com.shapeapp.shape.data.database.entities.User
 import kotlin.random.Random
 import kotlin.random.nextInt
 

@@ -2,7 +2,7 @@ package com.shapeapp.shape.ui.receivedimage
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shapeapp.shape.data.entities.Card
+import com.shapeapp.shape.data.database.entities.Card
 
 /**
  * Knows how to initiate [ReceivedImageViewModel]

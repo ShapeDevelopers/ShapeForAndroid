@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.shapeapp.shape.data.entities.Card
+import com.shapeapp.shape.data.database.entities.Card
 
 /**
  * [ViewModel] for [ReceivedImageFragment]

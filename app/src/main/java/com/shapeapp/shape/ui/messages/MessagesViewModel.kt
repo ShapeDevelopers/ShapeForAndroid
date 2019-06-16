@@ -2,7 +2,7 @@ package com.shapeapp.shape.ui.messages
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.shapeapp.shape.data.entities.Message
+import com.shapeapp.shape.data.database.entities.Message
 import com.shapeapp.shape.data.repositories.MessagesRepository
 
 /**

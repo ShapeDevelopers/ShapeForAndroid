@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
-import com.shapeapp.shape.data.entities.Message
+import com.shapeapp.shape.data.database.entities.Message
 import com.shapeapp.shape.internal.mockupsmakers.MessageMockups
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
 import com.shapeapp.shape.ui.recyclerviews.adapters.MessagesPreviewRecyclerViewAdapter

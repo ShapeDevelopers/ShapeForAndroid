@@ -2,7 +2,7 @@ package com.shapeapp.shape.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.shapeapp.shape.data.entities.Card
+import com.shapeapp.shape.data.database.entities.Card
 import com.shapeapp.shape.internal.mockupsmakers.CardMockups
 
 /**

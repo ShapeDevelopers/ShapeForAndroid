@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
-import com.shapeapp.shape.data.entities.Card
+import com.shapeapp.shape.data.database.entities.Card
 import com.shapeapp.shape.ui.gesturesdetection.OnFourWaysSwipeListener
 import kotlinx.android.synthetic.main.fragment_received_image.*
 
