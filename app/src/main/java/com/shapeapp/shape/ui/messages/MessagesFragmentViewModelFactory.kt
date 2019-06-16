@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.shapeapp.shape.repositories.MessagesRepository
 
 /**
- * Knows how to initiate [MessagesFragmentViewModel]
+ * Knows how to initiate [MessagesViewModel]
  */
 class MessagesFragmentViewModelFactory(private val messagesRepository: MessagesRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return MessagesFragmentViewModel(messagesRepository) as T
+        return MessagesViewModel(messagesRepository) as T
     }
 }

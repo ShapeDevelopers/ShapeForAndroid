@@ -8,7 +8,7 @@ import com.shapeapp.shape.repositories.MessagesRepository
 /**
  * [ViewModel] for [MessagesFragment]
  */
-class MessagesFragmentViewModel(private val messagesRepository: MessagesRepository) : ViewModel() {
+class MessagesViewModel(private val messagesRepository: MessagesRepository) : ViewModel() {
 
     //  TODO: finish
 

@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Message
-import com.shapeapp.shape.ui.messages.MessagesFragmentDirections
 import com.shapeapp.shape.mockupsmakers.MessageMockups
 import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.MessagesPreviewRecyclerViewAdapter
@@ -27,7 +26,7 @@ import kotlinx.android.synthetic.main.fragment_messages.*
  */
 class MessagesFragment : Fragment() {
 
-    private lateinit var viewModel: MessagesFragmentViewModel
+    private lateinit var viewModel: MessagesViewModel
 
     private val sentMessagesRecyclerViewAdapter = MessagesPreviewRecyclerViewAdapter(emptyList())
     private val receivedMessagesRecyclerViewAdapter = MessagesPreviewRecyclerViewAdapter(emptyList())
@@ -44,7 +43,7 @@ class MessagesFragment : Fragment() {
         val messagesRepository = MessagesRepository
         val viewModelFactory = MessagesFragmentViewModelFactory(messagesRepository)
         viewModel =
-            activity?.run { ViewModelProviders.of(this, viewModelFactory).get(MessagesFragmentViewModel::class.java) }
+            activity?.run { ViewModelProviders.of(this, viewModelFactory).get(MessagesViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
     }
 
