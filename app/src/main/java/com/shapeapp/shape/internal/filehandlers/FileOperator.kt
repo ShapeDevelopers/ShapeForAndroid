@@ -1,4 +1,4 @@
-package com.shapeapp.shape.filehandlers
+package com.shapeapp.shape.internal.filehandlers
 
 import android.annotation.SuppressLint
 import android.content.Context
