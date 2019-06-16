@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui
+package com.shapeapp.shape.ui.receivedimage
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.Card
-import com.shapeapp.shape.ui.ReceivedImageFragmentArgs
+import com.shapeapp.shape.ui.receivedimage.ReceivedImageFragmentArgs
 import com.shapeapp.shape.gesturesdetection.OnFourWaysSwipeListener
 import kotlinx.android.synthetic.main.fragment_received_image.*
 

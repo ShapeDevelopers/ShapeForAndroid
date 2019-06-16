@@ -5,7 +5,7 @@
     android:id="@+id/root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ReceivedImageFragment">
+    tools:context=".ui.receivedimage.ReceivedImageFragment">
 
     <ImageView
         android:id="@+id/background_imageview"

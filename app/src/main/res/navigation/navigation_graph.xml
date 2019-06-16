@@ -61,7 +61,7 @@
         tools:layout="@layout/fragment_initial_backend_connection" />
     <fragment
         android:id="@+id/receivedImageFragment"
-        android:name="com.shapeapp.shape.ui.ReceivedImageFragment"
+        android:name="com.shapeapp.shape.ui.receivedimage.ReceivedImageFragment"
         android:label="fragment_received_image"
         tools:layout="@layout/fragment_received_image">
         <argument

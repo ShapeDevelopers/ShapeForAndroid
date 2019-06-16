@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui
+package com.shapeapp.shape.ui.receivedimage
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
