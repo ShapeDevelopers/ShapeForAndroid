@@ -8,7 +8,7 @@ import com.shapeapp.shape.repositories.CardsRepository
 /**
  * [ViewModel] for [PublicFragment]
  */
-class PublicFragmentViewModel(private val cardRepository: CardsRepository) : ViewModel() {
+class PublicViewModel(private val cardRepository: CardsRepository) : ViewModel() {
 
     //  TODO: implement full data loading from repository
 

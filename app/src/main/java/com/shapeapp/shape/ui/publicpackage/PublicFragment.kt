@@ -19,7 +19,6 @@ import com.shapeapp.shape.mockupsmakers.UsersMockups
 import com.shapeapp.shape.recyclerviewadapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.recyclerviewinterfaces.RecyclerViewCardClickListener
 import com.shapeapp.shape.repositories.CardsRepository
-import com.shapeapp.shape.ui.publicpackage.PublicFragmentDirections
 import kotlinx.android.synthetic.main.fragment_public.*
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,7 +35,7 @@ class PublicFragment : Fragment() {
     //  TODO: replace my profile button with user avatar
     //  TODO: use Safe Args in order to retrieve parameters
 
-    private lateinit var viewModel: PublicFragmentViewModel
+    private lateinit var viewModel: PublicViewModel
 
     private var userAvatarUri: String? = null
     private val officialCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
@@ -75,7 +74,7 @@ class PublicFragment : Fragment() {
         val cardRepository = CardsRepository
         val viewModelFactory = PublicFragmentViewModelFactory(cardRepository)
         viewModel =
-            activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicFragmentViewModel::class.java) }
+            activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicViewModel::class.java) }
                 ?: throw Exception("Invalid Activity")
     }
 
