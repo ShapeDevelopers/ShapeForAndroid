@@ -1,4 +1,4 @@
-package com.shapeapp.shape.constants
+package com.shapeapp.shape.internal.constants
 
 /**
  * Holds constant data related to authorities
