@@ -1,4 +1,4 @@
-package com.shapeapp.shape.dialogs
+package com.shapeapp.shape.ui.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater

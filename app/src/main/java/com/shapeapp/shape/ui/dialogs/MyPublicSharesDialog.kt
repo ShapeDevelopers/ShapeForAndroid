@@ -1,4 +1,4 @@
-package com.shapeapp.shape.dialogs
+package com.shapeapp.shape.ui.dialogs
 
 import android.app.Dialog
 import android.content.Context

@@ -1,4 +1,4 @@
-package com.shapeapp.shape.dialogs
+package com.shapeapp.shape.ui.dialogs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
