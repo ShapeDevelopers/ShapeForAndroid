@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.shapeapp.shape.R
-import com.shapeapp.shape.data.repositories.CardsRepository
+import com.shapeapp.shape.data.repositories.CardRepositoryImpl
 import com.shapeapp.shape.ui.recyclerviews.adapters.SmallCardRecyclerViewAdapter
 import kotlinx.android.synthetic.main.bsd_my_public_shares.*
 
@@ -20,6 +20,8 @@ class MyPublicSharesBSD : BottomSheetDialogFragment() {
 
     //  TODO: change background (?)
 
+    //  TODO: use DI
+    private val viewModelFactory: MyPublicSharesViewModelFactory = MyPublicSharesViewModelFactory(CardRepositoryImpl())
     private lateinit var viewModel: MyPublicSharesViewModel
     private val cardRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
@@ -30,14 +32,12 @@ class MyPublicSharesBSD : BottomSheetDialogFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        configureViewModel()
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MyPublicSharesViewModel::class.java)
+        bindUi()
         configureRecyclerView()
     }
 
-    private fun configureViewModel() {
-        val cardRepository = CardsRepository
-        val viewModelFactory = MyPublicSharesViewModelFactory(cardRepository)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MyPublicSharesViewModel::class.java)
+    private fun bindUi() {
         viewModel.myPublicSharesCards.observe(this, Observer { cards ->
             cardRecyclerViewAdapter.myDataset = cards.toTypedArray()
             cardRecyclerViewAdapter.notifyDataSetChanged()
