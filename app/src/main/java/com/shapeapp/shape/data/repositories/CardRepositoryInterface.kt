@@ -7,6 +7,7 @@ import com.shapeapp.shape.data.database.entities.Card
  * Defines repository for [Card]s
  */
 interface CardRepositoryInterface {
+    //  TODO: use DI with Kodein and "with singleton"
 
     fun getOfficialCards(): LiveData<List<Card>>
     fun getNewCards(): LiveData<List<Card>>
