@@ -3,12 +3,12 @@ package com.shapeapp.shape.ui.publicpackage
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.database.entities.Card
-import com.shapeapp.shape.data.repositories.CardsRepository
+import com.shapeapp.shape.data.repositories.CardRepositoryInterface
 
 /**
  * [ViewModel] for [PublicFragment]
  */
-class PublicViewModel(private val cardRepository: CardsRepository) : ViewModel() {
+class PublicViewModel(private val cardRepository: CardRepositoryInterface) : ViewModel() {
 
     //  TODO: implement full data loading from repository
     //  TODO: implement Dependency Injection with Kodein
@@ -24,9 +24,9 @@ class PublicViewModel(private val cardRepository: CardsRepository) : ViewModel()
 
 
     init {
-        officialCards = cardRepository.officialCards
-        newCards = cardRepository.newCards
-        latestCards = cardRepository.latestCards
+        officialCards = cardRepository.getOfficialCards()
+        newCards = cardRepository.getNewCards()
+        latestCards = cardRepository.getLatestCards()
     }
 
 }

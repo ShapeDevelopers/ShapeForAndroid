@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Card
-import com.shapeapp.shape.data.repositories.CardsRepository
+import com.shapeapp.shape.data.repositories.CardRepositoryImpl
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
 import com.shapeapp.shape.ui.dialogs.MyPublicSharesBSD
 import com.shapeapp.shape.ui.recyclerviews.adapters.SmallCardRecyclerViewAdapter
@@ -29,7 +29,7 @@ class PublicFragment : Fragment() {
     //  TODO: replace my profile button with user avatar
 
     //  TODO: use DI
-    private val viewModelFactory: PublicViewModelFactory = PublicViewModelFactory(CardsRepository)
+    private val viewModelFactory: PublicViewModelFactory = PublicViewModelFactory(CardRepositoryImpl())
     private lateinit var viewModel: PublicViewModel
 
     //  TODO: use [avatarUri] to load user's avatar
