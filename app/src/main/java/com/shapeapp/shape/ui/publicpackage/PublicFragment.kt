@@ -102,6 +102,16 @@ class PublicFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_public, container, false)
     }
 
+    /**
+     * Called when the fragment's activity has been created
+     * and this fragment's view hierarchy instantiated
+     */
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(PublicViewModel::class.java)
+        //  TODO: bind UI
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
