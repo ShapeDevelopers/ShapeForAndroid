@@ -3,7 +3,7 @@ package com.shapeapp.shape.ui.publicpackage
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.database.entities.Card
-import com.shapeapp.shape.data.repositories.CardRepository
+import com.shapeapp.shape.data.repositories.card.CardRepository
 
 /**
  * [ViewModel] for [PublicFragment]

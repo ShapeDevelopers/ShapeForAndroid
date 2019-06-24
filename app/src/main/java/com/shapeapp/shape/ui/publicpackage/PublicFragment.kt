@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Card
-import com.shapeapp.shape.data.repositories.CardRepositoryImpl
+import com.shapeapp.shape.data.repositories.card.CardRepositoryImpl
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
 import com.shapeapp.shape.ui.dialogs.MyPublicSharesBSD
 import com.shapeapp.shape.ui.recyclerviews.adapters.SmallCardRecyclerViewAdapter

@@ -1,4 +1,4 @@
-package com.shapeapp.shape.data.repositories
+package com.shapeapp.shape.data.repositories.card
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
