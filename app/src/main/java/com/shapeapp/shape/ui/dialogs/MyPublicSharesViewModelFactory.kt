@@ -7,7 +7,7 @@ import com.shapeapp.shape.data.repositories.CardsRepository
 /**
  * Knows how to initiate [MyPublicSharesViewModel]
  */
-class MyPublicSharesBSDViewModelFactory(private val cardRepository: CardsRepository) :
+class MyPublicSharesViewModelFactory(private val cardRepository: CardsRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")

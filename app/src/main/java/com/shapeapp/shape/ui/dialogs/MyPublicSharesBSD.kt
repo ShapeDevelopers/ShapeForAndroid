@@ -36,7 +36,7 @@ class MyPublicSharesBSD : BottomSheetDialogFragment() {
 
     private fun configureViewModel() {
         val cardRepository = CardsRepository
-        val viewModelFactory = MyPublicSharesBSDViewModelFactory(cardRepository)
+        val viewModelFactory = MyPublicSharesViewModelFactory(cardRepository)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MyPublicSharesViewModel::class.java)
         viewModel.myPublicSharesCards.observe(this, Observer { cards ->
             cardRecyclerViewAdapter.myDataset = cards.toTypedArray()
