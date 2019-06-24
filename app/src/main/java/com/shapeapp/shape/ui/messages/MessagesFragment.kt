@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Message
-import com.shapeapp.shape.data.repositories.MessagesRepository
+import com.shapeapp.shape.data.repositories.MessagesRepositoryObsolete
 import com.shapeapp.shape.internal.mockupsmakers.MessageMockups
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
 import com.shapeapp.shape.ui.recyclerviews.adapters.MessagesPreviewRecyclerViewAdapter
@@ -40,7 +40,7 @@ class MessagesFragment : Fragment() {
     }
 
     private fun obtainViewModel() {
-        val messagesRepository = MessagesRepository
+        val messagesRepository = MessagesRepositoryObsolete
         val viewModelFactory = MessagesViewModelFactory(messagesRepository)
         viewModel =
             activity?.run { ViewModelProviders.of(this, viewModelFactory).get(MessagesViewModel::class.java) }

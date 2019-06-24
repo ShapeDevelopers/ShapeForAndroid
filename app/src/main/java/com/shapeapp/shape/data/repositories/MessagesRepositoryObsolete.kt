@@ -15,7 +15,7 @@ import com.shapeapp.shape.internal.mockupsmakers.MessageMockups
  * See: www.youtube.com/watch?v=5qlIPTDE274 (time: 2:46)
  */
 @Suppress("ObjectPropertyName")
-object MessagesRepository {
+object MessagesRepositoryObsolete {
 
     //  TODO: add model, loading data from remote, ...
 
