@@ -97,11 +97,6 @@ class PublicFragment : Fragment() {
         //  TODO: organize binding UI
         feedRecyclerViewAdapters()
         setClickListenerForRecyclerViewsAdapters()
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         configureRecyclerViews()
         setButtonsOnClickListeners()
     }
