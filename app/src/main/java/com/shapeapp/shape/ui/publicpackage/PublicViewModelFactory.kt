@@ -2,12 +2,12 @@ package com.shapeapp.shape.ui.publicpackage
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shapeapp.shape.data.repositories.CardRepositoryInterface
+import com.shapeapp.shape.data.repositories.CardRepository
 
 /**
  * Knows how to initiate [PublicViewModel]
  */
-class PublicViewModelFactory(private val cardRepository: CardRepositoryInterface) :
+class PublicViewModelFactory(private val cardRepository: CardRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")

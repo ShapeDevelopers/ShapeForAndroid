@@ -6,9 +6,9 @@ import com.shapeapp.shape.data.database.entities.Card
 import com.shapeapp.shape.internal.mockupsmakers.CardMockups
 
 /**
- * Implementation of [CardRepositoryInterface]
+ * Implementation of [CardRepository]
  */
-class CardRepositoryImpl : CardRepositoryInterface {
+class CardRepositoryImpl : CardRepository {
 
     //  TODO: add model, remote data source and others
     //  see: https://developer.android.com/jetpack/docs/guide
