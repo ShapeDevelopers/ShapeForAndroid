@@ -28,6 +28,8 @@ import kotlinx.android.synthetic.main.fragment_public.*
 class PublicFragment : Fragment() {
     //  TODO: replace my profile button with user avatar
 
+    //  TODO: use DI
+    private val viewModelFactory: PublicViewModelFactory = PublicViewModelFactory(CardsRepository)
     private lateinit var viewModel: PublicViewModel
 
     //  TODO: use [avatarUri] to load user's avatar
