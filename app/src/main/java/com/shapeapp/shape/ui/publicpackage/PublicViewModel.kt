@@ -11,6 +11,7 @@ import com.shapeapp.shape.data.repositories.CardsRepository
 class PublicViewModel(private val cardRepository: CardsRepository) : ViewModel() {
 
     //  TODO: implement full data loading from repository
+    //  TODO: implement Dependency Injection with Kodein
 
     var officialCards: LiveData<List<Card>>
         private set
