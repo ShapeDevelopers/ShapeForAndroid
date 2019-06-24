@@ -8,6 +8,7 @@ import com.shapeapp.shape.data.database.entities.Card
  */
 interface CardRepository {
     //  TODO: use DI with Kodein and "with singleton"
+    //  TODO: use suspend functions
 
     fun getOfficialCards(): LiveData<List<Card>>
     fun getNewCards(): LiveData<List<Card>>
