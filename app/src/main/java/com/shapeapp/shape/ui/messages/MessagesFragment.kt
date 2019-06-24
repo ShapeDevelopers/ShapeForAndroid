@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Message
-import com.shapeapp.shape.data.repositories.MessageRepositoryImpl
+import com.shapeapp.shape.data.repositories.message.MessageRepositoryImpl
 import com.shapeapp.shape.internal.mockupsmakers.MessageMockups
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
 import com.shapeapp.shape.ui.recyclerviews.adapters.MessagesPreviewRecyclerViewAdapter

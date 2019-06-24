@@ -1,4 +1,4 @@
-package com.shapeapp.shape.data.repositories
+package com.shapeapp.shape.data.repositories.message
 
 import androidx.lifecycle.LiveData
 import com.shapeapp.shape.data.database.entities.Message
