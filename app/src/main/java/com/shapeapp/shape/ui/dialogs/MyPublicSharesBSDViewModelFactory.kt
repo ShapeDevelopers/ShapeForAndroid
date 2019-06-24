@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.shapeapp.shape.data.repositories.CardsRepository
 
 /**
- * Knows how to initiate [MyPublicSharesBSDViewModel]
+ * Knows how to initiate [MyPublicSharesViewModel]
  */
 class MyPublicSharesBSDViewModelFactory(private val cardRepository: CardsRepository) :
     ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return MyPublicSharesBSDViewModel(cardRepository) as T
+        return MyPublicSharesViewModel(cardRepository) as T
     }
 }

@@ -8,7 +8,7 @@ import com.shapeapp.shape.data.repositories.CardsRepository
 /**
  * [ViewModel] for [MyPublicSharesBSD]
  */
-class MyPublicSharesBSDViewModel(private val cardRepository: CardsRepository) : ViewModel() {
+class MyPublicSharesViewModel(private val cardRepository: CardsRepository) : ViewModel() {
 
     var myPublicSharesCards: LiveData<List<Card>>
         private set

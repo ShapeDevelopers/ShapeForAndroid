@@ -20,7 +20,7 @@ class MyPublicSharesBSD : BottomSheetDialogFragment() {
 
     //  TODO: change background (?)
 
-    private lateinit var viewModel: MyPublicSharesBSDViewModel
+    private lateinit var viewModel: MyPublicSharesViewModel
     private val cardRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -37,7 +37,7 @@ class MyPublicSharesBSD : BottomSheetDialogFragment() {
     private fun configureViewModel() {
         val cardRepository = CardsRepository
         val viewModelFactory = MyPublicSharesBSDViewModelFactory(cardRepository)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MyPublicSharesBSDViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MyPublicSharesViewModel::class.java)
         viewModel.myPublicSharesCards.observe(this, Observer { cards ->
             cardRecyclerViewAdapter.myDataset = cards.toTypedArray()
             cardRecyclerViewAdapter.notifyDataSetChanged()
