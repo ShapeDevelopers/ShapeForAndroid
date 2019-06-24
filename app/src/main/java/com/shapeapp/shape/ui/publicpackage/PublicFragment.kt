@@ -17,7 +17,7 @@ import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Card
 import com.shapeapp.shape.data.repositories.card.CardRepositoryImpl
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
-import com.shapeapp.shape.ui.dialogs.MyPublicSharesBSD
+import com.shapeapp.shape.ui.mypublicshares.MyPublicSharesBSD
 import com.shapeapp.shape.ui.recyclerviews.adapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.ui.recyclerviews.interfaces.RecyclerViewCardClickListener
 import kotlinx.android.synthetic.main.fragment_public.*

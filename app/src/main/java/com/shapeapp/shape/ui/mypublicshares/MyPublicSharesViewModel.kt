@@ -1,4 +1,4 @@
-package com.shapeapp.shape.ui.dialogs
+package com.shapeapp.shape.ui.mypublicshares
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
