@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
@@ -26,10 +27,11 @@ import kotlinx.android.synthetic.main.fragment_public.*
  */
 class PublicFragment : Fragment() {
     //  TODO: replace my profile button with user avatar
-    //  TODO: use Safe Args in order to retrieve parameters
 
     private lateinit var viewModel: PublicViewModel
 
+    //  TODO: use [avatarUri] to load user's avatar
+    val avatarUri: PublicFragmentArgs by navArgs()
     private val officialCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val newCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
