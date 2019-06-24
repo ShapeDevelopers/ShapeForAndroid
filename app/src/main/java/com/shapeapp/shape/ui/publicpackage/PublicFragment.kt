@@ -21,15 +21,8 @@ import com.shapeapp.shape.ui.recyclerviews.adapters.SmallCardRecyclerViewAdapter
 import com.shapeapp.shape.ui.recyclerviews.interfaces.RecyclerViewCardClickListener
 import kotlinx.android.synthetic.main.fragment_public.*
 
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_USER_AVATAR_URI = "ARG_USER_AVATAR_URI"
-
 /**
  * Shows: new, official, and latest Cards lists.
- *
- * A simple [Fragment] subclass.
- * Use the [PublicFragment.newInstance] factory method to
- * create an instance of this fragment.
  */
 class PublicFragment : Fragment() {
     //  TODO: replace my profile button with user avatar
@@ -37,34 +30,13 @@ class PublicFragment : Fragment() {
 
     private lateinit var viewModel: PublicViewModel
 
-    private var userAvatarUri: String? = null
     private val officialCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val newCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
     private val latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param userAvatarUri URI to user's avatar.
-         * @return A new instance of fragment PublicFragment.
-         */
-        @JvmStatic
-        fun newInstance(userAvatarUri: String) =
-            PublicFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_USER_AVATAR_URI, userAvatarUri)
-                }
-            }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            userAvatarUri = it.getString(ARG_USER_AVATAR_URI)
-        }
         obtainViewModel()
         feedRecyclerViewAdapters()
         setClickListenerForRecyclerViewsAdapters()
