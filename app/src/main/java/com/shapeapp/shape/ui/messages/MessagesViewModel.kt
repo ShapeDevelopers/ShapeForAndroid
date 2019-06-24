@@ -3,12 +3,12 @@ package com.shapeapp.shape.ui.messages
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.shapeapp.shape.data.database.entities.Message
-import com.shapeapp.shape.data.repositories.MessagesRepositoryObsolete
+import com.shapeapp.shape.data.repositories.MessageRepository
 
 /**
  * [ViewModel] for [MessagesFragment]
  */
-class MessagesViewModel(private val messagesRepository: MessagesRepositoryObsolete) : ViewModel() {
+class MessagesViewModel(private val messageRepository: MessageRepository) : ViewModel() {
 
     //  TODO: finish
 
@@ -20,9 +20,9 @@ class MessagesViewModel(private val messagesRepository: MessagesRepositoryObsole
         private set
 
     init {
-        sentMessages = MessagesRepositoryObsolete.sentMessages
-        receivedMessages = MessagesRepositoryObsolete.receivedMessages
-        latestMessages = MessagesRepositoryObsolete.latestMessages
+        sentMessages = messageRepository.getSentMessages()
+        receivedMessages = messageRepository.getReceivedMessages()
+        latestMessages = messageRepository.getLatestMessages()
     }
 
 }

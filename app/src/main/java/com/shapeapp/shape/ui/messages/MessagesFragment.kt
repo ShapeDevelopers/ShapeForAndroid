@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Message
-import com.shapeapp.shape.data.repositories.MessagesRepositoryObsolete
+import com.shapeapp.shape.data.repositories.MessageRepositoryImpl
 import com.shapeapp.shape.internal.mockupsmakers.MessageMockups
 import com.shapeapp.shape.internal.mockupsmakers.UsersMockups
 import com.shapeapp.shape.ui.recyclerviews.adapters.MessagesPreviewRecyclerViewAdapter
@@ -26,25 +26,21 @@ import kotlinx.android.synthetic.main.fragment_messages.*
  */
 class MessagesFragment : Fragment() {
 
+    //  TODO: use DI
+    private val viewModelFactory: MessagesViewModelFactory = MessagesViewModelFactory(MessageRepositoryImpl())
     private lateinit var viewModel: MessagesViewModel
 
     private val sentMessagesRecyclerViewAdapter = MessagesPreviewRecyclerViewAdapter(emptyList())
     private val receivedMessagesRecyclerViewAdapter = MessagesPreviewRecyclerViewAdapter(emptyList())
     private val latestMessagesRecyclerViewAdapter = MessagesPreviewRecyclerViewAdapter(emptyList())
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        obtainViewModel()
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MessagesViewModel::class.java)
+        //  TODO: organize UI binding
         feedRecyclerViewAdapters()
         setListenersForRecyclerViewAdapters()
-    }
-
-    private fun obtainViewModel() {
-        val messagesRepository = MessagesRepositoryObsolete
-        val viewModelFactory = MessagesViewModelFactory(messagesRepository)
-        viewModel =
-            activity?.run { ViewModelProviders.of(this, viewModelFactory).get(MessagesViewModel::class.java) }
-                ?: throw Exception("Invalid Activity")
     }
 
     private fun feedRecyclerViewAdapters() {
