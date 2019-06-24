@@ -39,21 +39,6 @@ class PublicFragment : Fragment() {
     private val latestCardsRecyclerViewAdapter = SmallCardRecyclerViewAdapter(emptyArray())
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        obtainViewModel()
-        feedRecyclerViewAdapters()
-        setClickListenerForRecyclerViewsAdapters()
-    }
-
-    private fun obtainViewModel() {
-        val cardRepository = CardsRepository
-        val viewModelFactory = PublicViewModelFactory(cardRepository)
-        viewModel =
-            activity?.run { ViewModelProviders.of(this, viewModelFactory).get(PublicViewModel::class.java) }
-                ?: throw Exception("Invalid Activity")
-    }
-
     private fun feedRecyclerViewAdapters() {
         //  for "New" RecyclerView
         viewModel.newCards.observe(this, Observer { newCards ->
@@ -109,7 +94,9 @@ class PublicFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(PublicViewModel::class.java)
-        //  TODO: bind UI
+        //  TODO: organize binding UI
+        feedRecyclerViewAdapters()
+        setClickListenerForRecyclerViewsAdapters()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
