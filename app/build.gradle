@@ -24,7 +24,8 @@ android {
             variant.outputs.all {
 //                outputFileName = "Shape_YYYYMMDD_HHMM_d.apk"
                 def dateYearMonthDay = new Date().format('yyyyMMdd')
-                outputFileName = "Shape_${dateYearMonthDay}_${variant.name}.apk"
+                def dateHourMinute = new Date().format('HHmm')
+                outputFileName = "Shape_${dateYearMonthDay}_${dateHourMinute}_${variant.name}.apk"
             }
         }
 
