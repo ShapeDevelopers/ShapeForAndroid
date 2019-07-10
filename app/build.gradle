@@ -22,7 +22,8 @@ android {
 
         applicationVariants.all { variant ->
             variant.outputs.all {
-                outputFileName = "Shape_YYYYMMDD_HHMM_d.apk"
+//                outputFileName = "Shape_YYYYMMDD_HHMM_d.apk"
+                outputFileName = "Shape_${variant.name}.apk"
             }
         }
 
