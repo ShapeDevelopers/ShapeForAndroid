@@ -20,9 +20,9 @@ android {
     }
     buildTypes {
 
+        //  custom built APK name
         applicationVariants.all { variant ->
             variant.outputs.all {
-//                outputFileName = "Shape_YYYYMMDD_HHMM_d.apk"
                 def dateYearMonthDay = new Date().format('yyyyMMdd')
                 def dateHourMinute = new Date().format('HHmm')
                 outputFileName = "Shape_${dateYearMonthDay}_${dateHourMinute}_${variant.name}.apk"
