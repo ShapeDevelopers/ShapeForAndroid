@@ -23,7 +23,8 @@ android {
         applicationVariants.all { variant ->
             variant.outputs.all {
 //                outputFileName = "Shape_YYYYMMDD_HHMM_d.apk"
-                outputFileName = "Shape_${variant.name}.apk"
+                def dateYearMonthDay = new Date().format('yyyyMMdd')
+                outputFileName = "Shape_${dateYearMonthDay}_${variant.name}.apk"
             }
         }
 
