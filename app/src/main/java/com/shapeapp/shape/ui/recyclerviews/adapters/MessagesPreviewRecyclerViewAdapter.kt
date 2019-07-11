@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Message
 import com.shapeapp.shape.internal.mockupsmakers.DrawablesMockups
@@ -35,7 +36,11 @@ class MessagesPreviewRecyclerViewAdapter(var messagesDataset: List<Message>) :
         holder.apply {
             //  TODO: make own random drawable for message or move method from [CardMockups] outside it
             //  TODO: load real avatar based on nickname (?)
-            senderAvatar.setImageURI(Uri.parse(DrawablesMockups.getRandomDrawableUriString()))
+            val senderAvatarUri = Uri.parse(DrawablesMockups.getRandomDrawableUriString())
+            val context = senderAvatar.context
+            Glide.with(context)
+                .load(senderAvatarUri)
+                .into(senderAvatar)
             senderNickname.text = messagesDataset[adapterPosition].senderNickname
             intro.text = messagesDataset[adapterPosition].textContent
             val fixClippingItalicTextAtRightEdge = "\u00A0" // Unicode NO-BREAK SPACE
