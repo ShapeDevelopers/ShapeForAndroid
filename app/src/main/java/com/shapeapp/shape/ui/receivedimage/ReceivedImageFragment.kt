@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Card
 import com.shapeapp.shape.ui.gesturesdetection.OnFourWaysSwipeListener
@@ -61,7 +62,9 @@ class ReceivedImageFragment : Fragment() {
             it.extraText.observe(this, Observer { extraText -> extra_text_textview.text = extraText })
             it.backgroundImageUri.observe(
                 this,
-                Observer { backgroundImageUri -> background_imageview.setImageURI(backgroundImageUri) })
+                Observer { backgroundImageUri ->
+                    Glide.with(this@ReceivedImageFragment).load(backgroundImageUri).into(background_imageview)
+                })
             it.senderNickname.observe(
                 this,
                 Observer { senderNickname -> sender_nickname_textview.text = senderNickname })
