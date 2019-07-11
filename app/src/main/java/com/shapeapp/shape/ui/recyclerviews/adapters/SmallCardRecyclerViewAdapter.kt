@@ -35,8 +35,8 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.nickname_textview.text = myDataset[holder.adapterPosition].senderNickname
-        val context = holder.background_imageview.context
         val cardImageUri = Uri.parse(myDataset[holder.adapterPosition].imageUrl)
+        val context = holder.background_imageview.context
         Glide.with(context)
             .load(cardImageUri)
             .into(holder.background_imageview)
