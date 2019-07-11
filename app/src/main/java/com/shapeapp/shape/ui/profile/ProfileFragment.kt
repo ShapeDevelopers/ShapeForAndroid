@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.shapeapp.shape.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -49,7 +50,8 @@ class ProfileFragment : Fragment() {
     private fun loadArgumentsToUi() {
         val user = arguments.user
         user.run {
-            avatar_circularimageview.setImageURI(Uri.parse(avatarUri))
+            val avatarUriParsed = Uri.parse(avatarUri)
+            Glide.with(this@ProfileFragment).load(avatarUriParsed).into(avatar_circularimageview)
             nickname_textview.text = nickname
             name_textview.text = name
             surname_textview.text = surname

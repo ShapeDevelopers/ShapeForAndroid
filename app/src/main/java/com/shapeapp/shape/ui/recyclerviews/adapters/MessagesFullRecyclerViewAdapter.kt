@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Message
 import com.shapeapp.shape.internal.mockupsmakers.DrawablesMockups
@@ -32,7 +33,11 @@ class MessagesFullRecyclerViewAdapter(var messagesDataset: List<Message>) :
         holder.apply {
             senderNickname.text = messagesDataset[adapterPosition].senderNickname
             //  TODO: load real avatar
-            senderAvatar.setImageURI(Uri.parse(DrawablesMockups.getRandomDrawableUriString()))
+            val senderAvatarUri = Uri.parse(DrawablesMockups.getRandomDrawableUriString())
+            val context = senderAvatar.context
+            Glide.with(context)
+                .load(senderAvatarUri)
+                .into(senderAvatar)
             text.text = messagesDataset[adapterPosition].textContent
             fullDate.text = messagesDataset[adapterPosition].dateStampFull
         }
