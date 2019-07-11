@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.shapeapp.shape.R
 import io.fotoapparat.Fotoapparat
 import io.fotoapparat.parameter.ScaleType
@@ -109,7 +110,7 @@ class CameraFragment : Fragment() {
         photoResult?.let {
             it.toBitmap()
                 .whenAvailable { bitmapPhoto ->
-                    photo_container_imageview.setImageBitmap(bitmapPhoto?.bitmap)
+                    Glide.with(this@CameraFragment).load(bitmapPhoto?.bitmap).into(photo_container_imageview)
                     val rotationDeg = determineRotation(bitmapPhoto)
                     photo_container_imageview.rotation = rotationDeg
                     photo_container_imageview.visibility = View.VISIBLE
