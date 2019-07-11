@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.shapeapp.shape.R
 import com.shapeapp.shape.data.database.entities.Card
 import com.shapeapp.shape.ui.recyclerviews.interfaces.RecyclerViewCardClickListener
@@ -34,8 +35,11 @@ class SmallCardRecyclerViewAdapter(var myDataset: Array<Card>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.nickname_textview.text = myDataset[holder.adapterPosition].senderNickname
+        val context = holder.background_imageview.context
         val cardImageUri = Uri.parse(myDataset[holder.adapterPosition].imageUrl)
-        holder.background_imageview.setImageURI(cardImageUri)
+        Glide.with(context)
+            .load(cardImageUri)
+            .into(holder.background_imageview)
     }
 
     override fun getItemCount(): Int {
