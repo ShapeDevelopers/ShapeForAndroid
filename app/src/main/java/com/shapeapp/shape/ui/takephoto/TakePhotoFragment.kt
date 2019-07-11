@@ -13,6 +13,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.bumptech.glide.Glide
 import com.shapeapp.shape.R
 import com.shapeapp.shape.internal.constants.Authorities
 import com.shapeapp.shape.internal.filehandlers.FileOperator
@@ -69,7 +70,7 @@ class TakePhotoFragment : Fragment() {
     }
 
     private fun loadPhotoIntoUI(photoUri: Uri?) {
-        taken_photo_imageview.setImageURI(photoUri)
+        Glide.with(this).load(photoUri).into(taken_photo_imageview)
     }
 
     /**
